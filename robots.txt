@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anticmitrawork-stack.github.io/Anticmitra-Ai/sitemap.xml

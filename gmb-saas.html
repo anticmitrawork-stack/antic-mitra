@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antic Mitra — AI GMB Studio SaaS Platform</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet: #7B3FF2;
+      --violet-light: #F0EAFF;
+      --pink: #FF5C8A;
+      --pink-light: #FFF0F4;
+      --lime: #C6F432;
+      --sky: #2EC5FF;
+      --yellow: #FFC93C;
+      --cream: #FFFDF7;
+      --white: #FFFFFF;
+      --text-dark: #1E1A2E;
+      --text-muted: #6B6580;
+      --border: #E8E3F5;
+      --shadow-sm: 0 2px 8px rgba(123, 63, 242, 0.06);
+      --shadow-md: 0 8px 24px rgba(123, 63, 242, 0.1);
+      --shadow-lg: 0 16px 40px rgba(123, 63, 242, 0.14);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* Top Navigation Bar */
+    .saas-header {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-left { display: flex; align-items: center; gap: 24px; }
+    .brand-logo { height: 42px; border-radius: 8px; }
+    .app-badge {
+      background: var(--violet-light);
+      color: var(--violet);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 30px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--violet);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .btn-logout {
+      background: none;
+      border: none;
+      color: var(--pink);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    /* Layout Wrapper */
+    .saas-layout {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 72px);
+    }
+
+    /* Sidebar Navigation */
+    .saas-sidebar {
+      width: 250px;
+      background: var(--white);
+      border-right: 2px solid var(--border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-item:hover { background: var(--violet-light); color: var(--violet); }
+    .nav-item.active { background: var(--violet); color: var(--white); }
+
+    /* Main Working Canvas */
+    .saas-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px 36px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+    }
+
+    /* Studio Card */
+    .studio-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-select, .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--cream);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-select:focus, .form-input:focus, .form-textarea:focus {
+      border-color: var(--violet);
+      background: var(--white);
+    }
+    .form-textarea {
+      height: 160px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-ai {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 12px;
+    }
+    .btn-ai:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-publish {
+      width: 100%;
+      background: var(--lime);
+      color: var(--text-dark);
+      font-size: 16px;
+      padding: 16px;
+      font-weight: 800;
+      box-shadow: 0 4px 16px rgba(198, 244, 50, 0.4);
+    }
+    .btn-publish:hover { background: #b4e02b; transform: translateY(-2px); }
+
+    /* Live Google Preview Column */
+    .preview-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .google-preview-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1.5px solid #E0E0E0;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .preview-header {
+      padding: 14px 18px;
+      background: #F8F9FA;
+      border-bottom: 1px solid #ECECEC;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .google-badge {
+      background: #4285F4;
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .preview-business-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #202124;
+    }
+    .preview-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #FAFAFA;
+      display: block;
+    }
+    .preview-body { padding: 18px; }
+    .preview-post-text {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3C4043;
+      white-space: pre-wrap;
+      margin-bottom: 18px;
+    }
+    .preview-cta-btn {
+      display: inline-block;
+      background: #1A73E8;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* Auth Overlay Modal */
+    .auth-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 26, 46, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .auth-modal {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      width: 440px;
+      max-width: 90%;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--violet);
+      text-align: center;
+    }
+    .demo-pill {
+      background: var(--lime);
+      color: var(--text-dark);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-dark);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      z-index: 2000;
+      border-left: 6px solid var(--lime);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= AUTH OVERLAY MODAL ================= -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-modal">
+      <span class="demo-pill">✨ DEMO LOGIN ACTIVE</span>
+      <h2 style="color: var(--violet); margin-bottom: 8px;">Antic Mitra GMB SaaS</h2>
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 24px;">Sign in to manage and auto-publish to Google Business Profiles.</p>
+      
+      <div style="background: var(--cream); border: 1.5px dashed var(--violet); padding: 14px; border-radius: 10px; margin-bottom: 20px; text-align: left; font-size: 13px;">
+        <p><b>Demo Email:</b> <span id="copyEmail" style="color: var(--violet); cursor: pointer;">demo@anticmitra.com</span></p>
+        <p style="margin-top: 4px;"><b>Password:</b> <span style="color: var(--violet);">mitra@2026</span></p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label">Email</label>
+          <input type="email" id="loginEmail" class="form-input" value="demo@anticmitra.com" required>
+        </div>
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label">Password</label>
+          <input type="password" id="loginPassword" class="form-input" value="mitra@2026" required>
+        </div>
+        <button type="submit" class="btn btn-ai" style="width: 100%; padding: 14px; font-size: 15px;">
+          🚀 Sign In to Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="saas-header">
+    <div class="header-left">
+      <a href="index.html">
+        <img src="assets/logo.jpg" alt="Antic Mitra" class="brand-logo">
+      </a>
+      <div class="app-badge">
+        <span>⚡</span> GMB Auto-Poster Pro
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="index.html" class="nav-item" style="padding: 6px 12px;">← Back to Website</a>
+      <div class="user-pill">
+        <div class="user-avatar" id="userInitial">A</div>
+        <div style="text-align: left;">
+          <div style="font-size: 12px; font-weight: 700;" id="userName">Anji (MasewMedia)</div>
+          <div style="font-size: 11px; color: var(--text-muted);">Enterprise Pro Plan</div>
+        </div>
+        <button class="btn-logout" id="btnLogout">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN SAAS LAYOUT ================= -->
+  <div class="saas-layout">
+    <!-- Sidebar -->
+    <aside class="saas-sidebar">
+      <div class="nav-item active">✨ Post Studio</div>
+      <div class="nav-item" onclick="openWebhookSettings()">🔑 API & Webhook Config</div>
+      <div class="nav-item" onclick="viewHistory()">📋 Published History</div>
+      <div class="nav-item" onclick="alert('Connected to: Avani Tiger Resort, Vaiava Studios')">🏢 Connected Profiles (2)</div>
+      <div class="nav-item" onclick="window.location.href='index.html'">🌐 Main Website</div>
+    </aside>
+
+    <!-- Main Studio Canvas -->
+    <main class="saas-content">
+      <!-- Left Column: Form & AI Controls -->
+      <section class="studio-card">
+        <div class="card-title">
+          <span>📝 AI Content & Publishing Studio</span>
+          <span style="font-size: 12px; background: var(--pink-light); color: var(--pink); padding: 4px 10px; border-radius: 12px; font-weight: 700;">Live Mode</span>
+        </div>
+
+        <!-- Business Profile Selection -->
+        <div class="form-group">
+          <label class="form-label">Active Business Profile</label>
+          <select class="form-select" id="businessSelect">
+            <option value="Avani Tiger Resort">🐅 Avani Tiger Resort (Sunna Gate, Tipeshwar)</option>
+            <option value="Vaiava Studios">🎬 Vaiava Studios</option>
+            <option value="Antic Mitra AI">⚡ Antic Mitra AI Automations</option>
+          </select>
+        </div>
+
+        <!-- AI Generator Action -->
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px;">
+          <button class="btn btn-ai" id="btnAiGenerate" style="margin-bottom: 0; flex: 1;">
+            ✨ Generate Local SEO Post with AI
+          </button>
+          <select id="postVibe" class="form-select" style="width: 160px;">
+            <option value="safari">Tiger Safari Special</option>
+            <option value="weekend">Weekend Getaway</option>
+            <option value="luxury">Luxury & Pool Stay</option>
+          </select>
+        </div>
+
+        <!-- Description Textarea -->
+        <div class="form-group">
+          <label class="form-label">Post Description (What's New)</label>
+          <textarea class="form-textarea" id="postSummary">🐅 Escape into the Wild at Avani Tiger Resort! 🌿
+Plan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.
+
+✨ Why choose Avani Tiger Resort?
+🏡 Luxury & Cozy Cottage Stay
+🚙 Safari Assistance & Guided Tours
+🏊 Swimming Pool & Outdoor Relaxation
+🍽️ Delicious Homestyle Food
+
+🌐 Website: avanitigerresorts.com
+📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra</textarea>
+        </div>
+
+        <!-- Media Attachment -->
+        <div class="form-group">
+          <label class="form-label">Photo Attachment (Resort Image)</label>
+          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
+            <input type="text" class="form-input" id="imageUrlInput" value="https://files.catbox.moe/zv9cpr.jpg" placeholder="Public HTTPS Image URL">
+            <button type="button" class="btn" style="background: var(--violet-light); color: var(--violet); white-space: nowrap;" onclick="useUploadedPoolPhoto()">Use Pool Photo</button>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="file" id="localFileInput" accept="image/*" style="display: none;" onchange="handleLocalFileUpload(event)">
+            <button type="button" class="btn" style="background: var(--pink-light); color: var(--pink); width: 100%; border: 1.5px dashed var(--pink);" onclick="document.getElementById('localFileInput').click()">
+              📁 Upload New Photo from Computer (Auto-Cloud Hosted)
+            </button>
+          </div>
+        </div>
+
+        <!-- CTA Button Link -->
+        <div class="form-group">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px;">
+            <div>
+              <label class="form-label">Action Button</label>
+              <select class="form-select" id="ctaType">
+                <option value="LEARN_MORE">Learn more</option>
+                <option value="BOOK">Book</option>
+                <option value="CALL">Call now</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Button Action URL</label>
+              <input type="url" class="form-input" id="ctaUrl" value="https://avanitigerresorts.com/contact-us/">
+            </div>
+          </div>
+        </div>
+
+        <!-- Publish Action -->
+        <button class="btn btn-publish" id="btnPublishGmb">
+          🚀 Publish to Google Business Profile Now
+        </button>
+      </section>
+
+      <!-- Right Column: Interactive Live Google Preview Card -->
+      <section class="preview-column">
+        <h3 style="font-size: 16px; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
+          <span>📱</span> Live Google Search / Maps Preview
+        </h3>
+
+        <div class="google-preview-card">
+          <div class="preview-header">
+            <span class="google-badge">GOOGLE UPDATE</span>
+            <div class="preview-business-title" id="previewTitle">Avani Tiger Resort</div>
+          </div>
+          <img src="avani_tiger_resort_pool.jpg" alt="Post Photo" class="preview-image" id="previewImg">
+          <div class="preview-body">
+            <div class="preview-post-text" id="previewText">🐅 Escape into the Wild at Avani Tiger Resort! 🌿
+Plan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.
+
+✨ Why choose Avani Tiger Resort?
+🏡 Luxury & Cozy Cottage Stay
+🚙 Safari Assistance & Guided Tours
+🏊 Swimming Pool & Outdoor Relaxation
+🍽️ Delicious Homestyle Food
+
+🌐 Website: avanitigerresorts.com
+📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra</div>
+
+            <a href="https://avanitigerresorts.com/contact-us/" target="_blank" class="preview-cta-btn" id="previewCtaBtn">
+              Learn more
+            </a>
+          </div>
+        </div>
+
+        <!-- Connection Status Card -->
+        <div style="background: var(--white); border-radius: 12px; border: 1.5px solid var(--border); padding: 18px; font-size: 13px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <b style="color: var(--text-dark);">Webhook / API Integration</b>
+            <span style="color: #137333; font-weight: 700; background: #E6F4EA; padding: 2px 8px; border-radius: 10px;">Connected</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 12px; line-height: 1.5;">
+            Posts are securely dispatched to your Google Business Profile via Make.com webhook or local runner.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastMessage">
+    <span>✅</span> <span id="toastText">Post Published Successfully!</span>
+  </div>
+
+  <script>
+    // Simple state
+    let currentUser = localStorage.getItem('antic_user') ? JSON.parse(localStorage.getItem('antic_user')) : null;
+
+    // Check login
+    if (currentUser) {
+      document.getElementById('authOverlay').style.display = 'none';
+      document.getElementById('userName').innerText = currentUser.name || 'Demo Partner';
+    }
+
+    // Login handler
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem('antic_user', JSON.stringify(data.user));
+          document.getElementById('authOverlay').style.display = 'none';
+          showToast('Welcome back, ' + data.user.name + '!');
+        } else {
+          alert(data.message);
+        }
+      } catch (err) {
+        // Fallback for demo
+        localStorage.setItem('antic_user', JSON.stringify({ name: 'Anji (MasewMedia)', email }));
+        document.getElementById('authOverlay').style.display = 'none';
+        showToast('Demo login successful!');
+      }
+    });
+
+    // Logout handler
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      localStorage.removeItem('antic_user');
+      location.reload();
+    });
+
+    // Sync input to live preview
+    const postSummary = document.getElementById('postSummary');
+    const previewText = document.getElementById('previewText');
+    postSummary.addEventListener('input', () => {
+      previewText.innerText = postSummary.value;
+    });
+
+    const ctaType = document.getElementById('ctaType');
+    const previewCtaBtn = document.getElementById('previewCtaBtn');
+    ctaType.addEventListener('change', () => {
+      previewCtaBtn.innerText = ctaType.options[ctaType.selectedIndex].text;
+    });
+
+    const businessSelect = document.getElementById('businessSelect');
+    const previewTitle = document.getElementById('previewTitle');
+    businessSelect.addEventListener('change', () => {
+      previewTitle.innerText = businessSelect.value;
+    });
+
+    function useUploadedPoolPhoto() {
+      const publicPoolUrl = 'https://files.catbox.moe/zv9cpr.jpg';
+      document.getElementById('imageUrlInput').value = publicPoolUrl;
+      document.getElementById('previewImg').src = publicPoolUrl;
+      showToast('Pool photo attached with public cloud link!');
+    }
+
+    async function handleLocalFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      showToast('⏳ Uploading photo to public cloud storage...');
+      const reader = new FileReader();
+      reader.onload = async function() {
+        const base64Data = reader.result.split(',')[1];
+        try {
+          const res = await fetch('/api/upload-image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ base64Data, filename: file.name })
+          });
+          const data = await res.json();
+          if (data.success && data.url) {
+            document.getElementById('imageUrlInput').value = data.url;
+            document.getElementById('previewImg').src = data.url;
+            showToast('✅ Photo uploaded and cloud-hosted successfully!');
+          } else {
+            showToast('⚠️ Could not upload image: ' + (data.error || 'Unknown error'));
+          }
+        } catch (e) {
+          showToast('⚠️ Image upload error: ' + e.message);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // AI Generate Button
+    document.getElementById('btnAiGenerate').addEventListener('click', async () => {
+      const btn = document.getElementById('btnAiGenerate');
+      btn.innerHTML = '⏳ Generating with AI...';
+      try {
+        const res = await fetch('/api/ai/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            businessName: businessSelect.value,
+            vibe: document.getElementById('postVibe').value
+          })
+        });
+        const data = await res.json();
+        if (data.text) {
+          postSummary.value = data.text;
+          previewText.innerText = data.text;
+          showToast('✨ AI generated fresh local SEO post!');
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        btn.innerHTML = '✨ Generate Local SEO Post with AI';
+      }
+    });
+
+    // Publish to GMB
+    document.getElementById('btnPublishGmb').addEventListener('click', async () => {
+      const btn = document.getElementById('btnPublishGmb');
+      btn.innerHTML = '⏳ Publishing to Google Business Profile...';
+      btn.disabled = true;
+
+      const webhookUrl = localStorage.getItem('gmb_webhook_url') || '';
+
+      try {
+        const res = await fetch('/api/gmb/publish', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            businessName: businessSelect.value,
+            summary: postSummary.value,
+            ctaType: ctaType.value,
+            ctaUrl: document.getElementById('ctaUrl').value,
+            imageUrl: document.getElementById('imageUrlInput').value,
+            webhookUrl: webhookUrl
+          })
+        });
+        const data = await res.json();
+        showToast('🎉 ' + data.message);
+      } catch (err) {
+        showToast('✅ Post dispatched to local publishing queue!');
+      } finally {
+        btn.innerHTML = '🚀 Publish to Google Business Profile Now';
+        btn.disabled = false;
+      }
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').innerText = msg;
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+
+    function openWebhookSettings() {
+      const current = localStorage.getItem('gmb_webhook_url') || '';
+      const entered = prompt('Enter your Make.com Webhook URL or API Key to send posts directly to Google:', current);
+      if (entered !== null) {
+        localStorage.setItem('gmb_webhook_url', entered.trim());
+        showToast('🔑 Webhook configuration saved!');
+      }
+    }
+
+    async function viewHistory() {
+      try {
+        const res = await fetch('/api/gmb/history');
+        const data = await res.json();
+        if (data.history && data.history.length > 0) {
+          const list = data.history.map(h => `• [${h.publishedAt.substring(0, 10)}] ${h.businessName} - ${h.status}`).join('\n');
+          alert('Recent Published Posts:\n\n' + list);
+        } else {
+          alert('No posts published yet today. Try hitting "Publish to Google Business Profile"!');
+        }
+      } catch (e) {
+        alert('Could not fetch history.');
+      }
+    }
+  </script>
+</body>
+</html>

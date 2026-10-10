@@ -6,38 +6,70 @@
    Icons: Real Flat Vector SVG Icons
    ========================================================================== */
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@400;500;600&display=swap');
+/* Google Fonts Import: Inter, JetBrains Mono, Noto Sans Telugu */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Noto+Sans+Telugu:wght@400;600;700&display=swap');
 
 :root {
-  /* STRICT BRAND COLORS - EXCLUSIVELY USED */
-  --violet: #7B3FF2;   /* Primary: headings, main buttons, links */
-  --pink: #FF5C8A;     /* Secondary: highlights, secondary buttons */
-  --lime: #C6F432;     /* Accent: badges, small highlights */
-  --sky: #2EC5FF;      /* Accent: icons, cards, illustrations */
-  --yellow: #FFC93C;   /* Accent: cards, small highlights */
-  --cream: #FFFDF7;    /* Main background */
-  --white: #FFFFFF;    /* Card background */
-  --text: #2D1B69;     /* All text */
+  /* ==========================================================================
+     ANTIC MITRA BRAND COLORS (Official Specification - Oct 10, 2026)
+     Overview: Premium White + Royal Violet (#6D28D9)
+     ========================================================================== */
 
-  /* Derived alpha values strictly from brand hues for subtle borders */
-  --violet-15: rgba(123, 63, 242, 0.15);
-  --violet-10: rgba(123, 63, 242, 0.10);
-  --violet-05: rgba(123, 63, 242, 0.05);
-  --pink-15: rgba(255, 92, 138, 0.15);
-  --sky-15: rgba(46, 197, 255, 0.15);
-  --yellow-20: rgba(255, 201, 60, 0.20);
-  --lime-20: rgba(198, 244, 50, 0.25);
-  --text-muted: rgba(45, 27, 105, 0.72);
-  --text-light: rgba(45, 27, 105, 0.55);
+  /* Primary Brand Colors */
+  --royal-violet: #6D28D9;   /* Main brand color: buttons, links, active menu, logo, highlights */
+  --indigo: #4F46E5;         /* Second stop of brand gradient */
+  --deep-purple: #4C1D95;    /* CTA banner gradient start, dark accents */
+  --soft-violet: #F0EAFE;    /* Active menu pill, icon backgrounds, light highlights */
+  --white-on-violet: #FFFFFF;/* Text on violet buttons */
+
+  /* Neutrals */
+  --pure-white: #FFFFFF;     /* Page background, cards */
+  --lavender-grey: #F7F5FC;  /* Soft sections, input fields, chat background */
+  --deep-navy: #16122E;      /* Headings and main text */
+  --slate-purple: #4A4664;   /* Body paragraphs */
+  --muted-grey: #7D7896;     /* Small labels, captions, timestamps */
+  --light-lavender: #E8E5F2; /* Borders and dividers */
+  --night-purple: #120E24;   /* Dark results band on Home */
+
+  /* Accent and Service Colors */
+  --emerald: #0E9F6E;        /* Live dot, success ticks, WhatsApp button */
+  --mint-light: #E2F6EE;     /* Tick backgrounds, "booked" cards */
+  --whatsapp-green: #10B981; /* Showcase: WhatsApp AI Bots */
+  --voice-orange: #F97316;   /* Showcase: AI Voice Agents */
+  --crm-blue: #2563EB;       /* Showcase: Custom CRM */
+  --marketing-pink: #DB2777; /* Showcase: Marketing on autopilot */
+  --review-gold: #F5A524;    /* Star ratings only */
+
+  /* Gradients */
+  --brand-gradient: linear-gradient(135deg, #6D28D9 0%, #4F46E5 100%);
+  --cta-gradient: linear-gradient(135deg, #4C1D95 0%, #6D28D9 50%, #4F46E5 100%);
+
+  /* Backward Compatibility Aliases */
+  --violet: var(--royal-violet);
+  --pink: var(--marketing-pink);
+  --lime: var(--emerald);
+  --sky: var(--crm-blue);
+  --yellow: var(--review-gold);
+  --cream: var(--lavender-grey);
+  --white: var(--pure-white);
+  --text: var(--deep-navy);
+  --text-body: var(--slate-purple);
+  --text-muted: var(--muted-grey);
+  --border: var(--light-lavender);
+  --violet-15: rgba(109, 40, 217, 0.15);
+  --violet-10: rgba(109, 40, 217, 0.10);
+  --violet-05: rgba(109, 40, 217, 0.05);
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-telugu: 'Noto Sans Telugu', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Border Radii */
-  --radius-sm: 12px;
-  --radius-md: 18px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-pill: 9999px;
@@ -58,56 +90,56 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 body {
   font-family: var(--font-body);
-  color: var(--text);
-  background-color: var(--cream);
+  color: var(--slate-purple);
+  background-color: var(--pure-white);
   line-height: 1.65;
-  font-weight: 400; /* Simple, light, clean text */
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Typography Defaults - Simple, Elegant, NO Heavy Bold */
+/* Typography Defaults - Inter font, Deep Navy headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--violet);
+  color: var(--deep-navy);
   line-height: 1.28;
-  font-weight: 500; /* Clean medium weight, no heavy bold */
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 h1 {
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h3 {
   font-size: clamp(1.25rem, 1.8vw, 1.5rem);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h4 {
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h5 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p {
-  color: var(--text);
+  color: var(--slate-purple);
   font-size: 1rem;
   line-height: 1.7;
   font-weight: 400;
@@ -115,25 +147,25 @@ p {
 
 p.lead {
   font-size: 1.15rem;
-  color: var(--text-muted);
+  color: var(--slate-purple);
   line-height: 1.75;
   font-weight: 400;
 }
 
 strong, b {
-  font-weight: 500; /* Subtle medium rather than heavy bold */
-  color: var(--violet);
+  font-weight: 600;
+  color: var(--deep-navy);
 }
 
 a {
-  color: var(--violet);
+  color: var(--royal-violet);
   text-decoration: none;
   transition: all var(--transition-fast);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a:hover {
-  color: var(--pink);
+  color: var(--indigo);
 }
 
 img {
@@ -249,36 +281,45 @@ svg.icon-svg {
   height: 14px;
 }
 
-.badge-lime {
-  background-color: var(--lime);
-  color: var(--text);
-}
-
-.badge-pink {
-  background-color: var(--pink);
-  color: var(--white);
-}
-
-.badge-violet {
-  background-color: var(--violet);
-  color: var(--white);
-}
-
-.badge-sky {
-  background-color: var(--sky);
-  color: var(--text);
-}
-
-.badge-yellow {
-  background-color: var(--yellow);
-  color: var(--text);
-}
-
+.badge-violet,
 .badge-pill-soft {
-  background-color: var(--white);
-  border: 1.5px solid var(--violet-15);
-  color: var(--violet);
-  box-shadow: 0 4px 14px var(--violet-05);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+}
+
+.badge-emerald,
+.badge-lime {
+  background-color: var(--mint-light);
+  color: var(--emerald);
+}
+
+.badge-whatsapp {
+  background-color: #E6FBF3;
+  color: var(--whatsapp-green);
+}
+
+.badge-voice,
+.badge-orange {
+  background-color: #FFF3EB;
+  color: var(--voice-orange);
+}
+
+.badge-crm,
+.badge-sky {
+  background-color: #EFF4FE;
+  color: var(--crm-blue);
+}
+
+.badge-marketing,
+.badge-pink {
+  background-color: #FDF2F7;
+  color: var(--marketing-pink);
+}
+
+.badge-yellow,
+.badge-gold {
+  background-color: #FEF7E6;
+  color: #B45309;
 }
 
 /* Decorative Blobs & Background Accents */
@@ -291,11 +332,13 @@ svg.icon-svg {
   opacity: 0.55;
 }
 
-.blob-violet { background: var(--violet-15); }
-.blob-pink { background: var(--pink-15); }
-.blob-sky { background: var(--sky-15); }
-.blob-yellow { background: var(--yellow-20); }
-.blob-lime { background: var(--lime-20); }
+.blob-violet { background: rgba(109, 40, 217, 0.08); }
+.blob-soft { background: rgba(240, 234, 254, 0.45); }
+.blob-indigo { background: rgba(79, 70, 229, 0.06); }
+.blob-pink { background: rgba(219, 39, 119, 0.06); }
+.blob-sky { background: rgba(37, 99, 235, 0.06); }
+.blob-yellow { background: rgba(245, 165, 36, 0.08); }
+.blob-lime { background: rgba(14, 159, 110, 0.08); }
 
 /* Buttons */
 .btn {
@@ -303,22 +346,22 @@ svg.icon-svg {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-size: 0.96rem;
-  font-weight: 500; /* Clean medium, no bold */
+  font-weight: 500;
   padding: 13px 26px;
   border-radius: var(--radius-pill);
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   cursor: pointer;
   transition: all var(--transition-bounce);
   text-decoration: none;
-  box-shadow: 0 4px 16px var(--violet-10);
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.12);
   user-select: none;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--violet-15);
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.2);
 }
 
 .btn:active {
@@ -332,45 +375,47 @@ svg.icon-svg {
 }
 
 .btn-primary {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--indigo);
+  color: var(--white-on-violet);
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.35);
 }
 
 .btn-secondary {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
 }
 
 .btn-secondary:hover {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: rgba(109, 40, 217, 0.15);
+  color: var(--royal-violet);
 }
 
 .btn-accent {
-  background-color: var(--lime);
-  color: var(--text);
-  box-shadow: 0 4px 16px var(--lime-20);
+  background-color: var(--emerald);
+  color: var(--white-on-violet);
+  box-shadow: 0 4px 16px rgba(14, 159, 110, 0.25);
 }
 
 .btn-accent:hover {
-  background-color: var(--yellow);
-  color: var(--text);
+  background-color: var(--whatsapp-green);
+  color: var(--white-on-violet);
 }
 
 .btn-outline {
-  background-color: var(--white);
-  border-color: var(--violet);
-  color: var(--violet);
+  background-color: transparent;
+  border-color: var(--royal-violet);
+  color: var(--royal-violet);
 }
 
 .btn-outline:hover {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
 }
 
 .btn-sm {
@@ -391,11 +436,11 @@ svg.icon-svg {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: var(--white);
-  border-bottom: 2px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border-bottom: 1px solid var(--light-lavender);
   z-index: 1000;
   transition: all var(--transition-normal);
-  box-shadow: 0 4px 20px var(--violet-05);
+  box-shadow: 0 2px 14px rgba(109, 40, 217, 0.04);
 }
 
 .header-container {
@@ -431,34 +476,29 @@ svg.icon-svg {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 12px;
   list-style: none;
 }
 
 .nav-link {
-  font-family: var(--font-heading);
-  font-size: 0.98rem;
-  font-weight: 500; /* Simple clean weight */
-  color: var(--text);
-  padding: 8px 12px;
-  position: relative;
-  transition: color var(--transition-fast);
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--violet);
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 12px;
-  right: 12px;
-  height: 3px;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--slate-purple);
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--violet), var(--pink));
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--royal-violet);
+  background-color: var(--soft-violet);
+}
+
+.nav-link.active {
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+  font-weight: 600;
 }
 
 /* Nav Actions */
@@ -475,10 +515,10 @@ svg.icon-svg {
   gap: 8px;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background-color: var(--cream);
-  border: 1.5px solid var(--violet-15);
-  color: var(--text);
-  font-family: var(--font-heading);
+  background-color: var(--lavender-grey);
+  border: 1px solid var(--light-lavender);
+  color: var(--deep-navy);
+  font-family: var(--font-main);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
@@ -486,15 +526,15 @@ svg.icon-svg {
 }
 
 .sound-toggle-btn:hover {
-  background-color: var(--white);
-  border-color: var(--violet);
-  color: var(--violet);
+  background-color: var(--soft-violet);
+  border-color: var(--royal-violet);
+  color: var(--royal-violet);
 }
 
 .sound-toggle-btn.sound-active {
-  background-color: var(--lime);
-  color: var(--text);
-  border-color: var(--lime);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+  border-color: rgba(109, 40, 217, 0.3);
 }
 
 .sound-icon-state {
@@ -576,7 +616,7 @@ svg.icon-svg {
   padding: 70px 0 90px;
   position: relative;
   overflow: hidden;
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 .hero-grid {
@@ -597,11 +637,13 @@ svg.icon-svg {
 
 .hero-content h1 {
   margin-bottom: 20px;
+  color: var(--deep-navy);
 }
 
 .hero-content p.lead {
   margin-bottom: 34px;
   max-width: 580px;
+  color: var(--slate-purple);
 }
 
 .hero-actions {
@@ -611,22 +653,28 @@ svg.icon-svg {
   margin-bottom: 40px;
 }
 
+/* Night Purple Results Band on Home */
 .hero-stats {
   display: flex;
   gap: 36px;
-  padding-top: 26px;
-  border-top: 2px solid var(--violet-10);
+  padding: 24px 32px;
+  background-color: var(--night-purple);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 36px;
+  box-shadow: 0 12px 32px rgba(18, 14, 36, 0.25);
 }
 
 .hero-stat-item h4 {
-  font-size: 1.7rem;
-  color: var(--violet);
-  font-weight: 500; /* Simple clean weight */
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  color: #A78BFA;
+  font-weight: 500;
 }
 
 .hero-stat-item p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 0.88rem;
+  color: #C2BDD8;
 }
 
 /* Hero Visual Card */
@@ -636,11 +684,11 @@ svg.icon-svg {
 }
 
 .hero-preview-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 28px;
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 16px 40px var(--violet-10);
+  border: 1px solid var(--light-lavender);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.08);
   position: relative;
 }
 
@@ -650,30 +698,30 @@ svg.icon-svg {
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1.5px solid var(--cream);
+  border-bottom: 1px solid var(--light-lavender);
 }
 
 .preview-pill {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--violet);
+  color: var(--royal-violet);
 }
 
 .pulse-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: var(--lime);
-  animation: pulseGreen 1.8s infinite;
+  background-color: var(--emerald);
+  animation: pulseEmerald 1.8s infinite;
 }
 
-@keyframes pulseGreen {
+@keyframes pulseEmerald {
   0% { transform: scale(0.95); opacity: 0.8; }
-  70% { transform: scale(1.15); opacity: 1; }
+  70% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(0.95); opacity: 0.8; }
 }
 
@@ -685,16 +733,16 @@ svg.icon-svg {
 }
 
 .channel-box {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   padding: 18px;
   border-radius: var(--radius-md);
-  border: 1.5px solid var(--violet-05);
+  border: 1px solid var(--light-lavender);
   transition: transform var(--transition-bounce);
 }
 
 .channel-box:hover {
   transform: translateY(-3px);
-  border-color: var(--sky);
+  border-color: var(--royal-violet);
 }
 
 .channel-box-icon {
@@ -714,23 +762,23 @@ svg.icon-svg {
 }
 
 .channel-box-icon.whatsapp {
-  background-color: var(--lime);
-  color: var(--text);
+  background-color: var(--whatsapp-green);
+  color: #ffffff;
 }
 
 .channel-box-icon.voice {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--voice-orange);
+  color: #ffffff;
 }
 
 .channel-box-icon.crm {
-  background-color: var(--sky);
-  color: var(--text);
+  background-color: var(--crm-blue);
+  color: #ffffff;
 }
 
 .channel-box-icon.growth {
-  background-color: var(--yellow);
-  color: var(--text);
+  background-color: var(--marketing-pink);
+  color: #ffffff;
 }
 
 .channel-box h4 {
@@ -792,9 +840,9 @@ svg.icon-svg {
    PHILOSOPHY SECTION ("Antic" + "Mitra")
    ========================================================================== */
 .philosophy-section {
-  background-color: var(--white);
-  border-top: 2px solid var(--violet-10);
-  border-bottom: 2px solid var(--violet-10);
+  background-color: var(--lavender-grey);
+  border-top: 1px solid var(--light-lavender);
+  border-bottom: 1px solid var(--light-lavender);
 }
 
 .philosophy-grid {
@@ -807,22 +855,23 @@ svg.icon-svg {
 .philosophy-card {
   padding: 36px;
   border-radius: var(--radius-lg);
-  background-color: var(--cream);
-  border: 2px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border: 1px solid var(--light-lavender);
   transition: transform var(--transition-bounce);
 }
 
 .philosophy-card:hover {
   transform: translateY(-4px);
-  border-color: var(--violet);
+  border-color: var(--royal-violet);
+  box-shadow: 0 14px 32px rgba(109, 40, 217, 0.08);
 }
 
 .philosophy-card.antic {
-  border-top: 5px solid var(--pink);
+  border-top: 4px solid var(--royal-violet);
 }
 
 .philosophy-card.mitra {
-  border-top: 5px solid var(--sky);
+  border-top: 4px solid var(--indigo);
 }
 
 .philosophy-icon-wrap {
@@ -836,32 +885,32 @@ svg.icon-svg {
 }
 
 .philosophy-card.antic .philosophy-icon-wrap {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
 }
 
 .philosophy-card.mitra .philosophy-icon-wrap {
-  background-color: var(--sky);
-  color: var(--text);
+  background-color: #EFF4FE;
+  color: var(--crm-blue);
 }
 
 .philosophy-card h3 {
-  color: var(--text);
+  color: var(--deep-navy);
   font-size: 1.4rem;
   margin-bottom: 12px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .philosophy-card p {
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-weight: 400;
 }
 
 /* ==========================================================================
-   SERVICES SECTION
+   SERVICES SECTION (Four Showcase Colors: WhatsApp Green, Voice Orange, CRM Blue, Marketing Pink)
    ========================================================================== */
 .services-section {
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 .services-grid {
@@ -871,10 +920,10 @@ svg.icon-svg {
 }
 
 .service-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 34px 30px;
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   transition: all var(--transition-bounce);
   position: relative;
   display: flex;
@@ -883,8 +932,8 @@ svg.icon-svg {
 
 .service-card:hover {
   transform: translateY(-5px);
-  border-color: var(--violet);
-  box-shadow: 0 16px 32px var(--violet-10);
+  border-color: var(--royal-violet);
+  box-shadow: 0 16px 36px rgba(109, 40, 217, 0.12);
 }
 
 .service-icon-box {
@@ -903,22 +952,52 @@ svg.icon-svg {
   height: 28px;
 }
 
-.icon-whatsapp { background-color: var(--lime); color: var(--text); }
-.icon-voice { background-color: var(--pink); color: var(--white); }
-.icon-crm { background-color: var(--sky); color: var(--text); }
-.icon-marketing { background-color: var(--yellow); color: var(--text); }
-.icon-saas { background-color: var(--violet); color: var(--white); }
-.icon-audit { background-color: var(--cream); border: 2px solid var(--violet); color: var(--violet); }
+/* Four Specific Service Showcase Colors */
+.icon-whatsapp {
+  background-color: #E6FBF3;
+  color: var(--whatsapp-green);
+  border: 1.5px solid rgba(16, 185, 129, 0.25);
+}
+
+.icon-voice {
+  background-color: #FFF3EB;
+  color: var(--voice-orange);
+  border: 1.5px solid rgba(249, 115, 22, 0.25);
+}
+
+.icon-crm {
+  background-color: #EFF4FE;
+  color: var(--crm-blue);
+  border: 1.5px solid rgba(37, 99, 235, 0.25);
+}
+
+.icon-marketing {
+  background-color: #FDF2F7;
+  color: var(--marketing-pink);
+  border: 1.5px solid rgba(219, 39, 119, 0.25);
+}
+
+.icon-saas {
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+  border: 1.5px solid var(--violet-15);
+}
+
+.icon-audit {
+  background-color: var(--lavender-grey);
+  border: 1.5px solid var(--royal-violet);
+  color: var(--royal-violet);
+}
 
 .service-card h3 {
   font-size: 1.3rem;
-  color: var(--text);
+  color: var(--deep-navy);
   margin-bottom: 10px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .service-card p {
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-size: 0.96rem;
   margin-bottom: 20px;
   flex-grow: 1;
@@ -946,8 +1025,8 @@ svg.icon-svg {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: var(--lime);
-  color: var(--text);
+  background-color: var(--mint-light);
+  color: var(--emerald);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -962,7 +1041,7 @@ svg.icon-svg {
 
 .service-card-footer {
   padding-top: 18px;
-  border-top: 1.5px solid var(--cream);
+  border-top: 1px solid var(--light-lavender);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -972,9 +1051,9 @@ svg.icon-svg {
    INTERACTIVE AI LAB / SIMULATOR
    ========================================================================== */
 .lab-section {
-  background-color: var(--white);
-  border-top: 2px solid var(--violet-10);
-  border-bottom: 2px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border-top: 1px solid var(--light-lavender);
+  border-bottom: 1px solid var(--light-lavender);
 }
 
 .lab-tabs {
@@ -986,10 +1065,10 @@ svg.icon-svg {
 }
 
 .lab-tab-btn {
-  background-color: var(--cream);
-  border: 2px solid var(--violet-10);
-  color: var(--text);
-  font-family: var(--font-heading);
+  background-color: var(--lavender-grey);
+  border: 1px solid var(--light-lavender);
+  color: var(--deep-navy);
+  font-family: var(--font-main);
   font-size: 0.94rem;
   font-weight: 500;
   padding: 11px 22px;
@@ -1002,15 +1081,16 @@ svg.icon-svg {
 }
 
 .lab-tab-btn:hover {
-  border-color: var(--violet);
-  color: var(--violet);
+  border-color: var(--royal-violet);
+  color: var(--royal-violet);
+  background-color: var(--soft-violet);
 }
 
 .lab-tab-btn.active {
-  background-color: var(--violet);
-  color: var(--white);
-  border-color: var(--violet);
-  box-shadow: 0 4px 16px var(--violet-15);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  border-color: var(--royal-violet);
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.25);
 }
 
 .lab-tab-content {
@@ -1031,16 +1111,16 @@ svg.icon-svg {
 .whatsapp-sim-card {
   max-width: 720px;
   margin: 0 auto;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-xl);
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 16px 40px var(--violet-10);
+  border: 1px solid var(--light-lavender);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.08);
   overflow: hidden;
 }
 
 .wa-header {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
   padding: 16px 24px;
   display: flex;
   align-items: center;
@@ -1057,8 +1137,8 @@ svg.icon-svg {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: var(--lime);
-  color: var(--text);
+  background-color: var(--mint-light);
+  color: var(--emerald);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1070,14 +1150,14 @@ svg.icon-svg {
 }
 
 .wa-status h4 {
-  color: var(--white);
+  color: var(--white-on-violet);
   font-size: 1rem;
   font-weight: 500;
 }
 
 .wa-status span {
   font-size: 0.8rem;
-  color: var(--lime);
+  color: var(--soft-violet);
 }
 
 .wa-body {
@@ -1087,7 +1167,7 @@ svg.icon-svg {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
 }
 
 .chat-bubble {
@@ -1101,16 +1181,16 @@ svg.icon-svg {
 
 .chat-bubble.bot {
   align-self: flex-start;
-  background-color: var(--white);
-  color: var(--text);
-  border: 1.5px solid var(--violet-10);
+  background-color: var(--pure-white);
+  color: var(--deep-navy);
+  border: 1px solid var(--light-lavender);
   border-bottom-left-radius: 4px;
 }
 
 .chat-bubble.user {
   align-self: flex-end;
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
   border-bottom-right-radius: 4px;
 }
 
@@ -1121,13 +1201,13 @@ svg.icon-svg {
 }
 
 .quick-reply-btn {
-  background-color: var(--white);
-  border: 1.5px solid var(--pink);
-  color: var(--pink);
+  background-color: var(--pure-white);
+  border: 1px solid var(--royal-violet);
+  color: var(--royal-violet);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 0.84rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1137,45 +1217,46 @@ svg.icon-svg {
 }
 
 .quick-reply-btn:hover {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--soft-violet);
 }
 
 .wa-footer {
   padding: 16px 20px;
-  background-color: var(--white);
-  border-top: 1.5px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border-top: 1px solid var(--light-lavender);
   display: flex;
   gap: 12px;
 }
 
 .wa-input {
   flex-grow: 1;
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   padding: 12px 18px;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--text);
-  background-color: var(--cream);
+  color: var(--deep-navy);
+  background-color: var(--lavender-grey);
   outline: none;
   font-weight: 400;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .wa-input:focus {
-  border-color: var(--violet);
+  border-color: var(--royal-violet);
+  background-color: var(--pure-white);
 }
 
 /* Voice Agent Simulator */
 .voice-sim-card {
   max-width: 640px;
   margin: 0 auto;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-xl);
   padding: 36px;
-  border: 2px solid var(--violet-15);
+  border: 1px solid var(--light-lavender);
   text-align: center;
-  box-shadow: 0 16px 40px var(--violet-10);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.08);
 }
 
 .voice-visualizer {
@@ -1190,7 +1271,7 @@ svg.icon-svg {
 .voice-wave {
   width: 6px;
   height: 18px;
-  background-color: var(--pink);
+  background-color: var(--royal-violet);
   border-radius: 4px;
   transition: height 0.2s ease;
 }
@@ -1199,12 +1280,12 @@ svg.icon-svg {
   animation: voiceBar 1.2s infinite ease-in-out alternate;
 }
 
-.voice-wave:nth-child(2) { animation-delay: 0.15s; background-color: var(--violet); }
-.voice-wave:nth-child(3) { animation-delay: 0.3s; background-color: var(--sky); }
-.voice-wave:nth-child(4) { animation-delay: 0.45s; background-color: var(--yellow); }
-.voice-wave:nth-child(5) { animation-delay: 0.6s; background-color: var(--lime); }
-.voice-wave:nth-child(6) { animation-delay: 0.25s; background-color: var(--violet); }
-.voice-wave:nth-child(7) { animation-delay: 0.4s; background-color: var(--pink); }
+.voice-wave:nth-child(2) { animation-delay: 0.15s; background-color: var(--indigo); }
+.voice-wave:nth-child(3) { animation-delay: 0.3s; background-color: var(--royal-violet); }
+.voice-wave:nth-child(4) { animation-delay: 0.45s; background-color: var(--indigo); }
+.voice-wave:nth-child(5) { animation-delay: 0.6s; background-color: var(--emerald); }
+.voice-wave:nth-child(6) { animation-delay: 0.25s; background-color: var(--royal-violet); }
+.voice-wave:nth-child(7) { animation-delay: 0.4s; background-color: var(--indigo); }
 
 @keyframes voiceBar {
   0% { height: 16px; }
@@ -1213,8 +1294,8 @@ svg.icon-svg {
 }
 
 .voice-dialogue-box {
-  background-color: var(--white);
-  border: 2px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border: 1px solid var(--light-lavender);
   border-radius: var(--radius-md);
   padding: 20px;
   margin-bottom: 24px;
@@ -1222,19 +1303,19 @@ svg.icon-svg {
 }
 
 .voice-dialogue-speaker {
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--violet);
+  font-weight: 600;
+  color: var(--royal-violet);
   margin-bottom: 4px;
 }
 
 /* CRM Pipeline Simulator */
 .crm-sim-card {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-xl);
   padding: 32px;
-  border: 2px solid var(--violet-15);
+  border: 1px solid var(--light-lavender);
 }
 
 .crm-pipeline-stages {
@@ -1245,10 +1326,10 @@ svg.icon-svg {
 }
 
 .crm-stage-column {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-md);
   padding: 18px;
-  border: 1.5px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
 }
 
 .crm-stage-header {
@@ -1257,46 +1338,47 @@ svg.icon-svg {
   justify-content: space-between;
   margin-bottom: 14px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--cream);
-  font-weight: 500;
+  border-bottom: 1px solid var(--light-lavender);
+  font-weight: 600;
+  color: var(--deep-navy);
 }
 
 .crm-lead-card {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-sm);
   padding: 12px;
   margin-bottom: 10px;
-  border: 1px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   cursor: pointer;
   transition: transform var(--transition-fast);
 }
 
 .crm-lead-card:hover {
   transform: scale(1.02);
-  border-color: var(--violet);
+  border-color: var(--royal-violet);
 }
 
 .crm-lead-card h5 {
   font-size: 0.92rem;
-  color: var(--text);
+  color: var(--deep-navy);
   margin-bottom: 4px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .crm-lead-card span {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
 }
 
 /* ROI Calculator */
 .roi-card {
   max-width: 780px;
   margin: 0 auto;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-xl);
   padding: 40px;
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 16px 40px var(--violet-10);
+  border: 1px solid var(--light-lavender);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.08);
 }
 
 .roi-inputs {
@@ -1309,34 +1391,34 @@ svg.icon-svg {
 .roi-slider-group label {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-heading);
-  font-weight: 500;
+  font-family: var(--font-main);
+  font-weight: 600;
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--deep-navy);
   margin-bottom: 12px;
 }
 
 .roi-slider-group input[type="range"] {
   width: 100%;
-  accent-color: var(--violet);
+  accent-color: var(--royal-violet);
   height: 8px;
   border-radius: var(--radius-pill);
   cursor: pointer;
 }
 
 .roi-result-banner {
-  background-color: var(--white);
-  border: 2px solid var(--lime);
+  background-color: var(--pure-white);
+  border: 1.5px solid var(--emerald);
   border-radius: var(--radius-lg);
   padding: 28px;
   text-align: center;
 }
 
 .roi-number {
-  font-family: var(--font-heading);
+  font-family: var(--font-mono);
   font-size: clamp(2.2rem, 3.8vw, 3rem);
-  font-weight: 500; /* Clean medium weight */
-  color: var(--violet);
+  font-weight: 500;
+  color: var(--royal-violet);
   margin: 8px 0;
 }
 
@@ -1344,7 +1426,7 @@ svg.icon-svg {
    PROCESS SECTION
    ========================================================================== */
 .process-section {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
 }
 
 .process-grid {
@@ -1354,16 +1436,16 @@ svg.icon-svg {
 }
 
 .process-step-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 34px 28px;
-  border: 2px solid var(--violet-10);
-  transition: transform var(--transition-bounce);
+  border: 1px solid var(--light-lavender);
+  transition: transform var(--transition-bounce), border-color var(--transition-fast);
 }
 
 .process-step-card:hover {
   transform: translateY(-5px);
-  border-color: var(--pink);
+  border-color: var(--royal-violet);
 }
 
 .step-icon-wrap {
@@ -1374,6 +1456,10 @@ svg.icon-svg {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+  font-family: var(--font-mono);
+  font-weight: 500;
 }
 
 .step-icon-wrap svg {
@@ -1381,20 +1467,20 @@ svg.icon-svg {
   height: 24px;
 }
 
-.step-1 { background-color: var(--lime); color: var(--text); }
-.step-2 { background-color: var(--sky); color: var(--text); }
-.step-3 { background-color: var(--yellow); color: var(--text); }
-.step-4 { background-color: var(--pink); color: var(--white); }
+.step-1, .step-2, .step-3, .step-4 {
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
+}
 
 .process-step-card h3 {
   font-size: 1.2rem;
-  color: var(--text);
+  color: var(--deep-navy);
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .process-step-card p {
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-size: 0.94rem;
   font-weight: 400;
 }
@@ -1403,9 +1489,9 @@ svg.icon-svg {
    TESTIMONIALS
    ========================================================================== */
 .testimonials-section {
-  background-color: var(--white);
-  border-top: 2px solid var(--violet-10);
-  border-bottom: 2px solid var(--violet-10);
+  background-color: var(--pure-white);
+  border-top: 1px solid var(--light-lavender);
+  border-bottom: 1px solid var(--light-lavender);
 }
 
 .testimonials-grid {
@@ -1415,23 +1501,23 @@ svg.icon-svg {
 }
 
 .testimonial-card {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   border-radius: var(--radius-lg);
   padding: 34px 30px;
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform var(--transition-bounce);
+  transition: transform var(--transition-bounce), border-color var(--transition-fast);
 }
 
 .testimonial-card:hover {
   transform: translateY(-4px);
-  border-color: var(--sky);
+  border-color: var(--royal-violet);
 }
 
 .testimonial-stars {
-  color: var(--yellow);
+  color: var(--review-gold);
   margin-bottom: 16px;
   display: flex;
   gap: 4px;
@@ -1440,13 +1526,13 @@ svg.icon-svg {
 .testimonial-stars svg {
   width: 18px;
   height: 18px;
-  fill: var(--yellow);
-  stroke: var(--yellow);
+  fill: var(--review-gold);
+  stroke: var(--review-gold);
 }
 
 .testimonial-card blockquote {
   font-size: 0.98rem;
-  color: var(--text);
+  color: var(--deep-navy);
   line-height: 1.65;
   margin-bottom: 24px;
   font-weight: 400;
@@ -1462,9 +1548,9 @@ svg.icon-svg {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--violet);
-  color: var(--white);
-  font-weight: 500;
+  background-color: var(--royal-violet);
+  color: var(--pure-white);
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1473,20 +1559,20 @@ svg.icon-svg {
 
 .author-meta h5 {
   font-size: 0.96rem;
-  color: var(--text);
-  font-weight: 500;
+  color: var(--deep-navy);
+  font-weight: 600;
 }
 
 .author-meta span {
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
 }
 
 /* ==========================================================================
    FAQ ACCORDION
    ========================================================================== */
 .faq-section {
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 .faq-accordion {
@@ -1498,15 +1584,16 @@ svg.icon-svg {
 }
 
 .faq-item {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-md);
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   overflow: hidden;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .faq-item.open {
-  border-color: var(--violet);
+  border-color: var(--royal-violet);
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.08);
 }
 
 .faq-question {
@@ -1517,8 +1604,8 @@ svg.icon-svg {
   text-align: left;
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 500; /* Simple clean weight */
-  color: var(--text);
+  font-weight: 600;
+  color: var(--deep-navy);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1526,15 +1613,15 @@ svg.icon-svg {
 }
 
 .faq-icon-box {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background-color: var(--cream);
-  color: var(--violet);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--transition-bounce);
+  transition: transform var(--transition-bounce), background-color var(--transition-fast);
 }
 
 .faq-icon-box svg {
@@ -1544,8 +1631,8 @@ svg.icon-svg {
 }
 
 .faq-item.open .faq-icon-box {
-  background-color: var(--pink);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--pure-white);
   transform: rotate(180deg);
 }
 
@@ -1554,7 +1641,7 @@ svg.icon-svg {
   overflow: hidden;
   transition: max-height 0.35s ease, padding 0.35s ease;
   padding: 0 26px;
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-size: 0.96rem;
   line-height: 1.65;
   font-weight: 400;
@@ -1566,34 +1653,36 @@ svg.icon-svg {
 }
 
 /* ==========================================================================
-   CTA SECTION
+   CTA SECTION ("Let's automate the impossible")
    ========================================================================== */
 .cta-section {
   padding: 70px 0;
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 .cta-box {
-  background-color: var(--white);
+  background: var(--cta-gradient);
   border-radius: var(--radius-xl);
-  padding: 56px 40px;
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 20px 50px var(--violet-10);
+  padding: 64px 44px;
+  border: none;
+  box-shadow: 0 24px 60px rgba(76, 29, 149, 0.28);
   text-align: center;
   position: relative;
   overflow: hidden;
+  color: #ffffff;
 }
 
 .cta-box h2 {
   font-size: clamp(1.9rem, 3.2vw, 2.6rem);
   margin: 14px 0;
+  color: #ffffff;
 }
 
 .cta-box p {
   max-width: 620px;
   margin: 0 auto 34px;
   font-size: 1.08rem;
-  color: var(--text-muted);
+  color: var(--soft-violet);
   font-weight: 400;
 }
 
@@ -1604,12 +1693,39 @@ svg.icon-svg {
   flex-wrap: wrap;
 }
 
+.cta-box .btn-primary {
+  background-color: #ffffff;
+  color: var(--royal-violet);
+  border-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cta-box .btn-primary:hover {
+  background-color: var(--soft-violet);
+  color: var(--deep-purple);
+  transform: translateY(-2px);
+}
+
+.cta-box .btn-secondary,
+.cta-box .btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-box .btn-secondary:hover,
+.cta-box .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
 /* ==========================================================================
    ABOUT PAGE COMPONENTS
    ========================================================================== */
 .about-hero {
   padding: 70px 0 60px;
-  background-color: var(--cream);
+  background-color: var(--pure-white);
 }
 
 .values-grid {
@@ -1619,21 +1735,27 @@ svg.icon-svg {
 }
 
 .value-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
-  border: 2px solid var(--violet-10);
-  transition: transform var(--transition-bounce);
+  border: 1px solid var(--light-lavender);
+  transition: transform var(--transition-bounce), border-color var(--transition-fast);
 }
 
 .value-card:hover {
   transform: translateY(-4px);
-  border-color: var(--lime);
+  border-color: var(--royal-violet);
 }
 
 .value-card h3 {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--deep-navy);
   margin-bottom: 8px;
+}
+
+.value-card p {
+  color: var(--slate-purple);
+  font-size: 0.94rem;
 }
 
 .tech-stack-grid {
@@ -1644,16 +1766,16 @@ svg.icon-svg {
 }
 
 .tech-pill {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-md);
   padding: 24px 20px;
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   text-align: center;
   transition: all var(--transition-fast);
 }
 
 .tech-pill:hover {
-  border-color: var(--sky);
+  border-color: var(--royal-violet);
   transform: translateY(-3px);
 }
 
@@ -1661,8 +1783,8 @@ svg.icon-svg {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background-color: var(--cream);
-  color: var(--violet);
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
   margin: 0 auto 12px;
   display: flex;
   align-items: center;
@@ -1686,9 +1808,9 @@ svg.icon-svg {
 }
 
 .filter-btn {
-  background-color: var(--white);
-  border: 2px solid var(--violet-10);
-  color: var(--text);
+  background-color: var(--pure-white);
+  border: 1px solid var(--light-lavender);
+  color: var(--deep-navy);
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 500;
@@ -1708,9 +1830,9 @@ svg.icon-svg {
 
 .filter-btn.active,
 .filter-btn:hover {
-  background-color: var(--violet);
-  color: var(--white);
-  border-color: var(--violet);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  border-color: var(--royal-violet);
 }
 
 .projects-grid {
@@ -1720,9 +1842,9 @@ svg.icon-svg {
 }
 
 .project-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   overflow: hidden;
   transition: all var(--transition-bounce);
   display: flex;
@@ -1731,15 +1853,15 @@ svg.icon-svg {
 
 .project-card:hover {
   transform: translateY(-5px);
-  border-color: var(--pink);
-  box-shadow: 0 16px 36px var(--violet-10);
+  border-color: var(--royal-violet);
+  box-shadow: 0 16px 36px rgba(109, 40, 217, 0.08);
 }
 
 .project-img-wrap {
   height: 220px;
   overflow: hidden;
   position: relative;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
 }
 
 .project-img {
@@ -1769,9 +1891,10 @@ svg.icon-svg {
 .project-metrics {
   display: flex;
   gap: 16px;
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   padding: 14px 18px;
   border-radius: var(--radius-md);
+  border: 1px solid var(--light-lavender);
   margin: 18px 0;
 }
 
@@ -1782,13 +1905,13 @@ svg.icon-svg {
 .metric-item span {
   display: block;
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
 }
 
 .metric-item strong {
-  font-family: var(--font-heading);
+  font-family: var(--font-mono);
   font-size: 1.2rem;
-  color: var(--violet);
+  color: var(--royal-violet);
   font-weight: 500;
 }
 
@@ -1802,9 +1925,9 @@ svg.icon-svg {
 }
 
 .blog-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-lg);
-  border: 2px solid var(--violet-10);
+  border: 1px solid var(--light-lavender);
   overflow: hidden;
   transition: all var(--transition-bounce);
   display: flex;
@@ -1813,14 +1936,15 @@ svg.icon-svg {
 
 .blog-card:hover {
   transform: translateY(-5px);
-  border-color: var(--violet);
-  box-shadow: 0 16px 32px var(--violet-10);
+  border-color: var(--royal-violet);
+  box-shadow: 0 16px 32px rgba(109, 40, 217, 0.08);
 }
 
 .blog-img-wrap {
   height: 210px;
   overflow: hidden;
   position: relative;
+  background-color: var(--lavender-grey);
 }
 
 .blog-img {
@@ -1841,20 +1965,20 @@ svg.icon-svg {
   align-items: center;
   gap: 12px;
   font-size: 0.84rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
   margin-bottom: 12px;
 }
 
 .blog-body h3 {
   font-size: 1.2rem;
-  color: var(--text);
+  color: var(--deep-navy);
   margin-bottom: 12px;
   line-height: 1.35;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .blog-body p {
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-size: 0.94rem;
   margin-bottom: 20px;
   flex-grow: 1;
@@ -1871,11 +1995,11 @@ svg.icon-svg {
 }
 
 .contact-info-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-xl);
   padding: 40px;
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 16px 40px var(--violet-05);
+  border: 1px solid var(--light-lavender);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.04);
 }
 
 .contact-channel-item {
@@ -1892,6 +2016,8 @@ svg.icon-svg {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background-color: var(--soft-violet);
+  color: var(--royal-violet);
 }
 
 .contact-icon-box svg {
@@ -1900,11 +2026,11 @@ svg.icon-svg {
 }
 
 .contact-form-card {
-  background-color: var(--white);
+  background-color: var(--pure-white);
   border-radius: var(--radius-xl);
   padding: 42px;
-  border: 2px solid var(--violet-15);
-  box-shadow: 0 16px 40px var(--violet-05);
+  border: 1px solid var(--light-lavender);
+  box-shadow: 0 16px 40px rgba(109, 40, 217, 0.04);
 }
 
 .form-group {
@@ -1915,8 +2041,8 @@ svg.icon-svg {
   display: block;
   font-family: var(--font-heading);
   font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text);
+  font-weight: 600;
+  color: var(--deep-navy);
   margin-bottom: 8px;
 }
 
@@ -1924,19 +2050,20 @@ svg.icon-svg {
   width: 100%;
   padding: 13px 18px;
   border-radius: var(--radius-md);
-  border: 2px solid var(--violet-15);
-  background-color: var(--cream);
+  border: 1.5px solid var(--light-lavender);
+  background-color: var(--lavender-grey);
   font-family: var(--font-body);
   font-size: 0.96rem;
-  color: var(--text);
+  color: var(--deep-navy);
   outline: none;
   font-weight: 400;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-control:focus {
-  border-color: var(--violet);
-  background-color: var(--white);
+  border-color: var(--royal-violet);
+  background-color: var(--pure-white);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
 }
 
 .form-row {
@@ -1965,12 +2092,12 @@ svg.icon-svg {
 .chip-text {
   padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background-color: var(--cream);
-  border: 1.5px solid var(--violet-15);
+  background-color: var(--lavender-grey);
+  border: 1.5px solid var(--light-lavender);
   font-family: var(--font-heading);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--text);
+  color: var(--deep-navy);
   transition: all var(--transition-fast);
   display: inline-flex;
   align-items: center;
@@ -1983,17 +2110,17 @@ svg.icon-svg {
 }
 
 .chip-label input:checked + .chip-text {
-  background-color: var(--violet);
-  color: var(--white);
-  border-color: var(--violet);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  border-color: var(--royal-violet);
 }
 
 /* ==========================================================================
    FOOTER (STRICT: NO DARK BACKGROUND, NO BLACK, NO GREY)
    ========================================================================== */
 .site-footer {
-  background-color: var(--white);
-  border-top: 3px solid var(--violet);
+  background-color: var(--pure-white);
+  border-top: 2px solid var(--light-lavender);
   padding: 70px 0 30px;
   position: relative;
 }
@@ -2006,7 +2133,7 @@ svg.icon-svg {
 }
 
 .footer-brand p {
-  color: var(--text-muted);
+  color: var(--slate-purple);
   font-size: 0.94rem;
   margin: 18px 0;
   max-width: 320px;
@@ -2025,9 +2152,9 @@ svg.icon-svg {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: var(--cream);
-  border: 1.5px solid var(--violet-15);
-  color: var(--violet);
+  background-color: var(--lavender-grey);
+  border: 1px solid var(--light-lavender);
+  color: var(--royal-violet);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2036,11 +2163,11 @@ svg.icon-svg {
 }
 
 .social-link:hover {
-  background-color: var(--violet);
-  color: var(--white);
-  border-color: var(--violet);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  border-color: var(--royal-violet);
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px var(--violet-15);
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.18);
 }
 
 .social-link svg {
@@ -2051,9 +2178,9 @@ svg.icon-svg {
 
 .footer-col h4 {
   font-size: 1.1rem;
-  color: var(--violet);
+  color: var(--deep-navy);
   margin-bottom: 20px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .footer-links {
@@ -2064,42 +2191,42 @@ svg.icon-svg {
 }
 
 .footer-links a {
-  color: var(--text);
+  color: var(--slate-purple);
   font-size: 0.94rem;
   font-weight: 400;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .footer-links a:hover {
-  color: var(--pink);
+  color: var(--royal-violet);
   transform: translateX(4px);
   display: inline-block;
 }
 
 .footer-newsletter-box {
-  background-color: var(--cream);
+  background-color: var(--lavender-grey);
   padding: 20px;
   border-radius: var(--radius-md);
-  border: 1.5px solid var(--violet-15);
+  border: 1px solid var(--light-lavender);
 }
 
 .footer-newsletter-box p {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
   margin-bottom: 14px;
   font-weight: 400;
 }
 
 .footer-bottom {
   padding-top: 30px;
-  border-top: 1.5px solid var(--cream);
+  border-top: 1px solid var(--light-lavender);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--muted-grey);
   font-weight: 400;
 }
 
@@ -2120,16 +2247,16 @@ svg.icon-svg {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: var(--lime);
-  color: var(--text);
-  box-shadow: 0 8px 24px rgba(123, 63, 242, 0.2);
+  background-color: var(--emerald);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(14, 159, 110, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--transition-bounce);
+  transition: transform var(--transition-bounce), background-color var(--transition-fast);
   text-decoration: none;
-  border: 2px solid var(--white);
+  border: 2px solid var(--pure-white);
 }
 
 .floating-whatsapp svg {
@@ -2139,16 +2266,16 @@ svg.icon-svg {
 
 .floating-whatsapp:hover {
   transform: scale(1.08);
-  background-color: var(--yellow);
+  background-color: #0b8c60;
 }
 
 .floating-top {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--white);
-  color: var(--violet);
-  border: 2px solid var(--violet-15);
+  background-color: var(--pure-white);
+  color: var(--royal-violet);
+  border: 1.5px solid var(--light-lavender);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2169,8 +2296,9 @@ svg.icon-svg {
 }
 
 .floating-top:hover {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: var(--royal-violet);
+  color: var(--white-on-violet);
+  border-color: var(--royal-violet);
 }
 
 /* ==========================================================================
@@ -2195,4 +2323,122 @@ svg.icon-svg {
   .form-row { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ==========================================================================
+   DARK MODE PALETTE (Automatic System Preference)
+   Role              Light mode    Dark mode
+   Background        #FFFFFF       #0B0A14
+   Soft section      #F7F5FC       #110F1E
+   Card              #FFFFFF       #15121F
+   Headings          #16122E       #F3F1FA
+   Body text         #4A4664       #C2BDD8
+   Muted text        #7D7896       #8F8AA8
+   Borders           #E8E5F2       #272339
+   Brand violet      #6D28D9       #A78BFA
+   Indigo            #4F46E5       #818CF8
+   Soft violet       #F0EAFE       #1F1838
+   Emerald           #0E9F6E       #34D399
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pure-white: #0B0A14;
+    --lavender-grey: #110F1E;
+    --deep-navy: #F3F1FA;
+    --slate-purple: #C2BDD8;
+    --muted-grey: #8F8AA8;
+    --light-lavender: #272339;
+    --royal-violet: #A78BFA;
+    --indigo: #818CF8;
+    --soft-violet: #1F1838;
+    --emerald: #34D399;
+    --night-purple: #0E0B1A;
+
+    /* Backward Compatibility Aliases in Dark Mode */
+    --white: #15121F;
+    --cream: #110F1E;
+    --text: #F3F1FA;
+    --text-body: #C2BDD8;
+    --text-muted: #8F8AA8;
+    --border: #272339;
+    --violet: #A78BFA;
+    --violet-15: rgba(167, 139, 250, 0.15);
+    --violet-10: rgba(167, 139, 250, 0.10);
+    --violet-05: rgba(167, 139, 250, 0.05);
+  }
+
+  html, body {
+    background-color: #0B0A14;
+    color: #C2BDD8;
+  }
+
+  .site-header {
+    background-color: rgba(11, 10, 20, 0.92);
+    border-bottom-color: #272339;
+  }
+
+  .card,
+  .philosophy-card,
+  .service-card,
+  .process-step-card,
+  .testimonial-card,
+  .faq-item,
+  .value-card,
+  .tech-pill,
+  .project-card,
+  .blog-card,
+  .contact-info-card,
+  .contact-form-card,
+  .site-footer,
+  .roi-result-banner {
+    background-color: #15121F;
+    border-color: #272339;
+  }
+
+  .roi-card,
+  .process-section,
+  .form-control,
+  .footer-newsletter-box,
+  .project-metrics,
+  .preview-header,
+  .chat-body-sim,
+  .crm-board-sim {
+    background-color: #110F1E;
+    border-color: #272339;
+    color: #F3F1FA;
+  }
+
+  .chat-bubble-user {
+    background-color: #1F1838;
+    color: #F3F1FA;
+  }
+
+  .chat-bubble-bot {
+    background-color: #15121F;
+    color: #C2BDD8;
+    border-color: #272339;
+  }
+
+  .crm-column {
+    background-color: #15121F;
+    border-color: #272339;
+  }
+
+  .crm-lead-card {
+    background-color: #110F1E;
+    border-color: #272339;
+  }
+
+  .btn-secondary,
+  .btn-outline,
+  .filter-btn {
+    background-color: #15121F;
+    color: #F3F1FA;
+    border-color: #272339;
+  }
+
+  .floating-top {
+    background-color: #15121F;
+    border-color: #272339;
+  }
 }

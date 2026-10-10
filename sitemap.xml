@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://anticmitrawork-stack.github.io/Anticmitra-Ai/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://anticmitraai.vercel.app/</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://anticmitrawork-stack.github.io/Anticmitra-Ai/about.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://anticmitraai.vercel.app/about.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://anticmitrawork-stack.github.io/Anticmitra-Ai/projects.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://anticmitraai.vercel.app/projects.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://anticmitrawork-stack.github.io/Anticmitra-Ai/blogs.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://anticmitraai.vercel.app/blogs.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://anticmitrawork-stack.github.io/Anticmitra-Ai/contact.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://anticmitraai.vercel.app/contact.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>

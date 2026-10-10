@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anticmitrawork-stack.github.io/Anticmitra-Ai/sitemap.xml
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /favicon.png
+
+Sitemap: https://anticmitraai.vercel.app/sitemap.xml

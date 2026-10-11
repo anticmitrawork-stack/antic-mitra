@@ -2502,6 +2502,8 @@ svg.icon-svg {
 .floating-whatsapp svg {
   width: 28px;
   height: 28px;
+  fill: #ffffff !important;
+  stroke: none !important;
 }
 
 .floating-whatsapp:hover {

@@ -66,35 +66,48 @@
        ========================================================================== -->
   <header class="site-header">
     <div class="header-container">
-      <a href="index.html" class="brand-logo-wrap" title="Antic Mitra - Automate the Impossible.">
-        <img src="assets/logo.jpg" alt="Antic Mitra - Automate the Impossible." class="brand-logo-img">
+      <a href="index.html" class="brand-logo-wrap" title="Antic Mitra AI — Automate Smarter. Grow Faster.">
+        <div class="brand-logo-mark">
+          <svg viewBox="0 0 36 36" width="34" height="34" fill="none" class="brand-logo-svg">
+            <defs>
+              <linearGradient id="anticLogoGradA" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#4F46E5"/>
+                <stop offset="100%" stop-color="#6D28D9"/>
+              </linearGradient>
+              <linearGradient id="anticLogoGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6D28D9"/>
+                <stop offset="100%" stop-color="#818CF8"/>
+              </linearGradient>
+            </defs>
+            <path d="M7 29L16.6 6.8C17.2 5.4 18.8 5.4 19.4 6.8L29 29" stroke="url(#anticLogoGradA)" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12.5 21C15.8 17.5 20.2 17.5 23.5 21" stroke="url(#anticLogoGradB)" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">
+          <span class="brand-name-antic">Antic Mitra</span>
+          <span class="brand-name-ai">AI</span>
+        </span>
       </a>
 
       <nav class="nav-desktop">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li>
+            <a href="index.html#services" class="nav-link">
+              <span>Services</span>
+              <svg class="chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+          </li>
           <li><a href="projects.html" class="nav-link active">Projects</a></li>
-          <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button class="sound-toggle-btn sound-active" id="headerSoundToggle" aria-label="Toggle sound effects">
-          <span class="sound-icon-state">
-            <svg class="icon-svg" viewBox="0 0 24 24">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-          </span>
-          <span class="sound-label">Sound ON</span>
-        </button>
-
-        <a href="contact.html" class="btn btn-primary" data-sound="click">
-          <span>Book Free AI Audit</span>
-          <svg class="icon-svg" viewBox="0 0 24 24">
+        <a href="contact.html" class="btn btn-header-cta" data-sound="click">
+          <span>Book a Call</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -113,13 +126,13 @@
   <div class="mobile-nav-drawer">
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="index.html#services" class="nav-link">Services</a></li>
       <li><a href="projects.html" class="nav-link active">Projects</a></li>
-      <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
     <div style="display: flex; flex-direction: column; gap: 14px;">
-      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Book Free AI Audit</a>
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Book a Call</a>
       <a href="https://wa.me/919999999999" class="btn btn-accent" style="width: 100%;">Chat on WhatsApp</a>
     </div>
   </div>

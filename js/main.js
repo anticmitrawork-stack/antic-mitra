@@ -67,6 +67,17 @@ function initLabTabs() {
       if (window.lucide) window.lucide.createIcons();
     });
   });
+
+  // Connect Hero Hub Cards to corresponding live lab simulator
+  document.querySelectorAll('.hub-card[data-target-tab]').forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target-tab');
+      const targetBtn = document.querySelector(`.lab-tab-btn[data-tab="${targetId}"]`);
+      if (targetBtn) {
+        targetBtn.click();
+      }
+    });
+  });
 }
 
 /* ==========================================================================

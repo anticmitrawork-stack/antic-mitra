@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anticmitraai.vercel.app/sitemap.xml

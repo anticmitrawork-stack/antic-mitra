@@ -72,7 +72,10 @@ html[lang="te"] h1,html[lang="te"] h2{line-height:1.25;letter-spacing:0}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--glass);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .nav.scrolled{border-color:var(--line)}
 .nav-in{position:relative;display:flex;align-items:center;gap:24px;height:72px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--f-display);font-weight:700;font-size:20px;letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
+.logo-img{width:36px;height:36px;border-radius:10px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 4px 12px -2px rgba(109,40,217,.22);display:block;object-fit:contain;transition:transform .2s,box-shadow .2s}
+.logo:hover .logo-img{transform:scale(1.06);box-shadow:0 6px 16px -2px rgba(109,40,217,.32)}
+.logo-ai{background:linear-gradient(120deg,var(--violet),var(--violet-2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;margin-left:3px}
 .logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--violet),var(--violet-2));display:grid;place-items:center;color:var(--on-violet)}
 .logo-mark svg{width:20px;height:20px}
 .nav-links{display:flex;gap:4px;margin-left:auto}

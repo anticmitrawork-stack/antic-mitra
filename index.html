@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antic Mitra</title>
+<meta name="description" content="Antic Mitra builds WhatsApp AI bots, AI voice agents, custom CRMs and automates Google Business Profile, YouTube, social media and blogs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Noto+Sans+Telugu:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo" aria-label="Antic Mitra home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 10 5l3 7"/><path d="M14 19l3-7 3 7"/><path d="M17 3v3M15.5 4.5h3"/></svg></span>Antic Mitra</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="index.html" data-nav="home" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-nav="services" data-i18n="nav.services">Services</a>
+      <a href="demo.html" data-nav="demo" data-i18n="nav.demo">Live demo</a>
+      <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="pill-toggle" id="langBtn" aria-label="Switch language">EN · తెలుగు</button>
+      <button class="pill-toggle" id="sndBtn" aria-pressed="false" aria-label="Toggle sound effects"><svg id="sndIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><span class="snd-label" data-i18n="nav.sound">Sound</span></button>
+      <a class="btn btn-primary nav-cta magnetic" href="contact.html" data-i18n="cta.audit">Book free AI audit</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main data-page="home">
+  <section class="hero">
+    <canvas class="net" aria-hidden="true"></canvas>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">AI automation studio</span>
+        <h1><span data-i18n="hero.h1a">Automate</span><br><span class="grad" data-i18n="hero.h1b">the impossible.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">We build WhatsApp AI bots, AI voice agents and custom CRMs, and we automate your Google Business Profile, YouTube, social media and blogs. Your business keeps working 24/7, even when your team is offline.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary magnetic" href="contact.html"><span data-i18n="cta.audit">Book free AI audit</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="demo.html" data-i18n="cta.demo">Try the live demo</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="10" data-suf="x">10x</b><span data-i18n="stat.1">Faster lead response</span></div>
+          <div class="stat"><b data-count="70" data-suf="%+">70%+</b><span data-i18n="stat.2">Repetitive work automated</span></div>
+          <div class="stat"><b>24/7</b><span data-i18n="stat.3">Always on</span></div>
+        </div>
+      </div>
+      <div class="console" aria-label="Sample automation activity">
+        <div class="console-head"><span class="live-dot"></span><span data-i18n="con.title">Automation engine</span><span class="tag" data-i18n="con.tag">sample feed</span></div>
+        <ul class="feed" id="feed"></ul>
+        <div class="console-foot"><span data-i18n="con.foot">Tasks completed today</span><b id="taskCount">1,284</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools" aria-label="Integrations">
+    <p data-i18n="tools.title">Works with the tools you already use</p>
+    <div class="marquee"><div class="track">
+      <span>WhatsApp Cloud API</span><span>Google Business Profile</span><span>YouTube</span><span>Instagram</span><span>Facebook</span><span>LinkedIn</span><span>Meta Ads</span><span>Google Ads</span><span>HubSpot</span><span>Zoho CRM</span><span>Google Sheets</span><span>Razorpay</span><span>WordPress</span><span>Twilio</span><span>WhatsApp Cloud API</span><span>Google Business Profile</span><span>YouTube</span><span>Instagram</span><span>Facebook</span><span>LinkedIn</span><span>Meta Ads</span><span>Google Ads</span><span>HubSpot</span><span>Zoho CRM</span><span>Google Sheets</span><span>Razorpay</span><span>WordPress</span><span>Twilio</span>
+    </div></div>
+  </section>
+
+  <section class="sec showcase" id="showcase" aria-label="What we do">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-i18n="home.svc.eyebrow">What we do</span>
+        <h2 data-i18n="home.svc.h2">Four ways we put your business on autopilot.</h2>
+      </div>
+      <div class="sc">
+        <div class="sc-tabs" role="tablist" aria-label="Services">
+          <button class="sc-tab active" role="tab" id="sct-0" aria-controls="scp-0" aria-selected="true" style="--c:#10B981">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
+            <span class="sc-txt"><b data-i18n="s1.t">WhatsApp AI Bots</b><small data-i18n="hf1.d">Instant replies, lead qualification, bookings and payments on WhatsApp.</small></span>
+            <span class="sc-bar"><i></i></span>
+          </button>
+          <button class="sc-tab" role="tab" id="sct-1" aria-controls="scp-1" aria-selected="false" style="--c:#F97316">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4M7 7v10M11 4v16M15 8v8M19 6v12"/></svg></div>
+            <span class="sc-txt"><b data-i18n="s2.t">AI Voice Agents</b><small data-i18n="hf2.d">Calls every new lead within 30 seconds and books the meeting.</small></span>
+            <span class="sc-bar"><i></i></span>
+          </button>
+          <button class="sc-tab" role="tab" id="sct-2" aria-controls="scp-2" aria-selected="false" style="--c:#2563EB">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="10" rx="1.5"/><rect x="17" y="4" width="4" height="13" rx="1.5"/></svg></div>
+            <span class="sc-txt"><b data-i18n="s3.t">Custom CRM</b><small data-i18n="hf3.d">Every lead in one place, with automatic follow-ups.</small></span>
+            <span class="sc-bar"><i></i></span>
+          </button>
+          <button class="sc-tab" role="tab" id="sct-3" aria-controls="scp-3" aria-selected="false" style="--c:#DB2777">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <span class="sc-txt"><b data-i18n="hf4.t">Marketing on autopilot</b><small data-i18n="hf4.d">Google Business Profile, YouTube, social media and blogs that run on their own.</small></span>
+            <span class="sc-bar"><i></i></span>
+          </button>
+        </div>
+        <div class="sc-stage">
+          <div class="sc-panel active" role="tabpanel" id="scp-0" aria-labelledby="sct-0" style="--c:#10B981">
+            <div class="sc-vis" aria-hidden="true">
+              <div class="vis-card">
+                  <div class="ph-head"><span class="ph-av">AM</span><div><b>Antic Mitra Assistant</b><small>online</small></div></div>
+                  <div class="vis-chat">
+                    <div class="bub">Hi, do you have 2BHK flats in Kondapur?</div>
+                    <div class="bub me">Yes! 3 ready-to-move units from ₹62L. Want a site visit?</div>
+                    <div class="bub">Saturday morning works</div>
+                    <div class="bub me">Booked ✅ Sat 11:00 AM. Location sent 📍</div>
+                  </div>
+                </div>
+            </div>
+            <div class="sc-foot"><ul class="sc-ticks"><li data-i18n="pc.1">Replies in under 3 seconds</li><li data-i18n="pc.2">Understands Telugu, Hindi and English</li><li data-i18n="sl1.3">Takes bookings and payments inside WhatsApp</li></ul><a class="link-arrow" href="services.html#s-wa"><span data-i18n="more">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="sc-panel" role="tabpanel" id="scp-1" aria-labelledby="sct-1" style="--c:#F97316">
+            <div class="sc-vis" aria-hidden="true">
+              <div class="vis-card vis-pad">
+                  <div class="v-top"><span class="ph-av">AI</span><div><b>Maya · Sunrise Homes</b><small>outbound call</small></div><span class="v-timer">00:42</span></div>
+                  <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="tl"><b>AI AGENT</b>We have site visits this Saturday at 11 AM or 4 PM. Which works for you?</div>
+                  <div class="tl caller"><b>CALLER</b>11 is fine.</div>
+                  <div class="tl sys">✓ Visit booked · CRM updated · WhatsApp sent</div>
+                </div>
+            </div>
+            <div class="sc-foot"><ul class="sc-ticks"><li data-i18n="pv.1">Calls new leads in under 30 seconds</li><li data-i18n="pv.2">Handles interruptions like a person</li><li data-i18n="pv.3">Updates CRM and sends WhatsApp confirmation</li></ul><a class="link-arrow" href="demo.html#voice"><span data-i18n="pv.play">Play sample call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="sc-panel" role="tabpanel" id="scp-2" aria-labelledby="sct-2" style="--c:#2563EB">
+            <div class="sc-vis" aria-hidden="true">
+              <div class="vis-card vis-pad">
+                  <div class="kanban">
+                    <div><h5>New <em>12</em></h5><p>Ravi K. <small>Facebook ad</small></p><p>Sneha R. <small>WhatsApp</small></p></div>
+                    <div><h5>Qualified <em>7</em></h5><p class="hot">Priya M. <small>Score 86</small></p><p>Arjun T. <small>Score 72</small></p></div>
+                    <div><h5>Visit booked <em>4</em></h5><p class="won">Kiran P. <small>Sat 11:00</small></p></div>
+                  </div>
+                </div>
+            </div>
+            <div class="sc-foot"><ul class="sc-ticks"><li data-i18n="sl3.1">Automatic lead scoring</li><li data-i18n="sl3.2">Follow-ups on WhatsApp and SMS</li><li data-i18n="sl3.3">One dashboard for every lead</li></ul><a class="link-arrow" href="services.html#s-crm"><span data-i18n="more">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="sc-panel" role="tabpanel" id="scp-3" aria-labelledby="sct-3" style="--c:#DB2777">
+            <div class="sc-vis" aria-hidden="true">
+              <div class="vis-card vis-pad">
+                  <div class="review"><b>★★★★★ <span class="ex">example</span></b><p>"Very quick response on WhatsApp, got my site visit in one day."</p><div class="reply"><small>Reply posted automatically</small>Thank you! We're glad the visit was smooth. See you again soon 🙏</div></div>
+                  <div class="sched"><div><b>MON 10:00</b>Reel</div><div><b>WED 18:30</b>Short</div><div><b>FRI 12:00</b>Blog</div><div><b>SUN 19:00</b>Post</div></div>
+                </div>
+            </div>
+            <div class="sc-foot"><ul class="sc-ticks"><li data-i18n="sl4.1">Replies to every Google review</li><li data-i18n="sl4.2">YouTube Shorts published on schedule</li><li data-i18n="sl4.3">Social posts and blogs every week</li></ul><a class="link-arrow" href="services.html#s-gbp"><span data-i18n="more">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" style="margin-block:-40px 0"><a class="btn btn-ghost" href="services.html"><span data-i18n="cta.services">See all services</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+
+  <section class="sec reveal-sec">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="rv.eyebrow">Why automate</span>
+      <p class="reveal-text" id="revealText" data-i18n="rv.text">Your customers message at midnight, call during lunch and leave reviews on Sunday. We build AI that answers every one of them, so your team can focus on closing deals.</p>
+    </div>
+  </section>
+
+  <section class="dark-stats" aria-label="Results">
+    <div class="wrap">
+      <div class="ds-head">
+        <span class="eyebrow" data-i18n="ds.eyebrow">What you get</span>
+        <h2 data-i18n="ds.h2">Speed your competitors can't match.</h2>
+      </div>
+      <div class="ds-grid">
+        <div class="ds"><b>&lt;<span data-to="3">3</span>s</b><span data-i18n="ds.1">WhatsApp reply time</span></div>
+        <div class="ds"><b>&lt;<span data-to="30">30</span>s</b><span data-i18n="ds.2">Call-back to every new lead</span></div>
+        <div class="ds"><b><span data-to="7">7</span>–<span data-to="14">14</span></b><span data-i18n="ds.3">Days to go live</span></div>
+        <div class="ds"><b><span data-to="24">24</span>/7</b><span data-i18n="ds.4">Your business keeps answering</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec soft">
+    <div class="wrap split">
+      <div class="split-copy rv">
+        <span class="eyebrow" data-i18n="home.demo.eyebrow">Try it now</span>
+        <h2 data-i18n="home.demo.h2">Don't take our word for it. Test the bot yourself.</h2>
+        <p data-i18n="home.demo.p">Chat with the WhatsApp bot, listen to an AI sales call, and calculate how much automation saves you every month.</p>
+        <a class="btn btn-primary magnetic" href="demo.html"><span data-i18n="home.demo.btn">Open the live demo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="phone rv" aria-hidden="true">
+        <div class="ph-head"><span class="ph-av">AM</span><div><b>Antic Mitra Assistant</b><small data-i18n="ph.status">online · replies instantly</small></div></div>
+        <div class="msgs" style="height:auto">
+          <div class="msg me">Hi, do you have 2BHK flats in Kondapur?</div>
+          <div class="msg">Yes! We have 3 ready-to-move 2BHK units from ₹62L to ₹71L. Want photos or a site visit?</div>
+          <div class="msg me">Site visit on Saturday</div>
+          <div class="msg">Booked ✅ Saturday 11:00 AM. I've sent the location pin. See you there!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta rv">
+      <span class="eyebrow" data-i18n="cta.eyebrow">Free 15-minute audit</span>
+      <h2 data-i18n="cta.h2">Let's automate the impossible together.</h2>
+      <p data-i18n="cta.p">Tell us where your team loses time. We'll map it and show you a working prototype built for your business.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary magnetic" href="contact.html" data-i18n="cta.audit">Book free AI audit</a>
+        <a class="btn btn-ghost" href="contact.html" data-wa target="_blank" rel="noopener" data-i18n="cta.wa">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 10 5l3 7"/><path d="M14 19l3-7 3 7"/><path d="M17 3v3M15.5 4.5h3"/></svg></span>Antic Mitra</a>
+        <p data-i18n="foot.p">AI bots, voice agents, CRMs and full marketing automation for businesses that want to grow without growing headcount.</p></div>
+      <div><h4 data-i18n="foot.s">Services</h4><ul><li><a href="services.html">WhatsApp AI Bots</a></li><li><a href="services.html">AI Voice Agents</a></li><li><a href="services.html">Custom CRM</a></li><li><a href="services.html">Google Business Profile</a></li><li><a href="services.html">YouTube &amp; Social</a></li></ul></div>
+      <div><h4 data-i18n="foot.c">Company</h4><ul><li><a href="about.html">About</a></li><li><a href="demo.html">Live demo</a></li><li><a href="https://anticmitraai.vercel.app/projects.html" target="_blank" rel="noopener">Projects</a></li><li><a href="https://anticmitraai.vercel.app/blogs.html" target="_blank" rel="noopener">Blog</a></li><li><a href="https://anticmitraai.vercel.app/gmb-saas.html" target="_blank" rel="noopener">GMB SaaS App</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Antic Mitra. Automate the impossible.</div>
+  </div>
+</footer>
+<a class="fab" href="contact.html" data-wa target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9.5 9.5c0 2.5 2.5 5 5 5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z"/></svg></a>
+<script src="app.js"></script>
+</body>
+</html>

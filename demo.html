@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live Demo · Antic Mitra</title>
+<meta name="description" content="Try a working WhatsApp AI bot, listen to an AI voice agent call and calculate your automation savings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Noto+Sans+Telugu:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo" aria-label="Antic Mitra home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 10 5l3 7"/><path d="M14 19l3-7 3 7"/><path d="M17 3v3M15.5 4.5h3"/></svg></span>Antic Mitra</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="index.html" data-nav="home" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-nav="services" data-i18n="nav.services">Services</a>
+      <a href="demo.html" data-nav="demo" data-i18n="nav.demo">Live demo</a>
+      <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="pill-toggle" id="langBtn" aria-label="Switch language">EN · తెలుగు</button>
+      <button class="pill-toggle" id="sndBtn" aria-pressed="false" aria-label="Toggle sound effects"><svg id="sndIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><span class="snd-label" data-i18n="nav.sound">Sound</span></button>
+      <a class="btn btn-primary nav-cta magnetic" href="contact.html" data-i18n="cta.audit">Book free AI audit</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main data-page="demo">
+  <section class="hero page-head">
+    <canvas class="net" aria-hidden="true"></canvas>
+    <div class="wrap ph-grid">
+      <div class="ph-in">
+        <div class="crumbs"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="nav.demo">Live demo</span></div>
+        <span class="eyebrow" data-i18n="lab.eyebrow">Interactive lab</span>
+        <h1 data-i18n="lab.h1">Test it yourself, right here.</h1>
+        <p data-i18n="lab.sub">These are working demos. Chat with the bot, listen to a sample sales call, or estimate what automation saves you.</p>
+      </div>
+      <aside class="ph-card">
+        <div class="console-head"><span class="live-dot"></span><span data-i18n="as.demo.h">3 working demos</span></div>
+        <div class="ph-list">
+          <a href="#chat"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span><div><b data-i18n="tab.chat">WhatsApp bot</b><span data-i18n="as.d1">Chat with it live</span></div></a>
+          <a href="#voice"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4M7 7v10M11 4v16M15 8v8M19 6v12"/></svg></span><div><b data-i18n="tab.voice">Voice agent</b><span data-i18n="as.d2">Hear a sample sales call</span></div></a>
+          <a href="#roi"><span class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><div><b data-i18n="tab.roi">Savings calculator</b><span data-i18n="as.d3">See your monthly savings</span></div></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:16px">
+    <div class="wrap">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-chat" id="t-chat" data-i18n="tab.chat">WhatsApp bot</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-voice" id="t-voice" data-i18n="tab.voice">Voice agent</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-roi" id="t-roi" data-i18n="tab.roi">Savings calculator</button>
+      </div>
+      <div class="panel" id="p-chat" role="tabpanel" aria-labelledby="t-chat">
+        <div class="panel-copy">
+          <h3 data-i18n="pc.h">Your best salesperson, awake at 2 AM.</h3>
+          <p data-i18n="pc.p">Ask anything: pricing, Google reviews, YouTube, or type “Telugu”. The bot replies instantly, the same way it would on your customers' WhatsApp.</p>
+          <ul class="ticks"><li data-i18n="pc.1">Replies in under 3 seconds</li><li data-i18n="pc.2">Understands Telugu, Hindi and English</li><li data-i18n="pc.3">Sends hot leads to your CRM automatically</li></ul>
+        </div>
+        <div class="phone">
+          <div class="ph-head"><span class="ph-av">AM</span><div><b>Antic Mitra Assistant</b><small data-i18n="ph.status">online · replies instantly</small></div></div>
+          <div class="msgs" id="msgs" aria-live="polite"></div>
+          <div class="quick" id="quick">
+            <button data-q="What do you automate?">What do you automate?</button><button data-q="Google reviews">Google reviews</button><button data-q="YouTube automation">YouTube</button><button data-q="Pricing">Pricing</button><button data-q="తెలుగులో చెప్పండి">తెలుగు</button>
+          </div>
+          <form class="ph-form" id="chatForm">
+            <input id="chatIn" autocomplete="off" placeholder="Type a message…" data-i18n-ph="ph.chat" aria-label="Message">
+            <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="panel" id="p-voice" role="tabpanel" aria-labelledby="t-voice" hidden>
+        <div class="panel-copy">
+          <h3 data-i18n="pv.h">A call that books the visit in under a minute.</h3>
+          <p data-i18n="pv.p">A new lead fills your Facebook form. Thirty seconds later, the AI agent calls, qualifies and books a site visit. Turn on Sound at the top to hear the voices.</p>
+          <ul class="ticks"><li data-i18n="pv.1">Calls new leads in under 30 seconds</li><li data-i18n="pv.2">Handles interruptions like a person</li><li data-i18n="pv.3">Updates CRM and sends WhatsApp confirmation</li></ul>
+        </div>
+        <div class="voice">
+          <div class="v-top"><span class="ph-av">AI</span><div><b>Maya · Sunrise Homes</b><small>sample call script</small></div><span class="v-timer" id="vTimer">00:00</span></div>
+          <div class="bars" id="bars" aria-hidden="true"></div>
+          <div class="transcript" id="transcript" aria-live="polite"></div>
+          <div class="v-ctrl"><button class="btn btn-primary" id="playCall"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><span data-i18n="pv.play">Play sample call</span></button><small id="vNote"></small></div>
+        </div>
+      </div>
+      <div class="panel" id="p-roi" role="tabpanel" aria-labelledby="t-roi" hidden>
+        <div class="panel-copy">
+          <h3 data-i18n="pr.h">See what you get back every month.</h3>
+          <p data-i18n="pr.p">Move the sliders to match your business. We'll show the hours and money automation can return to you.</p>
+        </div>
+        <div class="roi">
+          <div class="rng"><label for="rLeads"><span data-i18n="pr.l1">Leads per month</span><output id="oLeads">600</output></label><input type="range" id="rLeads" min="50" max="5000" step="50" value="600"></div>
+          <div class="rng"><label for="rMins"><span data-i18n="pr.l2">Minutes your team spends per lead</span><output id="oMins">8</output></label><input type="range" id="rMins" min="2" max="30" value="8"></div>
+          <div class="rng"><label for="rCost"><span data-i18n="pr.l3">Staff cost per hour (₹)</span><output id="oCost">₹250</output></label><input type="range" id="rCost" min="100" max="1000" step="25" value="250"></div>
+          <div class="roi-out">
+            <div><b id="vHours">56</b><span data-i18n="pr.o1">hours saved / month</span></div>
+            <div><b id="vMoney">₹14,000</b><span data-i18n="pr.o2">saved / month</span></div>
+            <div><b id="vDays">7</b><span data-i18n="pr.o3">staff days freed</span></div>
+          </div>
+          <small data-i18n="pr.note">Estimate. Assumes 70% of manual lead handling is automated.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="cta rv">
+      <span class="eyebrow" data-i18n="cta.eyebrow">Free 15-minute audit</span>
+      <h2 data-i18n="cta.h2">Let's automate the impossible together.</h2>
+      <p data-i18n="cta.p">Tell us where your team loses time. We'll map it and show you a working prototype built for your business.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary magnetic" href="contact.html" data-i18n="cta.audit">Book free AI audit</a>
+        <a class="btn btn-ghost" href="contact.html" data-wa target="_blank" rel="noopener" data-i18n="cta.wa">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 10 5l3 7"/><path d="M14 19l3-7 3 7"/><path d="M17 3v3M15.5 4.5h3"/></svg></span>Antic Mitra</a>
+        <p data-i18n="foot.p">AI bots, voice agents, CRMs and full marketing automation for businesses that want to grow without growing headcount.</p></div>
+      <div><h4 data-i18n="foot.s">Services</h4><ul><li><a href="services.html">WhatsApp AI Bots</a></li><li><a href="services.html">AI Voice Agents</a></li><li><a href="services.html">Custom CRM</a></li><li><a href="services.html">Google Business Profile</a></li><li><a href="services.html">YouTube &amp; Social</a></li></ul></div>
+      <div><h4 data-i18n="foot.c">Company</h4><ul><li><a href="about.html">About</a></li><li><a href="demo.html">Live demo</a></li><li><a href="https://anticmitraai.vercel.app/projects.html" target="_blank" rel="noopener">Projects</a></li><li><a href="https://anticmitraai.vercel.app/blogs.html" target="_blank" rel="noopener">Blog</a></li><li><a href="https://anticmitraai.vercel.app/gmb-saas.html" target="_blank" rel="noopener">GMB SaaS App</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Antic Mitra. Automate the impossible.</div>
+  </div>
+</footer>
+<a class="fab" href="contact.html" data-wa target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9.5 9.5c0 2.5 2.5 5 5 5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z"/></svg></a>
+<script src="app.js"></script>
+</body>
+</html>

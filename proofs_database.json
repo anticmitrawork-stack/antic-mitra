@@ -1,0 +1,36 @@
+[
+  {
+    "id": "prf_CLI_VED_CLINIC_pediatrician_near_me_puppalguda",
+    "clientId": "CLI_VED_CLINIC",
+    "businessName": "VED Children's Clinic - Dr. Shiva kumar reddy",
+    "folderName": "VED_Childrens_Clinic",
+    "keyword": "pediatrician near me Puppalguda",
+    "targetRank": 1,
+    "before": {
+      "date": "2026-10-14",
+      "rank": 11,
+      "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\VED_Childrens_Clinic\\01_Day01_Baseline_BEFORE\\2026-10-14_pediatrician_near_me_puppalguda_Rank_11.png",
+      "screenshotUrl": "/proofs/VED_Childrens_Clinic/01_Day01_Baseline_BEFORE/2026-10-14_pediatrician_near_me_puppalguda_Rank_11.png"
+    },
+    "after": null,
+    "status": "TRACKING_ACTIVE",
+    "updatedAt": "2026-10-14T17:18:00.000Z"
+  },
+  {
+    "id": "prf_CLI_AVANI_resorts_near_sunna_gate_tipeshwar",
+    "clientId": "CLI_AVANI",
+    "businessName": "Avani Tiger Resort",
+    "folderName": "Avani_Tiger_Resort",
+    "keyword": "Resorts near Sunna Gate Tipeshwar",
+    "targetRank": 1,
+    "before": {
+      "date": "2026-10-14",
+      "rank": 3,
+      "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\Avani_Tiger_Resort\\01_Day01_Baseline_BEFORE\\2026-10-14_resorts_near_sunna_gate_tipeshwar_Rank_3.png",
+      "screenshotUrl": "/proofs/Avani_Tiger_Resort/01_Day01_Baseline_BEFORE/2026-10-14_resorts_near_sunna_gate_tipeshwar_Rank_3.png"
+    },
+    "after": null,
+    "status": "TRACKING_ACTIVE",
+    "updatedAt": "2026-10-14T17:18:00.000Z"
+  }
+]

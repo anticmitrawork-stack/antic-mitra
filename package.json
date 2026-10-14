@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "adm-zip": "^0.6.1",
     "dotenv": "^18.0.7",
     "googleapis": "^185.0.0",
-    "puppeteer-core": "^25.13.0"
+    "piexifjs": "^1.0.6",
+    "puppeteer-core": "^25.13.0",
+    "sharp": "^0.35.5"
   }
 }

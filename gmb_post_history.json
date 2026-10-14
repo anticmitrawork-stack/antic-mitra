@@ -1,46 +1,35 @@
 [
   {
-    "id": 1791637380869,
-    "businessName": "Avani Tiger Resort",
-    "summary": "🐅 Escape into the Wild at Avani Tiger Resort! 🌿\nPlan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.\n\n✨ Why choose Avani Tiger Resort?\n🏡 Luxury & Cozy Cottage Stay\n🚙 Safari Assistance & Guided Tours\n🏊 Swimming Pool & Outdoor Relaxation\n🍽️ Delicious Homestyle Food\n\n🌐 Website: avanitigerresorts.com\n📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra",
-    "ctaType": "LEARN_MORE",
-    "ctaUrl": "https://avanitigerresorts.com/contact-us/",
-    "imageUrl": "https://files.catbox.moe/zv9cpr.jpg",
-    "publishedAt": "2026-10-10T13:03:00.869Z",
+    "id": 1791709400001,
+    "businessName": "Antic Mitra AI Automations",
+    "summary": "🚀 Double Your In-Store Walk-ins with 100% Autopilot Local SEO!\nAre local competitors stealing your customers on Google Maps? Antic Mitra AI automates daily verified posts, geo-targeted keywords, and smart CTAs without lifting a finger.\n\n✨ Why Local Businesses Choose Us:\n📈 Top 3 Google Maps Local Pack Dominance\n⚡ Zero Time Spent Writing or Uploading\n💬 Daily WhatsApp Publishing Reports\n\n🌐 Website: https://anticmitra.com\n📞 Call: +91 98765 43210",
+    "ctaType": "CALL",
+    "ctaUrl": "tel:+919876543210",
+    "imageUrl": "assets/anticmitra_logo.jpg",
+    "publishedAt": "2026-10-11T10:00:00.000Z",
     "status": "PUBLISHED_SUCCESS",
-    "webhookStatus": "Webhook triggered with status 200"
+    "webhookStatus": "Auto-scheduled autopilot run verified"
   },
   {
-    "id": 1791637106460,
-    "businessName": "Avani Tiger Resort",
-    "summary": "🐅 Escape into the Wild at Avani Tiger Resort! 🌿\nPlan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.\n\n✨ Why choose Avani Tiger Resort?\n🏡 Luxury & Cozy Cottage Stay\n🚙 Safari Assistance & Guided Tours\n🏊 Swimming Pool & Outdoor Relaxation\n🍽️ Delicious Homestyle Food\n\n🌐 Website: avanitigerresorts.com\n📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra",
+    "id": 1791709400002,
+    "businessName": "Sri Krishna Sweets & Bakery",
+    "summary": "🍬 Fresh Pure Ghee Sweets & Traditional Delicacies!\nCrafted daily using 100% pure cow ghee and authentic heritage recipes. Try our melt-in-mouth Kaju Katli, warm Mysore Pak, and crispy Motichoor Laddus today!\n\n🌟 Highlights:\n🍯 100% Pure Organic Cow Ghee\n📦 Festival Gift Packs & Bulk Orders\n⚡ Freshly Made Every Morning\n\n📍 Visit our shop or order on WhatsApp!",
+    "ctaType": "CALL",
+    "ctaUrl": "tel:+919876543211",
+    "imageUrl": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=800&q=80",
+    "publishedAt": "2026-10-10T10:00:00.000Z",
+    "status": "PUBLISHED_SUCCESS",
+    "webhookStatus": "Auto-scheduled autopilot run verified"
+  },
+  {
+    "id": 1791709400003,
+    "businessName": "Apex Smile Dental Clinic",
+    "summary": "🦷 Gentle & Advanced Dental Care for the Whole Family!\nFrom routine cleanings to advanced cosmetic veneers and dental implants, Apex Smile offers pain-free dental care with modern digital technology.\n\n⭐ Patient Care Features:\n🩺 Painless Laser Dentistry\n👨‍⚕️ Senior MDS Dental Specialists\n📅 Zero-wait Appointments Available\n\n📍 Book your appointment today!",
     "ctaType": "BOOK",
-    "ctaUrl": "https://avanitigerresorts.com/contact-us/",
-    "imageUrl": "https://files.catbox.moe/zv9cpr.jpg",
-    "publishedAt": "2026-10-10T12:58:26.460Z",
+    "ctaUrl": "https://apexsmiledental.example.com/book",
+    "imageUrl": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
+    "publishedAt": "2026-10-09T10:00:00.000Z",
     "status": "PUBLISHED_SUCCESS",
-    "webhookStatus": "Webhook triggered with status 200"
-  },
-  {
-    "id": 1791636352751,
-    "businessName": "Avani Tiger Resort",
-    "summary": "🐅 Escape into the Wild at Avani Tiger Resort! 🌿\nPlan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.\n\n✨ Why choose Avani Tiger Resort?\n🏡 Luxury & Cozy Cottage Stay\n🚙 Safari Assistance & Guided Tours\n🏊 Swimming Pool & Outdoor Relaxation\n🍽️ Delicious Homestyle Food\n\n🌐 Website: avanitigerresorts.com\n📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra",
-    "ctaType": "LEARN_MORE",
-    "ctaUrl": "https://avanitigerresorts.com/contact-us/",
-    "imageUrl": "avani_tiger_resort_pool.jpg",
-    "publishedAt": "2026-10-10T12:45:52.751Z",
-    "status": "PUBLISHED_SUCCESS",
-    "webhookStatus": "Webhook triggered with status 200"
-  },
-  {
-    "id": 1791634328613,
-    "businessName": "Avani Tiger Resort",
-    "summary": "🐅 Escape into the Wild at Avani Tiger Resort! 🌿\nPlan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.\n\n✨ Why choose Avani Tiger Resort?\n🏡 Luxury & Cozy Cottage Stay\n🚙 Safari Assistance & Guided Tours\n🏊 Swimming Pool & Outdoor Relaxation\n🍽️ Delicious Homestyle Food\n\n🌐 Website: avanitigerresorts.com\n📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra",
-    "ctaType": "LEARN_MORE",
-    "ctaUrl": "https://avanitigerresorts.com/contact-us/",
-    "imageUrl": "avani_tiger_resort_pool.jpg",
-    "publishedAt": "2026-10-10T12:12:08.613Z",
-    "status": "PUBLISHED_SUCCESS",
-    "webhookStatus": "Dispatched to queue"
+    "webhookStatus": "Auto-scheduled autopilot run verified"
   }
 ]

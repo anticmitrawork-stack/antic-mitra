@@ -1,0 +1,101 @@
+{
+  "name": "Antic Mitra AI - Multi-Client GMB Daily Autopilot Loop",
+  "description": "Daily automated loop iterating through all onboarded clients from Google Sheets, creating AI posts, publishing to GMB, and alerting via WhatsApp.",
+  "schedule": {
+    "type": "daily",
+    "time": "10:00:00",
+    "timezone": "Asia/Kolkata"
+  },
+  "modules": [
+    {
+      "id": 1,
+      "module": "google-sheets:searchRows",
+      "name": "1. Fetch All Active Clients (Google Sheets)",
+      "parameters": {
+        "spreadsheetId": "YOUR_ANTIC_MITRA_CLIENTS_SHEET_ID",
+        "sheetId": "Active_Clients",
+        "filter": [
+          {
+            "field": "Status (స్టేటస్)",
+            "operator": "equal",
+            "value": "ACTIVE"
+          }
+        ],
+        "limit": 100
+      },
+      "explanation_telugu": "ఈ మాడ్యూల్ మన గూగుల్ షీట్ లోని 'ACTIVE' స్టేటస్ ఉన్న క్లయింట్లను (Row 1: శ్రీకృష్ణ స్వీట్స్, Row 2: రమేష్ డెంటల్ క్లినిక్, Row 3: రాయల్ సెలూన్...) ఒక్కొక్కటిగా లూప్ (Loop / Iterate) చేస్తుంది. ప్రతీ రో కి తర్వాతి స్టెప్స్ ఆటోమేటిక్ గా రన్ అవుతాయి!"
+    },
+    {
+      "id": 2,
+      "module": "openai:createCompletion",
+      "name": "2. Generate Daily Post with AI",
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are the head digital marketing expert for Antic Mitra AI Automations. Write engaging, high-converting Google Business Profile updates in Telugu and English with attractive emojis and hashtags."
+          },
+          {
+            "role": "user",
+            "content": "Generate a captivating 5-star Google Business Profile post for business '{{1.Business Name}}' which is in '{{1.Category}}' category. Highlight today's fresh availability, great service, and customer satisfaction. Add a strong Call to Action for '{{1.CTA Type}}'. Keep it friendly and appealing."
+          }
+        ]
+      },
+      "explanation_telugu": "క్లయింట్ కేటగిరీని బట్టి (స్వీట్ షాప్ అయితే నెయ్యి స్వీట్లు, డెంటల్ అయితే దంత చికిత్స, సెలూన్ అయితే హెయిర్ కట్) AI సూపర్ పోస్ట్ కంటెంట్ తయారు చేస్తుంది."
+    },
+    {
+      "id": 3,
+      "module": "google-my-business:createPost",
+      "name": "3. Publish to Client's Google Maps Profile",
+      "parameters": {
+        "account": "anticmitrawork@gmail.com",
+        "location": "{{1.Location ID || 1.Business Name}}",
+        "postType": "STANDARD",
+        "summary": "{{2.choices[].message.content}}",
+        "callToAction": {
+          "actionType": "{{1.CTA Type}}",
+          "url": "{{1.CTA Target}}"
+        },
+        "media": [
+          {
+            "mediaFormat": "PHOTO",
+            "sourceUrl": "{{1.Photo URL}}"
+          }
+        ]
+      },
+      "explanation_telugu": "మనం మేనేజర్ గా యాడ్ అయిన క్లయింట్ ప్రొఫైల్ లోకి AI రాసిన మేటర్ మరియు క్లయింట్ ఫోటోను నేరుగా Google Maps లో పబ్లిష్ చేస్తుంది."
+    },
+    {
+      "id": 4,
+      "module": "http:makeRequest",
+      "name": "4. Send WhatsApp Notification to Client",
+      "parameters": {
+        "url": "https://api.wasapi.io/v1/messages/send",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "phone": "{{1.WhatsApp Number}}",
+          "message": "నమస్తే {{1.Business Name}} గారు! 🚀\n\nఈ రోజు మీ Google Business Profile లో సరికొత్త ఆఫర్ పోస్ట్ సక్సెస్ ఫుల్ గా పబ్లిష్ చేయబడింది! ✨\n\n📍 చెక్ చేయడానికి లింక్: https://maps.google.com\n\nరేపు మళ్ళీ సరైన సమయానికి మరో కొత్త పోస్ట్ పబ్లిష్ అవుతుంది.\n- Antic Mitra AI Autopilot Studio"
+        }
+      },
+      "explanation_telugu": "పోస్ట్ పబ్లిష్ అవ్వగానే ఆ క్లయింట్ వాట్సాప్ కి కన్ఫర్మేషన్ మెసేజ్ వెళ్తుంది!"
+    },
+    {
+      "id": 5,
+      "module": "google-sheets:updateRow",
+      "name": "5. Update Last Posted Timestamp in Sheet",
+      "parameters": {
+        "spreadsheetId": "YOUR_ANTIC_MITRA_CLIENTS_SHEET_ID",
+        "sheetId": "Active_Clients",
+        "rowNumber": "{{1.__ROW_NUMBER__}}",
+        "values": {
+          "Last Posted At": "{{now}}"
+        }
+      },
+      "explanation_telugu": "గూగుల్ షీట్ లో ఆ క్లయింట్ పక్కన ఈ రోజు ఏ టైం కి పోస్ట్ అయ్యిందో రికార్డ్ అవుతుంది."
+    }
+  ]
+}

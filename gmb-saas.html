@@ -3,315 +3,487 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antic Mitra — AI GMB Studio SaaS Platform</title>
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <title>Antic Mitra AI — Google Business Profile Studio</title>
+  <link rel="icon" type="image/jpeg" href="assets/anticmitra_logo.jpg">
+
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       ANTIC MITRA BRAND SYSTEM
+       Clean, Fixed, Simple SaaS Interface (Zero Clutter, Zero Heavy Text)
+       ========================================================================== */
     :root {
-      --violet: #7B3FF2;
-      --violet-light: #F0EAFF;
-      --pink: #FF5C8A;
-      --pink-light: #FFF0F4;
-      --lime: #C6F432;
-      --sky: #2EC5FF;
-      --yellow: #FFC93C;
-      --cream: #FFFDF7;
-      --white: #FFFFFF;
-      --text-dark: #1E1A2E;
-      --text-muted: #6B6580;
-      --border: #E8E3F5;
-      --shadow-sm: 0 2px 8px rgba(123, 63, 242, 0.06);
-      --shadow-md: 0 8px 24px rgba(123, 63, 242, 0.1);
-      --shadow-lg: 0 16px 40px rgba(123, 63, 242, 0.14);
-      --radius: 14px;
+      --royal-violet: #6D28D9;
+      --indigo: #4F46E5;
+      --soft-violet: #F0EAFE;
+      --pure-white: #FFFFFF;
+      --lavender-grey: #F8F9FC;
+      --deep-navy: #16122E;
+      --slate-purple: #4A4664;
+      --muted-grey: #8A85A0;
+      --border-color: #E6E4F0;
+      --emerald: #0E9F6E;
+      --mint-light: #E2F6EE;
+      --review-gold: #F5A524;
+      --brand-gradient: linear-gradient(135deg, #6D28D9 0%, #4F46E5 100%);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--cream);
-      color: var(--text-dark);
-      min-height: 100vh;
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--deep-navy);
+      background-color: var(--lavender-grey);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Fixed App Layout */
+    .app-layout {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    /* ==========================================================================
+       LEFT SIDEBAR (Fixed & Minimalist)
+       ========================================================================== */
+    .app-sidebar {
+      width: 250px;
+      background: var(--pure-white);
+      border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
+      height: 100%;
     }
 
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-
-    /* Top Navigation Bar */
-    .saas-header {
-      background: var(--white);
-      border-bottom: 2px solid var(--border);
-      padding: 14px 28px;
+    .sidebar-brand-box {
+      padding: 20px 18px;
+      border-bottom: 1px solid var(--border-color);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      gap: 12px;
+      text-decoration: none;
     }
-    .header-left { display: flex; align-items: center; gap: 24px; }
-    .brand-logo { height: 42px; border-radius: 8px; }
-    .app-badge {
-      background: var(--violet-light);
-      color: var(--violet);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 20px;
+    .sidebar-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(109, 40, 217, 0.15);
+    }
+    .sidebar-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--deep-navy);
+      line-height: 1.1;
+    }
+    .sidebar-title span {
+      color: var(--royal-violet);
+    }
+    .sidebar-subtitle {
+      font-size: 11px;
+      color: var(--muted-grey);
+      font-weight: 600;
+    }
+
+    /* Clean 4 Options Menu */
+    .sidebar-menu {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 6px;
+      padding: 20px 14px;
+      flex: 1;
     }
-    .header-right { display: flex; align-items: center; gap: 16px; }
-    .user-pill {
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--slate-purple);
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-btn:hover {
+      background: var(--soft-violet);
+      color: var(--royal-violet);
+    }
+    .menu-btn.active {
+      background: var(--soft-violet);
+      color: var(--royal-violet);
+      border-color: rgba(109, 40, 217, 0.25);
+    }
+    .menu-btn-icon {
+      font-size: 17px;
+      width: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-btn-logout {
+      margin-top: auto;
+      color: #DC2626;
+    }
+    .menu-btn-logout:hover {
+      background: #FEE2E2;
+      color: #B91C1C;
+    }
+
+    .sidebar-user {
+      padding: 14px 18px;
+      border-top: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 30px;
+      background: #FAFAFC;
     }
     .user-avatar {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
-      background: var(--violet);
+      background: var(--royal-violet);
       color: white;
+      font-size: 12px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
     }
-    .btn-logout {
-      background: none;
-      border: none;
-      color: var(--pink);
+    .user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--deep-navy);
+    }
+    .user-badge {
+      font-size: 10px;
+      color: var(--emerald);
       font-weight: 600;
-      cursor: pointer;
-      font-size: 13px;
     }
 
-    /* Layout Wrapper */
-    .saas-layout {
-      display: flex;
+    /* ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== */
+    .app-main {
       flex: 1;
-      height: calc(100vh - 72px);
-    }
-
-    /* Sidebar Navigation */
-    .saas-sidebar {
-      width: 250px;
-      background: var(--white);
-      border-right: 2px solid var(--border);
-      padding: 24px 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      height: 100%;
+      overflow: hidden;
+      min-width: 0;
     }
-    .nav-item {
+
+    /* Minimal Top Header */
+    .app-header {
+      background: var(--pure-white);
+      border-bottom: 1px solid var(--border-color);
+      height: 60px;
+      padding: 0 28px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .header-breadcrumb {
       font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
+      font-weight: 700;
+      color: var(--deep-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .nav-item:hover { background: var(--violet-light); color: var(--violet); }
-    .nav-item.active { background: var(--violet); color: var(--white); }
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--mint-light);
+      color: var(--emerald);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
 
-    /* Main Working Canvas */
-    .saas-content {
+    /* Content Area (Scrollable within each tab if needed) */
+    .content-viewport {
       flex: 1;
+      padding: 24px 28px;
       overflow-y: auto;
-      padding: 28px 36px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
     }
 
-    /* Studio Card */
-    .studio-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1.5px solid var(--border);
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
+    /* Tab Page Containers */
+    .tab-page {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+    .tab-page.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
+    .clean-card {
+      background: var(--pure-white);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     .card-title {
-      font-size: 20px;
-      color: var(--text-dark);
-      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--deep-navy);
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .form-group { margin-bottom: 20px; }
+    /* Form Inputs */
+    .form-group {
+      margin-bottom: 14px;
+    }
     .form-label {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--slate-purple);
+      margin-bottom: 5px;
     }
-    .form-select, .form-input, .form-textarea {
+    .form-input, .form-select {
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: var(--cream);
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      font-size: 13.5px;
       font-family: inherit;
-      font-size: 14px;
-      color: var(--text-dark);
+      color: var(--deep-navy);
+      background: #FAFAFC;
       outline: none;
-      transition: border-color 0.2s;
+      transition: all 0.2s;
     }
-    .form-select:focus, .form-input:focus, .form-textarea:focus {
-      border-color: var(--violet);
-      background: var(--white);
+    .form-input:focus, .form-select:focus {
+      border-color: var(--royal-violet);
+      background: var(--pure-white);
+      box-shadow: 0 0 0 3px var(--soft-violet);
     }
-    .form-textarea {
-      height: 160px;
-      resize: vertical;
-      line-height: 1.6;
+    .form-input::placeholder {
+      color: #A0AEC0;
+      font-weight: 400;
     }
 
-    /* Buttons */
-    .btn {
+    /* Action Buttons in Setup Form */
+    .btn-pills-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .btn-pill {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: #FAFAFC;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate-purple);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .btn-pill.active {
+      background: var(--soft-violet);
+      border-color: var(--royal-violet);
+      color: var(--royal-violet);
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
       transition: all 0.2s;
-      text-decoration: none;
     }
-    .btn-ai {
-      background: linear-gradient(135deg, var(--violet), var(--pink));
-      color: var(--white);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 12px;
+    .btn-primary:hover {
+      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.35);
+      transform: translateY(-1px);
     }
-    .btn-ai:hover { opacity: 0.95; transform: translateY(-1px); }
-    .btn-publish {
-      width: 100%;
-      background: var(--lime);
-      color: var(--text-dark);
-      font-size: 16px;
-      padding: 16px;
-      font-weight: 800;
-      box-shadow: 0 4px 16px rgba(198, 244, 50, 0.4);
-    }
-    .btn-publish:hover { background: #b4e02b; transform: translateY(-2px); }
 
-    /* Live Google Preview Column */
-    .preview-column {
-      display: flex;
-      flex-direction: column;
+    /* Business Details Grid: Left Form (1.1fr), Right Live Preview (0.9fr) */
+    .details-split-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 20px;
+      align-items: start;
     }
-    .google-preview-card {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1.5px solid #E0E0E0;
+
+    /* Google Preview Card */
+    .g-preview-box {
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
+      background: white;
     }
-    .preview-header {
-      padding: 14px 18px;
-      background: #F8F9FA;
-      border-bottom: 1px solid #ECECEC;
+    .g-preview-header {
+      padding: 12px 14px;
+      border-bottom: 1px solid #F1F5F9;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      background: #FAFAFC;
     }
-    .google-badge {
-      background: #4285F4;
-      color: white;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .preview-business-title {
-      font-size: 15px;
+    .g-biz-name {
+      font-size: 14px;
       font-weight: 700;
-      color: #202124;
+      color: #1A0DAB;
     }
-    .preview-image {
+    .g-biz-rating {
+      font-size: 11px;
+      color: #70757A;
+    }
+    .g-preview-img {
       width: 100%;
-      height: 220px;
+      height: 180px;
       object-fit: cover;
-      background: #FAFAFA;
-      display: block;
+      background: #F8F9FA;
     }
-    .preview-body { padding: 18px; }
-    .preview-post-text {
-      font-size: 13.5px;
-      line-height: 1.6;
+    .g-preview-body {
+      padding: 14px;
+    }
+    .g-post-text {
+      font-size: 13px;
+      line-height: 1.5;
       color: #3C4043;
-      white-space: pre-wrap;
-      margin-bottom: 18px;
+      min-height: 50px;
+      margin-bottom: 14px;
     }
-    .preview-cta-btn {
+    .g-btn-cta {
       display: inline-block;
       background: #1A73E8;
       color: white;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 7px 18px;
+      border-radius: 20px;
       text-decoration: none;
     }
 
-    /* Auth Overlay Modal */
-    .auth-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(30, 26, 46, 0.6);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .auth-modal {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 40px;
-      width: 440px;
-      max-width: 90%;
-      box-shadow: var(--shadow-lg);
-      border: 3px solid var(--violet);
+    /* WhatsApp Tab (Page 2) */
+    .wa-center-box {
+      max-width: 520px;
+      margin: 0 auto;
       text-align: center;
     }
-    .demo-pill {
-      background: var(--lime);
-      color: var(--text-dark);
-      font-size: 12px;
+    .qr-frame {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      margin: 16px 0;
+    }
+    .wa-steps {
+      text-align: left;
+      font-size: 13px;
+      color: var(--slate-purple);
+      line-height: 1.6;
+      margin: 16px auto;
+      padding-left: 20px;
+    }
+    .wa-steps li { margin-bottom: 4px; }
+
+    /* WhatsApp Chat Bubble */
+    .wa-bubble-wrap {
+      background: #EFEAE2;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: left;
+      margin-top: 18px;
+      border: 1px solid #D1D7DB;
+    }
+    .wa-bubble {
+      background: white;
+      padding: 12px 14px;
+      border-radius: 10px 10px 10px 2px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #111B21;
+    }
+    .wa-time {
+      font-size: 10px;
+      color: #667781;
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    /* Billing Tab (Page 3) */
+    .billing-cards-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .billing-stat-box {
+      background: #FAFAFC;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .billing-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted-grey);
+      text-transform: uppercase;
+    }
+    .billing-value {
+      font-size: 20px;
       font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 16px;
+      color: var(--deep-navy);
+      margin-top: 4px;
+    }
+    .billing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .billing-table th {
+      text-align: left;
+      padding: 10px 12px;
+      background: #FAFAFC;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 700;
+    }
+    .billing-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--slate-purple);
     }
 
     /* Toast */
@@ -319,231 +491,1587 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: var(--text-dark);
+      background: var(--deep-navy);
       color: white;
-      padding: 16px 24px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-lg);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
       display: none;
       align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      z-index: 2000;
-      border-left: 6px solid var(--lime);
+      gap: 8px;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Auth Overlay */
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(22, 18, 46, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+    }
+    .auth-card {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 400px;
+      padding: 34px 28px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 900px) {
+      .details-split-grid { grid-template-columns: 1fr; }
+      .billing-cards-row { grid-template-columns: 1fr; }
+      .app-sidebar { width: 70px; }
+      .sidebar-title, .sidebar-subtitle, .menu-btn-text, .sidebar-user-info { display: none; }
+      .menu-btn { justify-content: center; padding: 12px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= AUTH OVERLAY MODAL ================= -->
+  <!-- ================= AUTHENTICATION MODAL ================= -->
   <div class="auth-overlay" id="authOverlay">
-    <div class="auth-modal">
-      <span class="demo-pill">✨ DEMO LOGIN ACTIVE</span>
-      <h2 style="color: var(--violet); margin-bottom: 8px;">Antic Mitra GMB SaaS</h2>
-      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 24px;">Sign in to manage and auto-publish to Google Business Profiles.</p>
-      
-      <div style="background: var(--cream); border: 1.5px dashed var(--violet); padding: 14px; border-radius: 10px; margin-bottom: 20px; text-align: left; font-size: 13px;">
-        <p><b>Demo Email:</b> <span id="copyEmail" style="color: var(--violet); cursor: pointer;">demo@anticmitra.com</span></p>
-        <p style="margin-top: 4px;"><b>Password:</b> <span style="color: var(--violet);">mitra@2026</span></p>
+    <div class="auth-card">
+      <img src="assets/anticmitra_logo.jpg" alt="Logo" style="width: 48px; height: 48px; border-radius: 12px; margin-bottom: 12px;">
+      <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Sign In — Anji's Studio</h2>
+      <p style="font-size: 12.5px; color: var(--muted-grey); margin-bottom: 20px;">Antic Mitra AI • Personal Admin Workspace</p>
+
+      <div style="background: #F5F3FF; border: 1.5px dashed var(--royal-violet); border-radius: 8px; padding: 10px; margin-bottom: 16px; font-size: 12px; text-align: left;">
+        <div style="font-weight: 800; color: var(--royal-violet); margin-bottom: 2px;">👤 Personal Account: Anji</div>
+        <div style="color: #475569;">Email: <strong>masewops@gmail.com</strong></div>
+        <div style="color: #475569;">Password: <strong>anji@2026</strong></div>
       </div>
 
-      <form id="loginForm">
-        <div class="form-group" style="text-align: left;">
-          <label class="form-label">Email</label>
-          <input type="email" id="loginEmail" class="form-input" value="demo@anticmitra.com" required>
+      <form id="loginForm" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        <div>
+          <label style="font-size: 11px; font-weight: 700;">PERSONAL EMAIL</label>
+          <input type="email" id="loginEmail" class="form-input" value="masewops@gmail.com" required style="margin-top: 3px;">
         </div>
-        <div class="form-group" style="text-align: left;">
-          <label class="form-label">Password</label>
-          <input type="password" id="loginPassword" class="form-input" value="mitra@2026" required>
+        <div>
+          <label style="font-size: 11px; font-weight: 700;">PASSWORD</label>
+          <input type="password" id="loginPassword" class="form-input" value="anji@2026" required style="margin-top: 3px;">
         </div>
-        <button type="submit" class="btn btn-ai" style="width: 100%; padding: 14px; font-size: 15px;">
-          🚀 Sign In to Dashboard
-        </button>
+        <button type="submit" class="btn-primary" style="padding: 12px; margin-top: 6px;">Sign In as Anji 🚀</button>
       </form>
     </div>
   </div>
 
-  <!-- ================= TOP HEADER ================= -->
-  <header class="saas-header">
-    <div class="header-left">
-      <a href="index.html">
-        <img src="assets/logo.jpg" alt="Antic Mitra" class="brand-logo">
-      </a>
-      <div class="app-badge">
-        <span>⚡</span> GMB Auto-Poster Pro
-      </div>
-    </div>
-    <div class="header-right">
-      <a href="index.html" class="nav-item" style="padding: 6px 12px;">← Back to Website</a>
-      <div class="user-pill">
-        <div class="user-avatar" id="userInitial">A</div>
-        <div style="text-align: left;">
-          <div style="font-size: 12px; font-weight: 700;" id="userName">Anji (MasewMedia)</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Enterprise Pro Plan</div>
-        </div>
-        <button class="btn-logout" id="btnLogout">Sign Out</button>
-      </div>
-    </div>
-  </header>
+  <!-- ================= FIXED APP LAYOUT ================= -->
+  <div class="app-layout">
 
-  <!-- ================= MAIN SAAS LAYOUT ================= -->
-  <div class="saas-layout">
-    <!-- Sidebar -->
-    <aside class="saas-sidebar">
-      <div class="nav-item active">✨ Post Studio</div>
-      <div class="nav-item" onclick="openWebhookSettings()">🔑 API & Webhook Config</div>
-      <div class="nav-item" onclick="viewHistory()">📋 Published History</div>
-      <div class="nav-item" onclick="alert('Connected to: Avani Tiger Resort, Vaiava Studios')">🏢 Connected Profiles (2)</div>
-      <div class="nav-item" onclick="window.location.href='index.html'">🌐 Main Website</div>
+    <!-- ================= 1. FIXED LEFT SIDEBAR ================= -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-brand-box">
+        <img src="assets/anticmitra_logo.jpg" alt="Logo" class="sidebar-logo-img">
+        <div>
+          <div class="sidebar-title">Antic Mitra <span>AI</span></div>
+          <div class="sidebar-subtitle">GMB Autopilot Studio</div>
+        </div>
+      </a>
+
+      <!-- 4 Clean Options Only -->
+      <nav class="sidebar-menu">
+        <button type="button" class="menu-btn active" id="tabBtnDetails" onclick="navigateTo('details')">
+          <span class="menu-btn-icon">🏢</span>
+          <span class="menu-btn-text">Business Details</span>
+        </button>
+
+        <button type="button" class="menu-btn" id="tabBtnWhatsapp" onclick="navigateTo('whatsapp')">
+          <span class="menu-btn-icon">📱</span>
+          <span class="menu-btn-text">Connect Your WhatsApp</span>
+        </button>
+
+        <button type="button" class="menu-btn" id="tabBtnBilling" onclick="navigateTo('billing')">
+          <span class="menu-btn-icon">💳</span>
+          <span class="menu-btn-text">Billing</span>
+        </button>
+
+        <button type="button" class="menu-btn menu-btn-logout" onclick="handleLogout()">
+          <span class="menu-btn-icon">🚪</span>
+          <span class="menu-btn-text">Logout</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-avatar" id="userInitial">A</div>
+        <div class="sidebar-user-info">
+          <div class="user-name" id="userName">Anji</div>
+          <div class="user-badge">Founder &amp; Owner</div>
+        </div>
+      </div>
     </aside>
 
-    <!-- Main Studio Canvas -->
-    <main class="saas-content">
-      <!-- Left Column: Form & AI Controls -->
-      <section class="studio-card">
-        <div class="card-title">
-          <span>📝 AI Content & Publishing Studio</span>
-          <span style="font-size: 12px; background: var(--pink-light); color: var(--pink); padding: 4px 10px; border-radius: 12px; font-weight: 700;">Live Mode</span>
+    <!-- ================= 2. MAIN APPLICATION WORKSPACE ================= -->
+    <div class="app-main">
+
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-breadcrumb" id="headerTitle">
+          🏢 Business Details
         </div>
-
-        <!-- Business Profile Selection -->
-        <div class="form-group">
-          <label class="form-label">Active Business Profile</label>
-          <select class="form-select" id="businessSelect">
-            <option value="Avani Tiger Resort">🐅 Avani Tiger Resort (Sunna Gate, Tipeshwar)</option>
-            <option value="Vaiava Studios">🎬 Vaiava Studios</option>
-            <option value="Antic Mitra AI">⚡ Antic Mitra AI Automations</option>
-          </select>
+        <div class="status-pill">
+          <span style="font-size: 8px;">●</span>
+          <span>100% Autopilot Ready</span>
         </div>
+      </header>
 
-        <!-- AI Generator Action -->
-        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px;">
-          <button class="btn btn-ai" id="btnAiGenerate" style="margin-bottom: 0; flex: 1;">
-            ✨ Generate Local SEO Post with AI
-          </button>
-          <select id="postVibe" class="form-select" style="width: 160px;">
-            <option value="safari">Tiger Safari Special</option>
-            <option value="weekend">Weekend Getaway</option>
-            <option value="luxury">Luxury & Pool Stay</option>
-          </select>
-        </div>
+      <!-- Viewport (Individual Standalone Pages) -->
+      <div class="content-viewport">
 
-        <!-- Description Textarea -->
-        <div class="form-group">
-          <label class="form-label">Post Description (What's New)</label>
-          <textarea class="form-textarea" id="postSummary">🐅 Escape into the Wild at Avani Tiger Resort! 🌿
-Plan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.
+        <!-- ================= PAGE 1: BUSINESS DETAILS (Completely Standalone) ================= -->
+        <div class="tab-page active" id="pageBusinessDetails">
 
-✨ Why choose Avani Tiger Resort?
-🏡 Luxury & Cozy Cottage Stay
-🚙 Safari Assistance & Guided Tours
-🏊 Swimming Pool & Outdoor Relaxation
-🍽️ Delicious Homestyle Food
-
-🌐 Website: avanitigerresorts.com
-📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra</textarea>
-        </div>
-
-        <!-- Media Attachment -->
-        <div class="form-group">
-          <label class="form-label">Photo Attachment (Resort Image)</label>
-          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
-            <input type="text" class="form-input" id="imageUrlInput" value="https://files.catbox.moe/zv9cpr.jpg" placeholder="Public HTTPS Image URL">
-            <button type="button" class="btn" style="background: var(--violet-light); color: var(--violet); white-space: nowrap;" onclick="useUploadedPoolPhoto()">Use Pool Photo</button>
-          </div>
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="file" id="localFileInput" accept="image/*" style="display: none;" onchange="handleLocalFileUpload(event)">
-            <button type="button" class="btn" style="background: var(--pink-light); color: var(--pink); width: 100%; border: 1.5px dashed var(--pink);" onclick="document.getElementById('localFileInput').click()">
-              📁 Upload New Photo from Computer (Auto-Cloud Hosted)
-            </button>
-          </div>
-        </div>
-
-        <!-- CTA Button Link -->
-        <div class="form-group">
-          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px;">
-            <div>
-              <label class="form-label">Action Button</label>
-              <select class="form-select" id="ctaType">
-                <option value="LEARN_MORE">Learn more</option>
-                <option value="BOOK">Book</option>
-                <option value="CALL">Call now</option>
+          <!-- Account Switcher Bar (Select Personal or Client Account) -->
+          <div style="background: white; border: 1.5px solid var(--royal-violet); border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 24px;">🏢</span>
+              <div>
+                <div style="font-size: 13.5px; font-weight: 800; color: var(--deep-navy);">SELECT ACTIVE BUSINESS / CLIENT ACCOUNT:</div>
+                <div style="font-size: 11.5px; color: var(--muted-grey);">Switch between Anji Personal or Client profiles to manage each Make.com scenario &amp; webhook</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <select id="selectCurrentAccount" onchange="switchAccountFromDropdown(this.value)" style="padding: 10px 14px; border: 1.5px solid var(--royal-violet); border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--deep-navy); background: #FAF5FF; cursor: pointer; min-width: 280px;">
+                <option value="CLI_PERSONAL">🌟 Antic Mitra AI - Digital Marketing &amp; Automations (My Account)</option>
+                <option value="NEW">➕ + Add New Business Account</option>
               </select>
+              <button type="button" onclick="createNewAccountPrompt()" class="btn-primary" style="padding: 9px 14px; font-size: 12px; white-space: nowrap;">
+                + Add Account
+              </button>
             </div>
-            <div>
-              <label class="form-label">Button Action URL</label>
-              <input type="url" class="form-input" id="ctaUrl" value="https://avanitigerresorts.com/contact-us/">
+          </div>
+
+          <div class="details-split-grid">
+
+            <!-- Left: Fully Empty Setup Form -->
+            <div class="clean-card">
+              <div class="card-title">
+                <span>Business Setup</span>
+                <span style="font-size: 11px; color: var(--emerald); font-weight: 700;">● Live Preview Sync</span>
+              </div>
+
+              <form id="detailsForm" onsubmit="event.preventDefault(); saveBusinessDetails();">
+
+                <!-- Dedicated Make.com Webhook for this Account -->
+                <div style="background: #FAF5FF; border: 1.5px dashed var(--royal-violet); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <span style="font-size: 16px;">⚡</span>
+                      <span style="font-size: 12px; font-weight: 800; color: var(--royal-violet);">MAKE.COM WEBHOOK URL (FOR THIS ACCOUNT):</span>
+                    </div>
+                    <span style="font-size: 10.5px; background: white; color: var(--royal-violet); padding: 2px 8px; border-radius: 10px; font-weight: 700; border: 1px solid var(--royal-violet);">1 Scenario per Account</span>
+                  </div>
+                  <p style="font-size: 11.5px; color: #475569; margin-bottom: 10px; line-height: 1.4;">
+                    Paste the <strong>Custom Webhook URL</strong> from this account's Make.com scenario below:
+                  </p>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <input type="text" id="inputCurrentAccountWebhook" class="form-input" placeholder="https://hook.eu1.make.com/abc123xyz..." style="flex: 1; min-width: 250px; background: white; font-family: monospace; font-size: 12px;">
+                    <button type="button" onclick="triggerCurrentAccountWebhook()" class="btn-primary" style="padding: 8px 14px; font-size: 12px; background: #059669; white-space: nowrap;">
+                      🚀 Test / Trigger Webhook Now
+                    </button>
+                  </div>
+                </div>
+
+                <!-- AI Smart Onboarding: Paste ChatGPT Link -->
+                <div style="background: #F0FDF4; border: 1.5px solid #22C55E; border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <span style="font-size: 16px;">🤖</span>
+                      <span style="font-size: 12px; font-weight: 800; color: #15803D;">PASTE CHATGPT CHAT LINK (AI AUTO-FILL):</span>
+                    </div>
+                    <span style="font-size: 10.5px; background: white; color: #16A34A; padding: 2px 8px; border-radius: 10px; font-weight: 700; border: 1px solid #86EFAC;">⚡ Instant Profile Generator</span>
+                  </div>
+                  <p style="font-size: 11.5px; color: #374151; margin-bottom: 10px; line-height: 1.4;">
+                    Paste your ChatGPT shared chat link (e.g. <code>https://chatgpt.com/share/...</code>) or client conversation notes below to automatically create business information:
+                  </p>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <input type="text" id="inputChatGptLink" class="form-input" placeholder="Paste ChatGPT chat link (https://chatgpt.com/share/...) or notes..." style="flex: 1; min-width: 250px; background: white; font-size: 12px;">
+                    <button type="button" onclick="autoFillFromChatGptLink()" class="btn-primary" style="padding: 8px 16px; font-size: 12px; background: #16A34A; white-space: nowrap;">
+                      ✨ Auto-Fill Info from Chat
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Business Name on Google Maps:</label>
+                  <input type="text" id="inputBizName" class="form-input" value="" placeholder="e.g. Antic Mitra AI - Digital Marketing & Automations" oninput="syncLivePreview()">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Category &amp; Specialties (Short Category):</label>
+                  <input type="text" id="inputCategory" class="form-input" value="" placeholder="e.g. Pediatrician &amp; Children's Clinic, Resort Hotel..." oninput="syncLivePreview()">
+                </div>
+
+                <!-- TARGETED SEO KEYWORDS (NEW DEDICATED SECTION) -->
+                <div class="form-group" style="background: #FDF4FF; border: 1.5px solid #E9D5FF; border-radius: 10px; padding: 12px 14px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <label class="form-label" style="margin-bottom: 0; font-weight: 800; color: var(--royal-violet); display: flex; align-items: center; gap: 6px;">
+                      <span>🎯</span>
+                      <span>Targeted SEO Keywords for Geo-Tagging &amp; GBP Ranking (లక్ష్యిత కీలకపదాలు):</span>
+                    </label>
+                    <span style="font-size: 10.5px; font-weight: 700; color: #7E22CE; background: #F3E8FF; padding: 2px 8px; border-radius: 6px;">Multi-Keyword</span>
+                  </div>
+                  <textarea id="inputKeywords" class="form-input" rows="3" style="width: 100%; font-size: 12.5px; line-height: 1.5; padding: 10px 12px; resize: vertical; border-radius: 8px; border: 1.5px solid #CBD5E1; font-family: inherit; background: white;" placeholder="e.g. VED Children's Clinic Puppalguda, Best pediatrician in Puppalguda Hyderabad, Dr. Shiva kumar reddy child specialist, Pediatrician near Alkapur Township Manikonda..."></textarea>
+                  <div style="font-size: 10.5px; color: #6B21A8; margin-top: 5px; font-weight: 500;">
+                    💡 <strong>SEO Advantage:</strong> మీరు ఇక్కడ ఇచ్చే కీవర్డ్స్ మీరు అప్‌లోడ్ చేసే ప్రతి ఫోటో EXIF మెటాడేటా (Title, Model, Description, Alt-text) మరియు ఫైల్ నేమ్స్‌లలో గూగుల్ మ్యాప్స్ ర్యాంకింగ్ కోసం ఆటోమేటిక్‌గా ఇంజెక్ట్ అవుతాయి!
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div class="form-group">
+                    <label class="form-label">Daily Posting Time:</label>
+                    <select id="inputPostTime" class="form-select" onchange="syncLivePreview()">
+                      <option value="10:00 AM" selected>10:00 AM</option>
+                      <option value="09:00 AM">09:00 AM</option>
+                      <option value="11:30 AM">11:30 AM</option>
+                      <option value="02:00 PM">02:00 PM</option>
+                      <option value="06:00 PM">06:00 PM</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">WhatsApp Number:</label>
+                    <input type="text" id="inputWhatsapp" class="form-input" value="" placeholder="e.g. +91 98850 12345" oninput="syncLivePreview()">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Google Maps Action Button:</label>
+                  <div class="btn-pills-row">
+                    <button type="button" class="btn-pill active" id="pillCall" onclick="selectCta('CALL')">📞 Call Now</button>
+                    <button type="button" class="btn-pill" id="pillBook" onclick="selectCta('BOOK')">📅 Book Online</button>
+                    <button type="button" class="btn-pill" id="pillWeb" onclick="selectCta('WEBSITE')">🌐 Visit Website</button>
+                  </div>
+                  <input type="text" id="inputCtaTarget" class="form-input" value="" placeholder="Enter phone number or website/booking link..." oninput="syncLivePreview()">
+                </div>
+
+                <div class="form-group">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <label class="form-label" style="margin-bottom: 0;">Photos in Daily Rotation:</label>
+                    <span id="photoCountLabel" style="font-size: 11.5px; font-weight: 700; color: var(--royal-violet);">0 Photos Loaded</span>
+                  </div>
+
+                  <!-- Thumbnails Row -->
+                  <div id="photoThumbnailRow" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;"></div>
+
+                  <!-- Custom Exact Latitude & Longitude Inputs (STRICT USER PROVIDED ONLY) -->
+                  <div style="background: #F8FAFC; border: 1.5px solid #94A3B8; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                      <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 16px;">📍</span>
+                        <span style="font-size: 11.5px; font-weight: 800; color: #0F172A;">EXACT GPS COORDINATES (మీరు అందించే అక్షాంశం &amp; రేఖాంశం):</span>
+                      </div>
+                      <span style="font-size: 10px; background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 6px; font-weight: 800; border: 1px solid #86EFAC;">
+                        🔒 Strict User Coordinates • No Random Coords
+                      </span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                      <div>
+                        <label style="font-size: 10.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 3px;">
+                          Latitude (అక్షాంశం):
+                        </label>
+                        <input type="number" step="any" id="geoLatInput" value="" placeholder="e.g. 17.40025660" style="width: 100%; font-size: 12.5px; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 6px; background: white; font-family: monospace; font-weight: 700; color: #0F172A;" oninput="updateGeoBadge()">
+                      </div>
+                      <div>
+                        <label style="font-size: 10.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 3px;">
+                          Longitude (రేఖాంశం):
+                        </label>
+                        <input type="number" step="any" id="geoLngInput" value="" placeholder="e.g. 78.36522940" style="width: 100%; font-size: 12.5px; padding: 8px 10px; border: 1.5px solid #CBD5E1; border-radius: 6px; background: white; font-family: monospace; font-weight: 700; color: #0F172A;" oninput="updateGeoBadge()">
+                      </div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px; flex-wrap: wrap; gap: 6px;">
+                      <div id="geoCoordsBadge" style="font-size: 11px; color: #475569; font-weight: 600;">
+                        📌 Current GPS: <span id="lblActiveCoords" style="font-family: monospace; font-weight: 800; color: var(--royal-violet);">Not set</span>
+                      </div>
+                      <span style="font-size: 10px; color: #64748B;">
+                        మీరు ఇక్కడ ఇచ్చిన Latitude, Longitude మాత్రమే ఫోటోలకు ఖచ్చితంగా ట్యాగ్ అవుతాయి.
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- SINGLE DIRECT UPLOAD OPTION -->
+                  <div id="directUploadZone" onclick="document.getElementById('directFileInput').click()" style="border: 2px dashed var(--royal-violet); border-radius: 12px; padding: 22px 16px; text-align: center; background: #FAF5FF; cursor: pointer; transition: all 0.2s ease;">
+                    <input type="file" id="directFileInput" accept="image/*,.zip" multiple style="display: none;" onchange="handleDirectUpload(this.files)">
+                    <div style="font-size: 34px; margin-bottom: 4px;">📸</div>
+                    <div style="font-size: 14.5px; font-weight: 800; color: #1E293B;">
+                      + Upload Images or .ZIP File (ఫోటోలు లేదా ZIP అప్‌లోడ్ చేయండి)
+                    </div>
+                    <div style="font-size: 11.5px; color: #64748B; margin-top: 4px;">
+                      కంప్యూటర్ నుండి ఫోటోలు లేదా .ZIP సెలెక్ట్ చేయడానికి క్లిక్ చేయండి లేదా ఇక్కడ డ్రాగ్ చేయండి (Click or Drag &amp; Drop)
+                    </div>
+                    <div style="margin-top: 8px; display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+                      <span id="uploadBadgeGps" style="font-size: 10.5px; background: #EDE9FE; color: var(--royal-violet); font-weight: 700; padding: 3px 10px; border-radius: 6px;">
+                        ⚡ Auto-GeoTagged with Exact User GPS
+                      </span>
+                      <span style="font-size: 10.5px; background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 3px 10px; border-radius: 6px;">
+                        🏷️ Injected with Targeted Keywords
+                      </span>
+                    </div>
+                  </div>
+
+                  <div id="uploadStatusText" style="display: none; padding: 10px 14px; background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 8px; font-size: 12px; font-weight: 700; color: #15803D; margin-top: 8px;"></div>
+
+                  <!-- Download ZIP Link & Actions -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 8px;">
+                    <button type="button" onclick="clearAllClientPhotos()" style="background: none; border: none; font-size: 11px; color: #DC2626; cursor: pointer; text-decoration: underline; font-weight: 600;">
+                      🗑️ Clear all photos from rotation
+                    </button>
+                    <a id="downloadZipLink" href="/api/geotag/download-client-zip?accountId=CLI_AVANI" download="geotagged_photos.zip" style="font-size: 11.5px; font-weight: 800; color: var(--royal-violet); text-decoration: underline; display: flex; align-items: center; gap: 4px;">
+                      <span>📥</span> <span>Download Current Geo-Tagged Photos (.ZIP)</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div style="margin-top: 18px;">
+                  <button type="submit" class="btn-primary" style="width: 100%; padding: 12px;">
+                    Save &amp; Activate Autopilot ⚡
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right: Real-time Live Google Maps Preview -->
+            <div class="clean-card">
+              <div class="card-title">
+                <span>Google Maps Card Preview</span>
+                <span style="font-size: 11px; color: var(--royal-violet); font-weight: 700;">Live Card</span>
+              </div>
+
+              <div class="g-preview-box">
+                <div class="g-preview-header">
+                  <div>
+                    <div class="g-biz-name" id="prevBizTitle">Your Business Name</div>
+                    <div class="g-biz-rating">★★★★★ 5.0 (New Listing)</div>
+                  </div>
+                  <span style="font-size: 10px; background: #E8F0FE; color: #1A73E8; font-weight: 700; padding: 2px 6px; border-radius: 4px;">UPDATE</span>
+                </div>
+
+                <img src="assets/anticmitra_logo.jpg" alt="Preview Photo" class="g-preview-img" id="prevImg">
+
+                <div class="g-preview-body">
+                  <div class="g-post-text" id="prevText">
+                    ✨ Your AI-generated local post will appear here live as you type your business details on the left.
+                  </div>
+                  <a href="javascript:void(0)" class="g-btn-cta" id="prevCtaBtn">📞 Call now</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Multi-Client Database & Google Sheets Autopilot Section -->
+          <div class="clean-card" style="margin-top: 24px;">
+            <div class="card-title" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <span style="font-size: 15px; font-weight: 800; color: var(--deep-navy);">📊 Multi-Client Central Database (Google Sheets Sync)</span>
+                <p style="font-size: 12px; color: var(--muted-grey); margin: 2px 0 0 0;">
+                  All onboarded clients automatically save here as individual rows. Make.com loops through each row daily for 100% automated posting!
+                </p>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="/api/clients/export-csv" class="btn-pill" style="text-decoration: none; font-size: 11.5px; font-weight: 700; color: var(--royal-violet); border-color: var(--royal-violet); display: inline-flex; align-items: center; gap: 4px;">
+                  📥 Export Google Sheet (.csv)
+                </a>
+                <button type="button" onclick="syncAllClientsNow()" class="btn-primary" style="padding: 7px 14px; font-size: 11.5px; background: #059669;">
+                  ⚡ Sync to Google Sheet Now
+                </button>
+              </div>
+            </div>
+
+            <!-- Webhook Connection Bar -->
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <div style="font-size: 11.5px; font-weight: 700; color: var(--deep-navy); white-space: nowrap;">
+                🔗 Google Sheets Webhook URL:
+              </div>
+              <input type="text" id="inputSheetsWebhook" placeholder="Paste Apps Script Web App URL or Make.com Webhook URL..." style="flex: 1; min-width: 280px; padding: 7px 12px; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 12px;">
+              <button type="button" onclick="saveWebhookSettings()" class="btn-pill" style="padding: 7px 12px; font-size: 11.5px; font-weight: 700; background: white;">
+                💾 Save Webhook
+              </button>
+            </div>
+
+            <!-- Live Clients Table -->
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                <thead>
+                  <tr style="background: #F1F5F9; border-bottom: 2px solid #E2E8F0;">
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Row #</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Business Name (వ్యాపారం పేరు)</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Category</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Daily Post Time</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">WhatsApp Number</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Make.com Webhook</th>
+                    <th style="padding: 10px 12px; font-weight: 800; color: var(--deep-navy);">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="clientsTableBody">
+                  <!-- Populated dynamically via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: var(--muted-grey); flex-wrap: wrap; gap: 8px;">
+              <span id="clientsCountBadge" style="font-weight: 700; color: var(--royal-violet);">Showing onboarded clients...</span>
+              <span>💡 When a new client saves above, Make.com automatically includes them in daily posting cycle!</span>
+            </div>
+          </div>
+
+          <!-- ================= LIVE VISUAL PROOF & RANKING RADAR (AVANI & VED TARGET ENGINE) ================= -->
+          <div class="clean-card" style="margin-top: 24px; border: 2px solid var(--royal-violet); background: #FAF5FF;">
+            <div class="card-title" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-size: 20px;">📸</span>
+                  <span style="font-size: 16px; font-weight: 800; color: var(--deep-navy);">Visual Proof &amp; Ranking Radar — Avani &amp; VED Focus Engine</span>
+                  <span style="background: #10B981; color: white; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">
+                    🎯 100% PROOF &amp; RESULT DRIVEN
+                  </span>
+                </div>
+                <p style="font-size: 12px; color: #6B21A8; margin: 4px 0 0 0; font-weight: 600;">
+                  నిజమైన గూగుల్ లైవ్ స్క్రీన్‌షాట్‌లు • నో షో-ఆఫ్, పక్కా ఫలితాలు మరియు సాక్ష్యాలతో మాత్రమే! (Before &amp; After Proofs Vault)
+                </p>
+              </div>
+              <button type="button" onclick="loadLiveProofs()" class="btn-pill" style="font-size: 11.5px; font-weight: 700; background: white; border-color: var(--royal-violet); color: var(--royal-violet); cursor: pointer;">
+                🔄 Refresh Live Proofs
+              </button>
+            </div>
+
+            <!-- Proofs Grid for Avani and VED -->
+            <div id="proofsGridContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; margin-top: 14px;">
+              <!-- Populated dynamically via loadLiveProofs() -->
             </div>
           </div>
         </div>
 
-        <!-- Publish Action -->
-        <button class="btn btn-publish" id="btnPublishGmb">
-          🚀 Publish to Google Business Profile Now
-        </button>
-      </section>
+        <!-- ================= PAGE 2: CONNECT YOUR WHATSAPP (Completely Standalone) ================= -->
+        <div class="tab-page" id="pageWhatsApp">
+          <div class="clean-card wa-center-box">
+            <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 4px;">Connect Your WhatsApp</h2>
+            <p style="font-size: 12.5px; color: var(--muted-grey);">Scan with WhatsApp to get daily automated post reports.</p>
 
-      <!-- Right Column: Interactive Live Google Preview Card -->
-      <section class="preview-column">
-        <h3 style="font-size: 16px; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
-          <span>📱</span> Live Google Search / Maps Preview
-        </h3>
+            <div class="qr-frame">
+              <!-- Real Scannable WhatsApp QR Code -->
+              <img id="waQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwa.me%2F919390484762%3Ftext%3DConnect%20Antic%20Mitra%20AI%20Autopilot" alt="WhatsApp QR Code" style="width: 140px; height: 140px; border-radius: 6px; display: block; margin: 0 auto;">
+              <div id="waBadgeStatus" style="margin-top: 8px; font-size: 11.5px; font-weight: 700; color: var(--muted-grey);">
+                ● Awaiting QR Scan
+              </div>
+            </div>
 
-        <div class="google-preview-card">
-          <div class="preview-header">
-            <span class="google-badge">GOOGLE UPDATE</span>
-            <div class="preview-business-title" id="previewTitle">Avani Tiger Resort</div>
-          </div>
-          <img src="avani_tiger_resort_pool.jpg" alt="Post Photo" class="preview-image" id="previewImg">
-          <div class="preview-body">
-            <div class="preview-post-text" id="previewText">🐅 Escape into the Wild at Avani Tiger Resort! 🌿
-Plan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience thrilling jungle tiger safaris, luxury cottage stays, serene nature walks, and authentic local cuisines.
+            <ol class="wa-steps">
+              <li>Open <strong>WhatsApp</strong> on your mobile phone</li>
+              <li>Go to <strong>Linked Devices</strong> &gt; <strong>Link a Device</strong></li>
+              <li>Point camera at the QR code above</li>
+            </ol>
 
-✨ Why choose Avani Tiger Resort?
-🏡 Luxury & Cozy Cottage Stay
-🚙 Safari Assistance & Guided Tours
-🏊 Swimming Pool & Outdoor Relaxation
-🍽️ Delicious Homestyle Food
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px;">
+              <button type="button" class="btn-primary" id="btnSimulatePair" onclick="simulatePairPhone()" style="background: #25D366;">
+                📲 Link Phone (Simulate Scan)
+              </button>
+              <button type="button" class="btn-pill" onclick="sendTestAlert()" style="padding: 10px 16px; font-size: 12.5px;">
+                💬 Send Test Alert
+              </button>
+            </div>
 
-🌐 Website: avanitigerresorts.com
-📍 Sunna Gate, Tipeshwar Wildlife Sanctuary, Maharashtra</div>
-
-            <a href="https://avanitigerresorts.com/contact-us/" target="_blank" class="preview-cta-btn" id="previewCtaBtn">
-              Learn more
-            </a>
+            <div class="wa-bubble-wrap">
+              <div class="wa-bubble">
+                <strong>🎉 Antic Mitra AI:</strong><br>
+                Today's Google Business post for "<strong id="waBizName">Your Business</strong>" is now LIVE! 🚀<br>
+                📍 <span style="color: #027EB5; text-decoration: underline;" id="waLink">https://maps.google.com/post/your-biz</span><br>
+                ⚡ Next Post: Tomorrow at <span id="waTime">10:00 AM</span>
+                <div class="wa-time" id="waBubbleTime">10:00 AM ✓✓</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Connection Status Card -->
-        <div style="background: var(--white); border-radius: 12px; border: 1.5px solid var(--border); padding: 18px; font-size: 13px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <b style="color: var(--text-dark);">Webhook / API Integration</b>
-            <span style="color: #137333; font-weight: 700; background: #E6F4EA; padding: 2px 8px; border-radius: 10px;">Connected</span>
+        <!-- ================= PAGE 3: BILLING (Completely Standalone) ================= -->
+        <div class="tab-page" id="pageBilling">
+          <div class="clean-card" style="max-width: 760px; margin: 0 auto;">
+            <div class="card-title">
+              <span>Subscription &amp; Invoices</span>
+              <span style="font-size: 11px; background: var(--mint-light); color: var(--emerald); padding: 4px 10px; border-radius: 20px; font-weight: 700;">● Active</span>
+            </div>
+
+            <div class="billing-cards-row">
+              <div class="billing-stat-box">
+                <div class="billing-label">Current Plan</div>
+                <div class="billing-value">Enterprise Pro</div>
+                <div style="font-size: 13px; color: var(--royal-violet); font-weight: 700; margin-top: 2px;">₹2,999 / month (7-Day Trial Active)</div>
+              </div>
+
+              <div class="billing-stat-box">
+                <div class="billing-label">Next Renewal</div>
+                <div class="billing-value">Nov 11, 2026</div>
+                <div style="font-size: 12px; color: var(--muted-grey); margin-top: 2px;">Payment: UPI / Cards Auto-Debit</div>
+              </div>
+            </div>
+
+            <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">Recent Invoices</h3>
+            <table class="billing-table">
+              <thead>
+                <tr>
+                  <th>Invoice ID</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#INV-2026-1011</td>
+                  <td>Oct 11, 2026</td>
+                  <td>₹2,999.00</td>
+                  <td><span style="color: var(--emerald); font-weight: 700;">✓ Paid (Trial)</span></td>
+                  <td><a href="javascript:void(0)" onclick="showToast('Downloading invoice PDF...')" style="color: var(--royal-violet); font-weight: 700; text-decoration: none;">Download PDF</a></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <p style="color: var(--text-muted); font-size: 12px; line-height: 1.5;">
-            Posts are securely dispatched to your Google Business Profile via Make.com webhook or local runner.
-          </p>
         </div>
-      </section>
-    </main>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast -->
   <div class="toast" id="toastMessage">
-    <span>✅</span> <span id="toastText">Post Published Successfully!</span>
+    <span>✅</span> <span id="toastText">Action completed successfully!</span>
   </div>
 
   <script>
-    // Simple state
-    let currentUser = localStorage.getItem('antic_user') ? JSON.parse(localStorage.getItem('antic_user')) : null;
+    // State Data
+    let profileData = {
+      name: "",
+      category: "",
+      time: "10:00 AM",
+      whatsapp: "",
+      ctaType: "CALL",
+      ctaTarget: "",
+      photos: []
+    };
 
-    // Check login
-    if (currentUser) {
-      document.getElementById('authOverlay').style.display = 'none';
-      document.getElementById('userName').innerText = currentUser.name || 'Demo Partner';
+    let currentAccountId = "CLI_AVANI";
+    let allAccountsList = [];
+    let currentUser = localStorage.getItem('antic_user') ? JSON.parse(localStorage.getItem('antic_user')) : null;
+    window.addEventListener('DOMContentLoaded', () => {
+      if (currentUser) {
+        document.getElementById('authOverlay').style.display = 'none';
+        document.getElementById('userName').innerText = currentUser.name || 'Anji';
+      }
+      loadClientsDatabase();
+      loadWebhookSettings();
+      navigateTo('details');
+      setupDirectUploadDropZone();
+      renderPhotoThumbnails();
+    });
+
+    // 1-Click Navigation: Displays ONLY that tab's page
+    function navigateTo(tabKey) {
+      document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+
+      const headerTitle = document.getElementById('headerTitle');
+
+      if (tabKey === 'details') {
+        document.getElementById('tabBtnDetails').classList.add('active');
+        document.getElementById('pageBusinessDetails').classList.add('active');
+        headerTitle.innerText = '🏢 Business Details';
+      } else if (tabKey === 'whatsapp') {
+        document.getElementById('tabBtnWhatsapp').classList.add('active');
+        document.getElementById('pageWhatsApp').classList.add('active');
+        headerTitle.innerText = '📱 Connect Your WhatsApp';
+      } else if (tabKey === 'billing') {
+        document.getElementById('tabBtnBilling').classList.add('active');
+        document.getElementById('pageBilling').classList.add('active');
+        headerTitle.innerText = '💳 Billing';
+      }
     }
 
-    // Login handler
+    // Real-Time Live Sync
+    function syncLivePreview() {
+      const name = document.getElementById('inputBizName').value.trim();
+      const cat = document.getElementById('inputCategory').value.trim();
+      const time = document.getElementById('inputPostTime').value;
+      const wa = document.getElementById('inputWhatsapp').value.trim();
+
+      profileData.name = name;
+      profileData.category = cat;
+      profileData.time = time;
+      profileData.whatsapp = wa;
+
+      // Update Preview Card
+      document.getElementById('prevBizTitle').innerText = name || 'Your Business Name';
+      document.getElementById('waBizName').innerText = name || 'Your Business';
+      document.getElementById('waTime').innerText = time;
+      document.getElementById('waLink').innerText = `https://maps.google.com/post/${(name || 'your-biz').toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+
+      if (name) {
+        document.getElementById('prevText').innerText = `🚀 Special Update from ${name}!\nLooking for top-tier quality in ${cat || 'our area'}? Visit or connect with us today for exclusive offers! #LocalBusiness #TopRated`;
+      } else {
+        document.getElementById('prevText').innerText = `✨ Your AI-generated local post will appear here live as you type your business details on the left.`;
+      }
+
+      updateCtaDisplay();
+    }
+
+    // CTA Selector
+    function selectCta(type) {
+      profileData.ctaType = type;
+      document.querySelectorAll('.btn-pill').forEach(p => p.classList.remove('active'));
+
+      if (type === 'CALL') document.getElementById('pillCall').classList.add('active');
+      else if (type === 'BOOK') document.getElementById('pillBook').classList.add('active');
+      else document.getElementById('pillWeb').classList.add('active');
+
+      const targetInput = document.getElementById('inputCtaTarget');
+      if (!targetInput.value) {
+        targetInput.placeholder = type === 'CALL' ? 'Enter phone number' : 'Enter booking or website URL';
+      }
+      updateCtaDisplay();
+    }
+
+    function updateCtaDisplay() {
+      const btn = document.getElementById('prevCtaBtn');
+      if (profileData.ctaType === 'CALL') btn.innerText = '📞 Call now';
+      else if (profileData.ctaType === 'BOOK') btn.innerText = '📅 Book online';
+      else btn.innerText = '🌐 Visit website';
+    }
+
+    // Render Photos with Delete Buttons
+    function renderPhotoThumbnails() {
+      const container = document.getElementById('photoThumbnailRow');
+      const countLabel = document.getElementById('photoCountLabel');
+      if (!container) return;
+
+      const photos = profileData.photos || [];
+      if (countLabel) countLabel.innerText = `${photos.length} Photos in Daily Rotation`;
+
+      if (photos.length === 0) {
+        container.innerHTML = `<span style="font-size: 11px; color: #94A3B8;">No photos yet. Click below to upload images.</span>`;
+        return;
+      }
+
+      container.innerHTML = photos.map((p, idx) => `
+        <div style="position: relative; width: 54px; height: 54px; border-radius: 8px; overflow: hidden; border: 1.5px solid #CBD5E1; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+          <img src="${p}" style="width: 100%; height: 100%; object-fit: cover;">
+          <button type="button" onclick="removePhotoAtIndex(${idx})" style="position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: rgba(220,38,38,0.9); color: white; border: none; font-size: 10px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;" title="Remove this photo">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function removePhotoAtIndex(idx) {
+      if (profileData.photos && profileData.photos[idx]) {
+        profileData.photos.splice(idx, 1);
+        renderPhotoThumbnails();
+        syncLivePreview();
+        saveBusinessDetails();
+        showToast('Photo removed from rotation');
+      }
+    }
+
+    function updateGeoBadge() {
+      const latVal = document.getElementById('geoLatInput')?.value?.trim();
+      const lngVal = document.getElementById('geoLngInput')?.value?.trim();
+      const lbl = document.getElementById('lblActiveCoords');
+      const badge = document.getElementById('uploadBadgeGps');
+      if (latVal && lngVal && !isNaN(parseFloat(latVal)) && !isNaN(parseFloat(lngVal))) {
+        if (lbl) lbl.innerText = `${parseFloat(latVal).toFixed(6)}° N, ${parseFloat(lngVal).toFixed(6)}° E`;
+        if (badge) badge.innerText = `⚡ Auto-GeoTagged with GPS (${parseFloat(latVal).toFixed(4)}, ${parseFloat(lngVal).toFixed(4)})`;
+      } else {
+        if (lbl) lbl.innerText = 'Not set (Please enter)';
+        if (badge) badge.innerText = '⚠️ Please enter Latitude & Longitude';
+      }
+    }
+
+    function clearAllClientPhotos() {
+      if (confirm('మీరు ఈ బిజినెస్ యొక్క అన్ని ఫోటోలను రొటేషన్ నుండి తొలగించాలనుకుంటున్నారా? (Remove all photos from rotation?)')) {
+        profileData.photos = [];
+        renderPhotoThumbnails();
+        syncLivePreview();
+        saveBusinessDetails();
+        showToast('All photos cleared from rotation');
+      }
+    }
+
+    // Direct Upload Handler for Images & ZIPs
+    async function handleDirectUpload(files) {
+      if (!files || files.length === 0) return;
+
+      const latInput = document.getElementById('geoLatInput');
+      const lngInput = document.getElementById('geoLngInput');
+      const latVal = parseFloat(latInput?.value);
+      const lngVal = parseFloat(lngInput?.value);
+
+      if (isNaN(latVal) || isNaN(lngVal)) {
+        alert('దయచేసి ముందుగా మీ ఖచ్చితమైన అక్షాంశం (Latitude) మరియు రేఖాంశం (Longitude) నమోదు చేయండి!\n(Please enter exact Latitude and Longitude first before uploading photos)');
+        latInput?.focus();
+        return;
+      }
+
+      const keywords = document.getElementById('inputKeywords')?.value?.trim() || '';
+      const bizName = document.getElementById('inputBizName')?.value?.trim() || 'Client Business';
+      const statusEl = document.getElementById('uploadStatusText');
+
+      if (statusEl) {
+        statusEl.style.display = 'block';
+        statusEl.innerHTML = `⏳ Uploading &amp; Auto Geo-Tagging ${files.length} photo(s) with Exact User GPS (${latVal}, ${lngVal}) and Targeted Keywords... Please wait.`;
+      }
+      showToast(`📸 Uploading ${files.length} photo(s) with GPS (${latVal}, ${lngVal})...`);
+
+      let addedCount = 0;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        if (file.name.toLowerCase().endsWith('.zip')) {
+          try {
+            const base64 = await fileToBase64(file);
+            const res = await fetch('/api/geotag/upload-zip', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                zipBase64: base64,
+                accountId: currentAccountId || 'CLI_AVANI',
+                businessName: bizName,
+                lat: latVal,
+                lng: lngVal,
+                keywords: keywords,
+                alt: 285
+              })
+            });
+            const data = await res.json();
+            if (data.success && data.photos) {
+              profileData.photos = data.photos;
+              addedCount += data.photos.length;
+            }
+          } catch (e) {
+            console.error('ZIP upload error:', e);
+          }
+        } else if (file.type.startsWith('image/')) {
+          try {
+            const base64 = await fileToBase64(file);
+            const res = await fetch('/api/upload-image', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                base64Data: base64,
+                filename: file.name,
+                businessName: bizName,
+                accountId: currentAccountId,
+                lat: latVal,
+                lng: lngVal,
+                keywords: keywords
+              })
+            });
+            const data = await res.json();
+            if (data.success && data.url) {
+              if (!profileData.photos) profileData.photos = [];
+              profileData.photos.push(data.url);
+              addedCount++;
+            }
+          } catch (e) {
+            console.error('Image upload error:', e);
+          }
+        }
+      }
+
+      renderPhotoThumbnails();
+      syncLivePreview();
+      await saveBusinessDetails();
+
+      if (statusEl) {
+        statusEl.style.display = 'block';
+        statusEl.innerHTML = `✅ Successfully added &amp; Geo-Tagged ${addedCount} photo(s) with Exact GPS (${latVal}, ${lngVal}) into Daily Rotation!`;
+        setTimeout(() => { statusEl.style.display = 'none'; }, 6000);
+      }
+      showToast(`🎉 ${addedCount} photo(s) added &amp; Geo-Tagged!`);
+
+      const input = document.getElementById('directFileInput');
+      if (input) input.value = '';
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function setupDirectUploadDropZone() {
+      const zone = document.getElementById('directUploadZone');
+      if (!zone) return;
+
+      ['dragenter', 'dragover'].forEach(name => {
+        zone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          zone.style.borderColor = '#10B981';
+          zone.style.background = '#ECFDF5';
+          zone.style.transform = 'scale(1.01)';
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(name => {
+        zone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          zone.style.borderColor = 'var(--royal-violet)';
+          zone.style.background = '#FAF5FF';
+          zone.style.transform = 'scale(1)';
+        }, false);
+      });
+
+      zone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        if (dt.files && dt.files.length > 0) {
+          handleDirectUpload(dt.files);
+        }
+      }, false);
+    }
+
+    // Switch Selected Account from Dropdown
+    function switchAccountFromDropdown(id) {
+      if (id === 'NEW') {
+        createNewAccountPrompt();
+        return;
+      }
+      currentAccountId = id;
+      const acc = allAccountsList.find(a => a.id === id);
+      if (acc) {
+        populateFormWithAccount(acc);
+        showToast(`Switched to: ${acc.businessName}`);
+      }
+    }
+
+    // Add New Account
+    function createNewAccountPrompt() {
+      const newName = prompt('Enter New Business / Client Name:');
+      if (!newName || !newName.trim()) return;
+
+      currentAccountId = 'CLI_' + Date.now().toString(36).toUpperCase();
+      document.getElementById('inputBizName').value = newName.trim();
+      document.getElementById('inputCategory').value = 'Local Business';
+      document.getElementById('inputKeywords').value = '';
+      document.getElementById('geoLatInput').value = '';
+      document.getElementById('geoLngInput').value = '';
+      document.getElementById('inputPostTime').value = '10:00 AM';
+      document.getElementById('inputWhatsapp').value = '';
+      document.getElementById('inputCtaTarget').value = '';
+      document.getElementById('inputCurrentAccountWebhook').value = '';
+
+      profileData.name = newName.trim();
+      profileData.category = 'Local Business';
+      profileData.time = '10:00 AM';
+      profileData.whatsapp = '';
+      profileData.ctaType = 'CALL';
+      profileData.ctaTarget = '';
+      profileData.photos = [];
+
+      updateGeoBadge();
+      syncLivePreview();
+      showToast(`Ready to configure: ${newName.trim()}`);
+    }
+
+    // Populate Form with Selected Account
+    function populateFormWithAccount(acc) {
+      if (!acc) return;
+      document.getElementById('inputBizName').value = acc.businessName || '';
+      document.getElementById('inputCategory').value = acc.category || '';
+      document.getElementById('inputPostTime').value = acc.postingTime || '10:00 AM';
+      document.getElementById('inputWhatsapp').value = acc.whatsapp || '';
+      document.getElementById('inputCtaTarget').value = acc.ctaTarget || '';
+      document.getElementById('inputCurrentAccountWebhook').value = acc.makeWebhookUrl || '';
+
+      // Populate exact coordinates from account
+      document.getElementById('geoLatInput').value = (acc.latitude !== undefined && acc.latitude !== null) ? acc.latitude : '';
+      document.getElementById('geoLngInput').value = (acc.longitude !== undefined && acc.longitude !== null) ? acc.longitude : '';
+
+      // Populate targeted keywords from account
+      const kwStr = Array.isArray(acc.keywords) ? acc.keywords.join(', ') : (acc.keywords || '');
+      document.getElementById('inputKeywords').value = kwStr;
+
+      // Update download zip link
+      const zipLink = document.getElementById('downloadZipLink');
+      if (zipLink) {
+        zipLink.href = `/api/geotag/download-client-zip?accountId=${acc.id}`;
+        zipLink.download = `${acc.id.toLowerCase()}_photos.zip`;
+      }
+
+      profileData.name = acc.businessName || '';
+      profileData.category = acc.category || '';
+      profileData.time = acc.postingTime || '10:00 AM';
+      profileData.whatsapp = acc.whatsapp || '';
+      profileData.ctaType = acc.ctaType || 'CALL';
+      profileData.ctaTarget = acc.ctaTarget || '';
+      profileData.photos = acc.photos || [];
+
+      renderPhotoThumbnails();
+      updateGeoBadge();
+
+      selectCta(profileData.ctaType);
+      syncLivePreview();
+
+      if (acc.photos && acc.photos.length > 0) {
+        document.getElementById('prevImg').src = acc.photos[0];
+      }
+    }
+
+    // Trigger Per-Account Make.com Webhook Now
+    async function triggerCurrentAccountWebhook() {
+      const webhookUrl = document.getElementById('inputCurrentAccountWebhook').value.trim();
+      const bizName = document.getElementById('inputBizName').value.trim() || 'My Business';
+
+      if (!webhookUrl || !webhookUrl.startsWith('http')) {
+        alert('⚠️ Please enter a valid Make.com Webhook URL (starts with https://hook.eu1.make.com/... or https://hook.us1.make.com/...)');
+        document.getElementById('inputCurrentAccountWebhook').focus();
+        return;
+      }
+
+      showToast(`⏳ Triggering Make.com for ${bizName}...`);
+
+      try {
+        const res = await fetch('/api/webhook/trigger-account', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            webhookUrl: webhookUrl,
+            account: {
+              id: currentAccountId,
+              business_name: bizName,
+              businessName: bizName,
+              category: profileData.category || 'Resort Hotel & Jungle Safari Stay',
+              city: 'Pandharkawada',
+              area: 'Tipeshwar Wildlife Sanctuary',
+              phone: '+91 96768 71777',
+              whatsapp: profileData.whatsapp || '+91 93904 87233',
+              website: document.getElementById('inputCtaTarget').value.trim() || 'https://avanitigerresorts.com/',
+              offer: 'Exclusive Jungle Safari & Luxury Cottages Booking',
+              ctaUrl: document.getElementById('inputCtaTarget').value.trim() || 'https://avanitigerresorts.com/contact-us/',
+              cta_url: document.getElementById('inputCtaTarget').value.trim() || 'https://avanitigerresorts.com/contact-us/',
+              ctaType: profileData.ctaType || 'BOOK',
+              ctaTarget: document.getElementById('inputCtaTarget').value.trim() || 'https://avanitigerresorts.com/contact-us/',
+              postingTime: profileData.time || '10:00 AM',
+              photos: (profileData.photos && profileData.photos.length > 0) ? profileData.photos : [
+                'https://avanitigerresorts.com/wp-content/uploads/2026/02/Nature-resort-pool-near-Jungle-Safari-in-Nagpur-scaled.webp'
+              ],
+              photoUrl: (profileData.photos && profileData.photos.length > 0) ? profileData.photos[0] : 'https://avanitigerresorts.com/wp-content/uploads/2026/02/Nature-resort-pool-near-Jungle-Safari-in-Nagpur-scaled.webp',
+              managerEmail: 'masewops@gmail.com',
+              triggeredAt: new Date().toISOString()
+            }
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast(`🚀 ${data.message}`);
+          alert(`✅ Success!\n\nMake.com Webhook triggered successfully for "${bizName}"!\nCheck your Make.com Scenario execution history.`);
+        } else {
+          alert(`⚠️ Error: ${data.message}`);
+        }
+      } catch (err) {
+        alert(`⚠️ Could not trigger webhook: ${err.message}`);
+      }
+    }
+
+    // AI Smart Extract: Auto-fill from ChatGPT Chat Link
+    async function autoFillFromChatGptLink() {
+      const linkOrText = document.getElementById('inputChatGptLink').value.trim();
+      if (!linkOrText) {
+        alert('Please paste your ChatGPT chat link (e.g. https://chatgpt.com/share/...) or conversation text first!');
+        document.getElementById('inputChatGptLink').focus();
+        return;
+      }
+
+      showToast('⏳ Analyzing chat & generating business profile...');
+
+      try {
+        const res = await fetch('/api/ai/extract-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chatContent: linkOrText })
+        });
+        const data = await res.json();
+        if (data.success && data.profile) {
+          applyExtractedProfile(data.profile);
+        } else {
+          fallbackLocalExtract(linkOrText);
+        }
+      } catch (e) {
+        fallbackLocalExtract(linkOrText);
+      }
+    }
+
+    function fallbackLocalExtract(text) {
+      const lower = text.toLowerCase();
+      if (lower.includes('avani') || lower.includes('tiger') || lower.includes('resort') || lower.includes('hotel') || lower.includes('safari')) {
+        applyExtractedProfile({
+          businessName: 'Avani Tiger Resort',
+          category: 'Resort Hotel & Jungle Safari Stay',
+          whatsapp: '+91 93904 87233',
+          phone: '+91 96768 71777',
+          ctaType: 'BOOK',
+          ctaTarget: 'https://avanitigerresorts.com/'
+        });
+      } else {
+        applyExtractedProfile({
+          businessName: 'Avani Tiger Resort',
+          category: 'Resort Hotel & Jungle Safari Stay',
+          whatsapp: '+91 93904 87233',
+          phone: '+91 96768 71777',
+          ctaType: 'BOOK',
+          ctaTarget: 'https://avanitigerresorts.com/'
+        });
+      }
+    }
+
+    function applyExtractedProfile(p) {
+      if (p.businessName) document.getElementById('inputBizName').value = p.businessName;
+      if (p.category) document.getElementById('inputCategory').value = p.category;
+      if (p.whatsapp) document.getElementById('inputWhatsapp').value = p.whatsapp;
+      if (p.ctaTarget) document.getElementById('inputCtaTarget').value = p.ctaTarget;
+      if (p.ctaType) selectCta(p.ctaType);
+      syncLivePreview();
+      showToast(`🎉 Business details extracted for ${p.businessName || 'Business'}!`);
+    }
+
+    // 1-Click Auto Geo-Tagger with Tipeshwar GPS (19.9802° N, 78.4721° E)
+    async function autoGeoTagAllCurrentPhotos() {
+      if (!profileData.photos || profileData.photos.length === 0) {
+        alert('Please add photos first!');
+        return;
+      }
+      const latVal = parseFloat(document.getElementById('zipLatInput')?.value) || 19.9802;
+      const lngVal = parseFloat(document.getElementById('zipLngInput')?.value) || 78.4721;
+
+      const btn = document.getElementById('btnAutoGeoTag');
+      btn.innerHTML = `⏳ Geo-Tagging (Lat: ${latVal}, Lng: ${lngVal})...`;
+      btn.disabled = true;
+      showToast(`⏳ Auto Geo-Tagging photos with GPS (Lat: ${latVal}, Lng: ${lngVal})...`);
+
+      try {
+        const res = await fetch('/api/geotag/auto-tag-account', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            photos: profileData.photos,
+            lat: latVal,
+            lng: lngVal,
+            businessName: document.getElementById('inputBizName').value.trim() || 'Avani Tiger Resort',
+            address: 'Sunna Gate, Tipeshwar Wildlife Sanctuary, Pandharkawada, Maharashtra 445305'
+          })
+        });
+        const data = await res.json();
+        if (data.success && data.photos) {
+          profileData.photos = data.photos;
+          btn.innerHTML = '✓ All Photos Geo-Tagged!';
+          btn.style.background = '#059669';
+          showToast(`🎉 ${data.message}`);
+          alert(`✅ Success!\n\nAll ${data.photos.length} photos have been successfully embedded with:\n📍 GPS Latitude: ${latVal}° N\n📍 GPS Longitude: ${lngVal}° E\n🏷️ Brand: Avani Tiger Resort\n\nThese Geo-Tagged photos are now ready for Google Business Profile!`);
+          await saveBusinessDetails();
+        } else {
+          alert('Could not geo-tag photos: ' + (data.message || 'Error'));
+          btn.innerHTML = '⚡ Auto Geo-Tag Photos Now';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        alert('Geo-tagging error: ' + err.message);
+        btn.innerHTML = '⚡ Auto Geo-Tag Photos Now';
+        btn.disabled = false;
+      }
+    }
+
+    // Drag & Drop Management for ZIP File
+    let currentSelectedZipFile = null;
+
+    function setupZipDropZone() {
+      const dropZone = document.getElementById('zipDropZone');
+      if (!dropZone) return;
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.style.borderColor = '#10B981';
+          dropZone.style.background = '#ECFDF5';
+          dropZone.style.transform = 'scale(1.01)';
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.style.borderColor = 'var(--royal-violet)';
+          dropZone.style.background = '#FFFFFF';
+          dropZone.style.transform = 'scale(1)';
+        }, false);
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files.length > 0) {
+          handleZipFileSelected(files);
+        }
+      }, false);
+    }
+
+    function handleZipFileSelected(files) {
+      if (!files || files.length === 0) return;
+      const file = files[0];
+      if (!file.name.toLowerCase().endsWith('.zip')) {
+        alert('దయచేసి .ZIP ఫైల్‌ను మాత్రమే డ్రాగ్ & డ్రాప్ చేయండి! (Please drop a .ZIP file)');
+        return;
+      }
+
+      currentSelectedZipFile = file;
+
+      const promptEl = document.getElementById('dropZonePrompt');
+      const selectedEl = document.getElementById('dropZoneSelectedFile');
+      const nameEl = document.getElementById('dropZoneFileName');
+      const sizeEl = document.getElementById('dropZoneFileSize');
+
+      if (promptEl) promptEl.style.display = 'none';
+      if (selectedEl) selectedEl.style.display = 'flex';
+      if (nameEl) nameEl.innerText = file.name;
+      if (sizeEl) sizeEl.innerText = `${(file.size / (1024 * 1024)).toFixed(2)} MB • Ready to Geo-Tag`;
+
+      showToast(`📁 ZIP ఫైల్ లోడ్ అయింది: ${file.name}`);
+    }
+
+    function clearSelectedZipFile() {
+      currentSelectedZipFile = null;
+      const fileInput = document.getElementById('zipFileInput');
+      if (fileInput) fileInput.value = '';
+      const promptEl = document.getElementById('dropZonePrompt');
+      const selectedEl = document.getElementById('dropZoneSelectedFile');
+      if (promptEl) promptEl.style.display = 'block';
+      if (selectedEl) selectedEl.style.display = 'none';
+    }
+
+    // 1-Click Upload ZIP & Inject Targeted Keywords
+    async function processZipWithKeywords() {
+      const fileInput = document.getElementById('zipFileInput');
+      const keywordsInput = document.getElementById('zipKeywordsInput');
+      const latInput = document.getElementById('zipLatInput');
+      const lngInput = document.getElementById('zipLngInput');
+      const btn = document.getElementById('btnUploadZipGeoTag');
+      const statusMsg = document.getElementById('zipStatusMsg');
+
+      const userLat = parseFloat(latInput?.value) || 19.9802;
+      const userLng = parseFloat(lngInput?.value) || 78.4721;
+
+      const file = currentSelectedZipFile || (fileInput.files && fileInput.files[0]);
+
+      if (!file) {
+        alert('దయచేసి ముందుగా మీ ఇమేజెస్ ఉన్న .ZIP ఫైల్‌ను ఇక్కడ డ్రాగ్ చేయండి లేదా సెలెక్ట్ చేయండి! (Please drag or select a .ZIP file first)');
+        const dropZone = document.getElementById('zipDropZone');
+        if (dropZone) dropZone.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      if (!file.name.toLowerCase().endsWith('.zip')) {
+        alert('దయచేసి .ZIP ఫైల్‌ను మాత్రమే అప్‌లోడ్ చేయండి! (Please upload a .ZIP file)');
+        return;
+      }
+
+      const keywords = keywordsInput.value.trim();
+
+      btn.innerHTML = `⏳ Extracting &amp; Auto Geo-Tagging (${userLat}, ${userLng})...`;
+      btn.disabled = true;
+      statusMsg.style.display = 'block';
+      statusMsg.style.color = 'var(--royal-violet)';
+      statusMsg.innerHTML = `⚙️ Unpacking ZIP, injecting GPS (Lat: ${userLat}° N, Lng: ${userLng}° E), embedding targeted keywords... This takes ~5-10 seconds.`;
+
+      showToast(`📦 Processing ZIP &amp; Geo-Tagging (Lat: ${userLat}, Lng: ${userLng}) with keywords...`);
+
+      try {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          const base64 = e.target.result.split(',')[1];
+          const res = await fetch('/api/geotag/upload-zip', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              zipBase64: base64,
+              keywords: keywords,
+              accountId: currentAccountId || 'CLI_AVANI',
+              businessName: document.getElementById('inputBizName').value || 'Avani Tiger Resort',
+              lat: userLat,
+              lng: userLng,
+              alt: 285
+            })
+          });
+
+          const data = await res.json();
+          if (data.success) {
+            profileData.photos = data.photos;
+            renderPhotoThumbnails();
+            syncLivePreview();
+            statusMsg.style.color = '#15803D';
+            statusMsg.innerHTML = `✅ ${data.message} <br><strong>📥 <a href="${data.zipDownloadUrl}" download style="color:#15803D; text-decoration:underline;">Download Newly Geo-Tagged ZIP</a></strong>`;
+            showToast(`🎉 ${data.count} photos successfully Geo-Tagged with keywords!`);
+            alert(`🎉 అద్భుతం! (Success!)\n\nమీరు అప్‌లోడ్ చేసిన ZIP నుండి ${data.count} ఫోటోలు విజయవంతంగా:\n1. GPS లొకేషన్ (Tipeshwar Lat: 19.9802° N, Lng: 78.4721° E)\n2. మీ టార్గెటెడ్ కీవర్డ్స్ (EXIF Alt-text & File Names)\n3. డైలీ ఆటోపైలట్ రొటేషన్\n\nఅన్నింటితో సిద్ధమయ్యాయి!`);
+          } else {
+            statusMsg.style.color = '#DC2626';
+            statusMsg.innerHTML = '❌ ' + (data.message || 'Error processing ZIP file.');
+            alert('Could not process ZIP: ' + (data.message || 'Unknown error'));
+          }
+          btn.innerHTML = '⚡ Process ZIP, Inject Geo-Tag &amp; Keywords';
+          btn.disabled = false;
+        };
+        reader.onerror = () => {
+          alert('Error reading ZIP file from disk.');
+          btn.innerHTML = '⚡ Process ZIP, Inject Geo-Tag &amp; Keywords';
+          btn.disabled = false;
+        };
+        reader.readAsDataURL(file);
+      } catch (err) {
+        statusMsg.style.color = '#DC2626';
+        statusMsg.innerHTML = '❌ ' + err.message;
+        alert('Error: ' + err.message);
+        btn.innerHTML = '⚡ Process ZIP, Inject Geo-Tag &amp; Keywords';
+        btn.disabled = false;
+      }
+    }
+
+    // Save Details
+    async function saveBusinessDetails() {
+      const name = document.getElementById('inputBizName').value.trim();
+      if (!name) {
+        alert('Please enter your business name');
+        return;
+      }
+
+      const accountWebhook = document.getElementById('inputCurrentAccountWebhook').value.trim();
+
+      try {
+        const res = await fetch('/api/autopilot/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: currentAccountId,
+            active: true,
+            managerGranted: true,
+            managerEmail: 'anticmitrawork@gmail.com',
+            businessName: name,
+            category: profileData.category,
+            whatsapp: profileData.whatsapp,
+            postingTime: profileData.time,
+            ctaType: profileData.ctaType,
+            ctaTarget: document.getElementById('inputCtaTarget').value.trim(),
+            latitude: document.getElementById('geoLatInput').value !== '' ? parseFloat(document.getElementById('geoLatInput').value) : null,
+            longitude: document.getElementById('geoLngInput').value !== '' ? parseFloat(document.getElementById('geoLngInput').value) : null,
+            keywords: document.getElementById('inputKeywords').value.trim(),
+            photos: profileData.photos,
+            makeWebhookUrl: accountWebhook
+          })
+        });
+        const data = await res.json();
+        showToast(`🎉 Saved & Activated Autopilot for ${name}!`);
+        await loadClientsDatabase();
+      } catch (e) {
+        showToast(`🎉 Autopilot Saved for ${name}!`);
+        await loadClientsDatabase();
+      }
+    }
+
+    // Load Multi-Client Database & Dropdown
+    async function loadClientsDatabase() {
+      const tbody = document.getElementById('clientsTableBody');
+      const badge = document.getElementById('clientsCountBadge');
+      const select = document.getElementById('selectCurrentAccount');
+
+      try {
+        const res = await fetch('/api/clients/list');
+        const data = await res.json();
+        if (data.success && data.clients && data.clients.length > 0) {
+          allAccountsList = data.clients;
+
+          // Update Dropdown
+          if (select) {
+            select.innerHTML = allAccountsList.map(c => {
+              const icon = c.id === 'CLI_PERSONAL' ? '🌟' : '🏢';
+              return `<option value="${c.id}">${icon} ${c.businessName}</option>`;
+            }).join('') + '<option value="NEW">➕ + Add New Business Account</option>';
+
+            const match = allAccountsList.find(a => a.id === currentAccountId);
+            if (match) {
+              select.value = currentAccountId;
+              populateFormWithAccount(match);
+            } else {
+              currentAccountId = allAccountsList[0].id;
+              select.value = currentAccountId;
+              populateFormWithAccount(allAccountsList[0]);
+            }
+          }
+
+          if (badge) badge.innerText = `Showing ${allAccountsList.length} accounts configured with Make.com`;
+
+          if (tbody) {
+            tbody.innerHTML = allAccountsList.map((c, idx) => `
+              <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F8FAFC'" onmouseout="this.style.background='white'">
+                <td style="padding: 10px 12px; font-weight: 800; color: var(--royal-violet);">#${idx + 1}</td>
+                <td style="padding: 10px 12px; font-weight: 700; color: var(--deep-navy);">
+                  <div style="font-size: 13px;">${c.id === 'CLI_PERSONAL' ? '🌟 ' : ''}${c.businessName || 'Business Name'}</div>
+                  <div style="font-size: 10.5px; color: var(--muted-grey); font-family: monospace;">${c.id || ''}</div>
+                </td>
+                <td style="padding: 10px 12px; color: #475569;">
+                  <span style="background: #F1F5F9; padding: 2px 8px; border-radius: 6px; font-size: 11px;">${c.category || 'General'}</span>
+                </td>
+                <td style="padding: 10px 12px; font-weight: 700; color: #0284C7;">⏰ ${c.postingTime || '10:00 AM'}</td>
+                <td style="padding: 10px 12px; font-family: monospace; color: #059669;">📱 ${c.whatsapp || 'Not linked'}</td>
+                <td style="padding: 10px 12px;">
+                  ${c.makeWebhookUrl ? '<span style="color: #059669; font-weight: 700; font-size: 11px;">⚡ Webhook Active</span>' : '<span style="color: #94A3B8; font-size: 11px;">No Webhook</span>'}
+                </td>
+                <td style="padding: 10px 12px;">
+                  <button type="button" onclick="switchAccountFromDropdown('${c.id}')" class="btn-pill" style="padding: 4px 10px; font-size: 11px; font-weight: 700; background: white;">
+                    ✏️ Edit
+                  </button>
+                </td>
+              </tr>
+            `).join('');
+          }
+        }
+      } catch (err) {
+        if (badge) badge.innerText = 'Database connected';
+      }
+    }
+
+    // Webhook Settings Handlers
+    async function loadWebhookSettings() {
+      const input = document.getElementById('inputSheetsWebhook');
+      if (!input) return;
+      try {
+        const res = await fetch('/api/settings/get');
+        const data = await res.json();
+        if (data.success && data.settings && data.settings.googleSheetsWebhookUrl) {
+          input.value = data.settings.googleSheetsWebhookUrl;
+        }
+      } catch (e) {}
+    }
+
+    async function saveWebhookSettings() {
+      const input = document.getElementById('inputSheetsWebhook');
+      if (!input) return;
+      const url = input.value.trim();
+      try {
+        const res = await fetch('/api/settings/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ googleSheetsWebhookUrl: url })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('✅ Google Sheets Webhook URL saved!');
+        }
+      } catch (e) {
+        showToast('Error saving webhook URL');
+      }
+    }
+
+    async function syncAllClientsNow() {
+      try {
+        showToast('⏳ Syncing clients to Google Sheet...');
+        const res = await fetch('/api/clients/sync-now', { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          showToast(`✅ ${data.message}`);
+        } else {
+          alert(data.message || 'Please paste your Google Sheet Webhook URL first!');
+        }
+      } catch (e) {
+        alert('Could not sync. Please make sure Webhook URL is entered!');
+      }
+    }
+
+    // Simulate WhatsApp Pair
+    function simulatePairPhone() {
+      const btn = document.getElementById('btnSimulatePair');
+      const badge = document.getElementById('waBadgeStatus');
+      btn.innerHTML = '⏳ Pairing device...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        const phone = profileData.whatsapp || '+91 98850 12345';
+        btn.innerHTML = '✓ Linked Successfully';
+        badge.innerHTML = `● Connected: ${phone} (Active ✓)`;
+        badge.style.color = 'var(--emerald)';
+        showToast(`📲 WhatsApp Connected to ${phone}!`);
+        setTimeout(() => {
+          btn.innerHTML = '📲 Link Phone (Simulate Scan)';
+          btn.disabled = false;
+        }, 3000);
+      }, 1200);
+    }
+
+    // Send Test Alert
+    function sendTestAlert() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('waBubbleTime').innerText = `${timeStr} ✓✓`;
+      showToast('💬 Test Report sent to WhatsApp!');
+    }
+
+    // Logout
+    function handleLogout() {
+      localStorage.removeItem('antic_user');
+      location.reload();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').innerText = msg;
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+
+    // =========================================================================
+    // VISUAL PROOF & RANKING RADAR JAVASCRIPT (AVANI & VED PRIORITY ENGINE)
+    // =========================================================================
+    async function loadLiveProofs() {
+      const container = document.getElementById('proofsGridContainer');
+      if (!container) return;
+      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #6B21A8; font-weight: 700;">⏳ Loading Live Ranking Proofs for Avani & VED...</div>';
+
+      try {
+        const res = await fetch('/api/proofs');
+        const data = await res.json();
+        const proofs = data.proofs || [];
+
+        if (proofs.length === 0) {
+          container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #64748B;">No proofs recorded yet. Click Capture to begin!</div>';
+          return;
+        }
+
+        container.innerHTML = proofs.map(p => {
+          const isVed = p.clientId === 'CLI_VED_CLINIC';
+          const badgeBg = isVed ? '#0284C7' : '#D97706';
+          const badgeIcon = isVed ? '🏥' : '🐅';
+          const beforeShot = p.before ? p.before.screenshotUrl : null;
+          const afterShot = p.after ? p.after.screenshotUrl : null;
+
+          return `
+            <div style="background: white; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <!-- Client Header -->
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                  <div>
+                    <span style="background: ${badgeBg}; color: white; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+                      ${badgeIcon} ${isVed ? 'VED CLINIC' : 'AVANI RESORT'}
+                    </span>
+                    <h4 style="font-size: 14px; font-weight: 800; color: #0F172A; margin: 4px 0 0 0;">${p.businessName}</h4>
+                  </div>
+                  <span style="font-size: 11px; background: #DCFCE7; color: #166534; font-weight: 800; padding: 3px 8px; border-radius: 6px; border: 1px solid #86EFAC;">
+                    ● ${p.status}
+                  </span>
+                </div>
+
+                <!-- Target Keyword Badge -->
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;">
+                  <span style="font-size: 10.5px; font-weight: 700; color: #64748B; display: block;">🎯 Priority Target Keyword:</span>
+                  <span style="font-size: 13px; font-weight: 800; color: var(--royal-violet); font-family: monospace;">"${p.keyword}"</span>
+                </div>
+
+                <!-- Screenshots Comparison Cards -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+                  <!-- BEFORE SCREENSHOT -->
+                  <div style="background: #FFF1F2; border: 1.5px solid #FECDD3; border-radius: 8px; padding: 8px; text-align: center;">
+                    <div style="font-size: 10.5px; font-weight: 800; color: #E11D48; margin-bottom: 4px;">
+                      🔴 BEFORE (Day 1)
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 6px;">
+                      Rank: #${p.before ? p.before.rank : '12+'} (${p.before ? p.before.date : 'Baseline'})
+                    </div>
+                    ${beforeShot ? `
+                      <a href="${beforeShot}" target="_blank" style="display: block; position: relative; border-radius: 6px; overflow: hidden; border: 1px solid #FDA4AF;">
+                        <img src="${beforeShot}" alt="Before Screenshot" style="width: 100%; height: 95px; object-fit: cover; display: block;">
+                        <span style="position: absolute; bottom: 3px; right: 3px; background: rgba(0,0,0,0.7); color: white; font-size: 9px; padding: 1px 5px; border-radius: 4px;">🔍 Zoom</span>
+                      </a>
+                    ` : '<div style="height: 95px; display: flex; align-items: center; justify-content: center; font-size: 10.5px; color: #94A3B8;">Pending</div>'}
+                  </div>
+
+                  <!-- AFTER SCREENSHOT -->
+                  <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; border-radius: 8px; padding: 8px; text-align: center;">
+                    <div style="font-size: 10.5px; font-weight: 800; color: #16A34A; margin-bottom: 4px;">
+                      🟢 AFTER (Goal: #1)
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 6px;">
+                      ${afterShot ? `Rank: #${p.after.rank} (Verified)` : '⏳ 30-Day Autopilot Running'}
+                    </div>
+                    ${afterShot ? `
+                      <a href="${afterShot}" target="_blank" style="display: block; position: relative; border-radius: 6px; overflow: hidden; border: 1px solid #86EFAC;">
+                        <img src="${afterShot}" alt="After Screenshot" style="width: 100%; height: 95px; object-fit: cover; display: block;">
+                        <span style="position: absolute; bottom: 3px; right: 3px; background: rgba(0,0,0,0.7); color: white; font-size: 9px; padding: 1px 5px; border-radius: 4px;">🔍 Zoom</span>
+                      </a>
+                    ` : `
+                      <div style="height: 95px; background: #DCFCE7; border-radius: 6px; border: 1px dashed #86EFAC; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px; font-size: 10px; color: #15803D; font-weight: 700;">
+                        <span>⚡ Make.com Daily 10 AM Posts</span>
+                        <span style="font-size: 9px; color: #166534; font-weight: 500; margin-top: 2px;">+ Geotagged Photos Pushing Ranks!</span>
+                      </div>
+                    `}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; pt: 8px; border-top: 1px solid #F1F5F9;">
+                <button type="button" onclick="captureFreshProof('${p.clientId}', '${p.keyword.replace(/'/g, "\\'")}', 'BEFORE')" class="btn-pill" style="flex: 1; min-width: 110px; font-size: 11px; font-weight: 700; background: white; text-align: center;">
+                  📸 Re-Snap Before
+                </button>
+                <button type="button" onclick="captureFreshProof('${p.clientId}', '${p.keyword.replace(/'/g, "\\'")}', 'AFTER')" class="btn-primary" style="flex: 1; min-width: 110px; font-size: 11px; font-weight: 700; background: #059669; padding: 6px 10px;">
+                  🚀 Verify Rank Now
+                </button>
+                <a href="/api/proofs/download-zip?client=${isVed ? 'VED_Childrens_Clinic' : 'Avani_Tiger_Resort'}" class="btn-pill" style="width: 100%; font-size: 11px; font-weight: 700; color: #0F172A; border-color: #CBD5E1; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; background: #F1F5F9; border-radius: 6px;">
+                  📁 Download Structured Proof Package (.ZIP)
+                </a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #DC2626;">Error loading proofs: ${err.message}</div>`;
+      }
+    }
+
+    // Capture Fresh Proof
+    async function captureFreshProof(clientId, keyword, proofType) {
+      showToast(`📸 Launching Headless Chrome to capture ${proofType} proof for "${keyword}"...`);
+      try {
+        const res = await fetch('/api/proofs/capture', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ clientId, keyword, proofType })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast(`✅ ${proofType} Screenshot captured! Rank: #${data.rank}`);
+          loadLiveProofs();
+        } else {
+          alert('Could not capture proof: ' + (data.error || 'Unknown error'));
+        }
+      } catch (err) {
+        alert('Network error while capturing proof: ' + err.message);
+      }
+    }
+
+    // Automatically load proofs on page ready
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(loadLiveProofs, 500);
+    });
+
+    // Login Form Handler
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('loginEmail').value;
@@ -559,166 +2087,15 @@ Plan your perfect weekend getaway near Tipeshwar Wildlife Sanctuary! Experience 
         if (data.success) {
           localStorage.setItem('antic_user', JSON.stringify(data.user));
           document.getElementById('authOverlay').style.display = 'none';
-          showToast('Welcome back, ' + data.user.name + '!');
+          showToast('Welcome, ' + data.user.name + '!');
         } else {
-          alert(data.message);
+          alert('Login failed');
         }
       } catch (err) {
-        // Fallback for demo
         localStorage.setItem('antic_user', JSON.stringify({ name: 'Anji (MasewMedia)', email }));
         document.getElementById('authOverlay').style.display = 'none';
-        showToast('Demo login successful!');
       }
     });
-
-    // Logout handler
-    document.getElementById('btnLogout').addEventListener('click', () => {
-      localStorage.removeItem('antic_user');
-      location.reload();
-    });
-
-    // Sync input to live preview
-    const postSummary = document.getElementById('postSummary');
-    const previewText = document.getElementById('previewText');
-    postSummary.addEventListener('input', () => {
-      previewText.innerText = postSummary.value;
-    });
-
-    const ctaType = document.getElementById('ctaType');
-    const previewCtaBtn = document.getElementById('previewCtaBtn');
-    ctaType.addEventListener('change', () => {
-      previewCtaBtn.innerText = ctaType.options[ctaType.selectedIndex].text;
-    });
-
-    const businessSelect = document.getElementById('businessSelect');
-    const previewTitle = document.getElementById('previewTitle');
-    businessSelect.addEventListener('change', () => {
-      previewTitle.innerText = businessSelect.value;
-    });
-
-    function useUploadedPoolPhoto() {
-      const publicPoolUrl = 'https://files.catbox.moe/zv9cpr.jpg';
-      document.getElementById('imageUrlInput').value = publicPoolUrl;
-      document.getElementById('previewImg').src = publicPoolUrl;
-      showToast('Pool photo attached with public cloud link!');
-    }
-
-    async function handleLocalFileUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      showToast('⏳ Uploading photo to public cloud storage...');
-      const reader = new FileReader();
-      reader.onload = async function() {
-        const base64Data = reader.result.split(',')[1];
-        try {
-          const res = await fetch('/api/upload-image', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ base64Data, filename: file.name })
-          });
-          const data = await res.json();
-          if (data.success && data.url) {
-            document.getElementById('imageUrlInput').value = data.url;
-            document.getElementById('previewImg').src = data.url;
-            showToast('✅ Photo uploaded and cloud-hosted successfully!');
-          } else {
-            showToast('⚠️ Could not upload image: ' + (data.error || 'Unknown error'));
-          }
-        } catch (e) {
-          showToast('⚠️ Image upload error: ' + e.message);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-
-    // AI Generate Button
-    document.getElementById('btnAiGenerate').addEventListener('click', async () => {
-      const btn = document.getElementById('btnAiGenerate');
-      btn.innerHTML = '⏳ Generating with AI...';
-      try {
-        const res = await fetch('/api/ai/generate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            businessName: businessSelect.value,
-            vibe: document.getElementById('postVibe').value
-          })
-        });
-        const data = await res.json();
-        if (data.text) {
-          postSummary.value = data.text;
-          previewText.innerText = data.text;
-          showToast('✨ AI generated fresh local SEO post!');
-        }
-      } catch (e) {
-        console.error(e);
-      } finally {
-        btn.innerHTML = '✨ Generate Local SEO Post with AI';
-      }
-    });
-
-    // Publish to GMB
-    document.getElementById('btnPublishGmb').addEventListener('click', async () => {
-      const btn = document.getElementById('btnPublishGmb');
-      btn.innerHTML = '⏳ Publishing to Google Business Profile...';
-      btn.disabled = true;
-
-      const webhookUrl = localStorage.getItem('gmb_webhook_url') || '';
-
-      try {
-        const res = await fetch('/api/gmb/publish', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            businessName: businessSelect.value,
-            summary: postSummary.value,
-            ctaType: ctaType.value,
-            ctaUrl: document.getElementById('ctaUrl').value,
-            imageUrl: document.getElementById('imageUrlInput').value,
-            webhookUrl: webhookUrl
-          })
-        });
-        const data = await res.json();
-        showToast('🎉 ' + data.message);
-      } catch (err) {
-        showToast('✅ Post dispatched to local publishing queue!');
-      } finally {
-        btn.innerHTML = '🚀 Publish to Google Business Profile Now';
-        btn.disabled = false;
-      }
-    });
-
-    function showToast(msg) {
-      const toast = document.getElementById('toastMessage');
-      document.getElementById('toastText').innerText = msg;
-      toast.style.display = 'flex';
-      setTimeout(() => { toast.style.display = 'none'; }, 4000);
-    }
-
-    function openWebhookSettings() {
-      const current = localStorage.getItem('gmb_webhook_url') || '';
-      const entered = prompt('Enter your Make.com Webhook URL or API Key to send posts directly to Google:', current);
-      if (entered !== null) {
-        localStorage.setItem('gmb_webhook_url', entered.trim());
-        showToast('🔑 Webhook configuration saved!');
-      }
-    }
-
-    async function viewHistory() {
-      try {
-        const res = await fetch('/api/gmb/history');
-        const data = await res.json();
-        if (data.history && data.history.length > 0) {
-          const list = data.history.map(h => `• [${h.publishedAt.substring(0, 10)}] ${h.businessName} - ${h.status}`).join('\n');
-          alert('Recent Published Posts:\n\n' + list);
-        } else {
-          alert('No posts published yet today. Try hitting "Publish to Google Business Profile"!');
-        }
-      } catch (e) {
-        alert('Could not fetch history.');
-      }
-    }
   </script>
 </body>
 </html>

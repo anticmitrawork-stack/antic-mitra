@@ -540,6 +540,39 @@ svg.icon-svg {
   transition: transform var(--transition-fast);
 }
 
+.nav-item-dropdown {
+  position: relative;
+}
+.nav-item-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: var(--pure-white);
+  border: 1.5px solid var(--light-lavender);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(109, 40, 217, 0.12);
+  padding: 6px 0;
+  z-index: 1000;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--deep-navy);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-dropdown-menu a:hover {
+  background: var(--soft-violet);
+  color: var(--royal-violet);
+}
+
 /* Nav Actions */
 .nav-actions {
   display: flex;

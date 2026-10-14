@@ -1,6 +1,9 @@
 {
   "id": "CLI_VED_CLINIC",
   "active": true,
+  "lockStatus": "LOCKED",
+  "primaryLockedKeyword": "pediatrician near me Puppalguda",
+  "targetRank": 1,
   "managerGranted": true,
   "managerEmail": "anticmitrawork@gmail.com",
   "businessName": "VED Children's Clinic - Dr. Shiva kumar reddy",

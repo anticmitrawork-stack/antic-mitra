@@ -6,6 +6,7 @@
     "folderName": "VED_Childrens_Clinic",
     "keyword": "pediatrician near me Puppalguda",
     "targetRank": 1,
+    "lockStatus": "LOCKED",
     "before": {
       "date": "2026-10-14",
       "rank": 11,
@@ -23,6 +24,7 @@
     "folderName": "Avani_Tiger_Resort",
     "keyword": "Resorts near Sunna Gate Tipeshwar",
     "targetRank": 1,
+    "lockStatus": "LOCKED",
     "before": {
       "date": "2026-10-14",
       "rank": 3,

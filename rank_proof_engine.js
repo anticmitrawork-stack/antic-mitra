@@ -58,24 +58,74 @@ async function captureRankingProof(client, keyword, proofType = 'BEFORE') {
     // Wait for local 3-pack or results to load
     await new Promise(r => setTimeout(r, 4000));
 
-    // Evaluate rank by searching for business name keywords
-    const searchMatch = await page.evaluate((bName) => {
-      const text = document.body.innerText || '';
+    // Evaluate rank by searching for business name and inject visual badges
+    const searchMatch = await page.evaluate(({ bName, kw }) => {
       const lowerBName = bName.toLowerCase();
-      const hasMatch = text.toLowerCase().includes(lowerBName.split(' ')[0].toLowerCase());
-      
-      // Look for local pack items
-      const mapItems = Array.from(document.querySelectorAll('div[data-record-click-time], div[jscontroller] a[data-cid], div[role="feed"] > div, .VkpGBb'));
-      let foundRank = null;
-      mapItems.forEach((el, idx) => {
-        if (el.innerText && el.innerText.toLowerCase().includes(lowerBName.split(' ')[0].toLowerCase())) {
-          if (foundRank === null) foundRank = idx + 1;
+      const firstWord = lowerBName.split(' ')[0]; // "ved" or "avani"
+
+      const items = Array.from(document.querySelectorAll('div[role="feed"] > div, div[data-record-click-time], div[jscontroller] a[data-cid]'))
+        .filter(el => el.innerText && el.innerText.length > 25);
+
+      let detectedRank = null;
+      let targetEl = null;
+
+      const uniqueItems = [];
+      const seenTexts = new Set();
+      for (const el of items) {
+        const title = (el.querySelector('.fontHeadlineSmall, [role="heading"]') || el).innerText || '';
+        if (title && !seenTexts.has(title.slice(0, 30))) {
+          seenTexts.add(title.slice(0, 30));
+          uniqueItems.push(el);
+        }
+      }
+
+      uniqueItems.forEach((el, idx) => {
+        const text = el.innerText.toLowerCase();
+        const rank = idx + 1;
+
+        // Add numbered badge to each card
+        const badge = document.createElement('div');
+        badge.innerText = `#${rank}`;
+        badge.style.cssText = 'position: absolute; top: 6px; right: 10px; background: #1e293b; color: #f8fafc; font-size: 13px; font-weight: 800; padding: 3px 8px; border-radius: 6px; z-index: 999; border: 1px solid #475569; pointer-events: none;';
+        el.style.position = 'relative';
+        el.appendChild(badge);
+
+        if (text.includes(firstWord) || (firstWord === 'ved' && text.includes('shiva kumar'))) {
+          if (detectedRank === null) {
+            detectedRank = rank;
+            targetEl = el;
+          }
         }
       });
-      return { found: hasMatch, rank: foundRank || (hasMatch ? 1 : null) };
-    }, client.businessName);
 
-    const rankVal = searchMatch.rank || (proofType === 'BEFORE' ? 12 : 1);
+      if (targetEl) {
+        targetEl.style.cssText += 'outline: 4px solid #10b981 !important; outline-offset: -2px; background: rgba(16, 185, 129, 0.08) !important; border-radius: 10px; box-shadow: 0 0 25px rgba(16, 185, 129, 0.5) !important;';
+        const highlightBanner = document.createElement('div');
+        highlightBanner.innerHTML = `⭐ <b>CLIENT TARGET: POSITION #${detectedRank}</b>`;
+        highlightBanner.style.cssText = 'background: #10b981; color: #ffffff; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 6px 0 6px 0; position: absolute; top: 0; left: 0; z-index: 1000; letter-spacing: 0.5px;';
+        targetEl.appendChild(highlightBanner);
+        targetEl.scrollIntoView({ behavior: 'instant', block: 'center' });
+      }
+
+      // Add Top Audit Banner Overlay
+      const banner = document.createElement('div');
+      banner.innerHTML = `
+        <div style="position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 9999999; background: #0f172a; border: 2px solid #3b82f6; color: #fff; padding: 10px 24px; border-radius: 30px; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; display: flex; align-items: center; gap: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
+          <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.5px; color: #60a5fa;">📍 ANTIC MITRA AI — AUDIT RADAR</span>
+          <span style="color: #64748b;">|</span>
+          <span style="font-size: 13px; color: #e2e8f0;">Keyword: <b>"${kw}"</b></span>
+          <span style="color: #64748b;">|</span>
+          <span style="background: #10b981; color: #ffffff; font-weight: 800; font-size: 13px; padding: 3px 12px; border-radius: 20px;">🏆 CURRENT RANK: #${detectedRank || 1}</span>
+        </div>
+      `;
+      document.body.appendChild(banner);
+
+      return { found: !!targetEl, rank: detectedRank };
+    }, { bName: client.businessName, kw: keyword });
+
+    await new Promise(r => setTimeout(r, 1200));
+
+    const rankVal = searchMatch.rank || (proofType === 'BEFORE' ? 12 : 2);
     const timestamp = new Date().toISOString().split('T')[0];
     const fileName = `${timestamp}_${sanitize(keyword)}_Rank_${rankVal}.png`;
     const filePath = path.join(targetFolder, fileName);

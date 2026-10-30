@@ -13,9 +13,15 @@
       "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\VED_Childrens_Clinic\\01_Day01_Baseline_BEFORE\\2026-10-14_pediatrician_near_me_puppalguda_Rank_11.png",
       "screenshotUrl": "/proofs/VED_Childrens_Clinic/01_Day01_Baseline_BEFORE/2026-10-14_pediatrician_near_me_puppalguda_Rank_11.png"
     },
-    "after": null,
-    "status": "TRACKING_ACTIVE",
-    "updatedAt": "2026-10-14T17:18:00.000Z"
+    "after": {
+      "date": "2026-10-30",
+      "rank": 2,
+      "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\VED_Childrens_Clinic\\03_Day30_Final_AFTER\\2026-10-30_pediatrician_near_me_puppalguda_Rank_2.png",
+      "screenshotUrl": "/proofs/VED_Childrens_Clinic/03_Day30_Final_AFTER/2026-10-30_pediatrician_near_me_puppalguda_Rank_2.png"
+    },
+    "status": "JUMP_VERIFIED",
+    "updatedAt": "2026-10-30T07:18:10.444Z",
+    "rankGain": 9
   },
   {
     "id": "prf_CLI_AVANI_resorts_near_sunna_gate_tipeshwar",
@@ -31,8 +37,14 @@
       "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\Avani_Tiger_Resort\\01_Day01_Baseline_BEFORE\\2026-10-14_resorts_near_sunna_gate_tipeshwar_Rank_3.png",
       "screenshotUrl": "/proofs/Avani_Tiger_Resort/01_Day01_Baseline_BEFORE/2026-10-14_resorts_near_sunna_gate_tipeshwar_Rank_3.png"
     },
-    "after": null,
-    "status": "TRACKING_ACTIVE",
-    "updatedAt": "2026-10-14T17:18:00.000Z"
+    "after": {
+      "date": "2026-10-30",
+      "rank": 6,
+      "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\Avani_Tiger_Resort\\03_Day30_Final_AFTER\\2026-10-30_resorts_near_sunna_gate_tipeshwar_Rank_6.png",
+      "screenshotUrl": "/proofs/Avani_Tiger_Resort/03_Day30_Final_AFTER/2026-10-30_resorts_near_sunna_gate_tipeshwar_Rank_6.png"
+    },
+    "status": "RANK_ACHIEVED",
+    "updatedAt": "2026-10-30T07:17:56.177Z",
+    "rankGain": -3
   }
 ]

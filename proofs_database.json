@@ -46,5 +46,21 @@
     "status": "RANK_ACHIEVED",
     "updatedAt": "2026-10-30T07:17:56.177Z",
     "rankGain": -3
+  },
+  {
+    "id": "prf_CLI_VAIVA_STUDIOS_podcast_studio_in_hyderabad",
+    "clientId": "CLI_VAIVA_STUDIOS",
+    "businessName": "Vaiva Studios",
+    "keyword": "podcast studio in hyderabad",
+    "targetRank": 1,
+    "before": {
+      "date": "2026-10-30",
+      "rank": 12,
+      "screenshotPath": "C:\\Users\\anjiy\\Downloads\\Anticmitra Ai Website\\proofs\\CLI_VAIVA_STUDIOS\\01_Day01_Baseline_BEFORE\\2026-10-30_podcast_studio_in_hyderabad_Rank_12.png",
+      "screenshotUrl": "/proofs/CLI_VAIVA_STUDIOS/01_Day01_Baseline_BEFORE/2026-10-30_podcast_studio_in_hyderabad_Rank_12.png"
+    },
+    "after": null,
+    "status": "TRACKING_ACTIVE",
+    "updatedAt": "2026-10-30T11:19:30.842Z"
   }
 ]

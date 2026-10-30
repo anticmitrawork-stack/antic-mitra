@@ -164,7 +164,7 @@
     "phone": "+91 98857 63699",
     "whatsapp": "+91 98857 63699",
     "ctaType": "BOOK",
-    "ctaTarget": "",
+    "ctaTarget": "https://vaivastudios.com/online-booking/",
     "website": "https://vaivastudios.com/",
     "address": "1st Floor, 8-1-298/C, Dwarkanagar Colony, Shaikpet, Rai Durg, Hyderabad, Telangana 500008",
     "rating": "5.0 ★ (Creative Studio & Production)",
@@ -219,6 +219,7 @@
       "soundproof studio for rent hyderabad",
       "youtube creator studio hyderabad",
       "fashion photography studio hyderabad"
-    ]
+    ],
+    "cta_url": "https://vaivastudios.com/online-booking/"
   }
 ]
